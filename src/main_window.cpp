@@ -40,12 +40,14 @@ void MainWindow::displayInit()
     dfsDisplay              = new Display::DFS;
     bfsDisplay              = new Display::BFS;
     singleLinkedListDisplay = new Display::SingleLinkedList;
+    insertSortDisplay       = new Display::InsertSort;
 
     displayWidget->setScene(dfsDisplay);
 
     list << dfsDisplay;
     list << bfsDisplay;
     list << singleLinkedListDisplay;
+    list << insertSortDisplay;
 }
 
 void MainWindow::configInit()
@@ -55,6 +57,7 @@ void MainWindow::configInit()
     configComboBox->insertItem(0, tr("DFS"));
     configComboBox->insertItem(1, tr("BFS"));
     configComboBox->insertItem(2, tr("Single Linked List"));
+    configComboBox->insertItem(3, tr("Insert Sort"));
 
     dfsConfig              = new Config::DFS;
     bfsConfig              = new Config::BFS;
@@ -90,12 +93,15 @@ void MainWindow::setConnection()
     connect(bfsConfig, SIGNAL(comboBoxEnabled(bool)), SLOT(setComboBoxEnabled(bool)));
     connect(bfsDisplay, SIGNAL(finished()), bfsConfig, SLOT(finishedReset()));
 
+    connect(singleLinkedListConfig->pausePushButton, SIGNAL(clicked(bool)), singleLinkedListDisplay, SLOT(pause()));
+    connect(singleLinkedListConfig->resetPushButton, SIGNAL(clicked(bool)), singleLinkedListDisplay, SLOT(reset()));
+    connect(singleLinkedListConfig->speedSlider, SIGNAL(valueChanged(int)), singleLinkedListDisplay, SLOT(changeSpeed(int)));
     connect(singleLinkedListConfig, SIGNAL(insertSignal(int, QString)), singleLinkedListDisplay, SLOT(insert(int, QString)));
     connect(singleLinkedListConfig, SIGNAL(findSignal(QString)), singleLinkedListDisplay, SLOT(find(QString)));
     connect(singleLinkedListConfig, SIGNAL(removeSignal(int)), singleLinkedListDisplay, SLOT(remove(int)));
     connect(singleLinkedListConfig, SIGNAL(removeSignal(QString)), singleLinkedListDisplay, SLOT(remove(QString)));
     connect(singleLinkedListDisplay, SIGNAL(finished()), singleLinkedListConfig, SLOT(finishedReset()));
-    connect(singleLinkedListDisplay, SIGNAL(runFailed()), singleLinkedListConfig, SLOT(runFailedReset()));
+    connect(singleLinkedListDisplay, SIGNAL(runFailed(bool)), singleLinkedListConfig, SLOT(runFailedReset(bool)));
 }
 
 MainWindow::~MainWindow()
