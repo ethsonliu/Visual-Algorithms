@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2017-11-12T16:13:16
+# Project created by QtCreator 2018-02-14T12:18:09
 #
 #-------------------------------------------------
 
@@ -9,7 +9,7 @@ QT       += testlib
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = DancingAlgorithms
+TARGET = Visual-Algorithms
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -26,17 +26,35 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-    main_window.cpp
+        main_window.cpp \
+    config/config_base.cpp \
+    config/c_search_base.cpp \
+    config/c_bfs.cpp \
+    config/c_dfs.cpp \
+    config/c_insert_sort.cpp \
+    display/rect_item.cpp \
+    display/d_search_base.cpp \
+    display/display_base.cpp \
+    display/d_bfs.cpp \
+    display/d_dfs.cpp \
+    display/d_insert_sort.cpp \
+    config/c_single_linked_list.cpp \
+    display/d_single_linked_list.cpp \
+    display/line_item.cpp
 
 HEADERS += \
-    main_window.h \
-    display/display_base.h \
-    display/rect_item.h \
-    display/search_base.h \
-    config/bfs_c.h \
-    config/dfs_c.h \
-    config/single_linked_list_c.h \
+        main_window.h \
     config/config_base.h \
-    display/bfs_d.h \
-    display/dfs_d.h \
-    display/single_linked_list_d.h
+    config/c_search_base.h \
+    config/c_bfs.h \
+    config/c_dfs.h \
+    config/c_insert_sort.h \
+    display/rect_item.h \
+    display/d_search_base.h \
+    display/display_base.h \
+    display/d_bfs.h \
+    display/d_dfs.h \
+    display/d_insert_sort.h \
+    config/c_single_linked_list.h \
+    display/d_single_linked_list.h \
+    display/line_item.h

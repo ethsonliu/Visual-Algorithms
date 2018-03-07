@@ -1,6 +1,14 @@
 #ifndef MAIN_WINDOW_H
 #define MAIN_WINDOW_H
 
+#include "display/d_bfs.h"
+#include "display/d_dfs.h"
+#include "display/d_insert_sort.h"
+#include "display/d_single_linked_list.h"
+#include "config/c_bfs.h"
+#include "config/c_dfs.h"
+#include "config/c_insert_sort.h"
+#include "config/c_single_linked_list.h"
 #include <QMainWindow>
 #include <QAction>
 #include <QSplitter>
@@ -8,24 +16,16 @@
 #include <QComboBox>
 #include <QStackedWidget>
 #include <QGraphicsView>
-#include <QGraphicsScene>
-#include "display/dfs_d.h"
-#include "display/bfs_d.h"
-#include "display/single_linked_list_d.h"
-#include "config/dfs_c.h"
-#include "config/bfs_c.h"
-#include "config/single_linked_list_c.h"
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
+    MainWindow(QWidget *parent = 0);
     void displayInit();
     void configInit();
     void setConnection();
-    ~MainWindow();
 
 public slots:
     void changeScene(int);
@@ -33,28 +33,30 @@ public slots:
     void reset(int);
 
 private:
+    QMenu          *helpMenu;
+
     QAction        *updateAction;
     QAction        *feedbackAction;
     QAction        *aboutAction;
-
-    QMenu          *helpMenu;
 
     QSplitter      *splitter;
     QGraphicsView  *displayWidget;
     QWidget        *configWidget;
 
-    Display::DFS              *dfsDisplay;
-    Display::BFS              *bfsDisplay;
+    Display::Bfs *bfsDisplay;
+    Display::Dfs *dfsDisplay;
+    Display::InsertSort *insertSortDisplay;
     Display::SingleLinkedList *singleLinkedListDisplay;
 
-    Config::DFS              *dfsConfig;
-    Config::BFS              *bfsConfig;
+    Config::Bfs  *bfsConfig;
+    Config::Dfs  *dfsConfig;
+    Config::InsertSort *insertSortConfig;
     Config::SingleLinkedList *singleLinkedListConfig;
 
     QComboBox      *configComboBox;
     QStackedWidget *configStackWidget;
 
-    QList<QGraphicsScene*> list;
+    QList<QGraphicsScene*> sceneList;
 };
 
 #endif // MAIN_WINDOW_H

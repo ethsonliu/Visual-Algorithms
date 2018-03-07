@@ -4,12 +4,8 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-
-    QFont f("Consolas",13);
-    a.setFont(f);
-
+    a.setFont(QFont("Consolas",13));
     MainWindow w;
     w.show();
-
     return a.exec();
 }

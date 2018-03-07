@@ -1,11 +1,12 @@
+#include "main_window.h"
+
 #include <QMenuBar>
 #include <QSizePolicy>
 #include <QVBoxLayout>
-#include "main_window.h"
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 {
-    setWindowTitle(tr("Dancing Algorithms"));
+    setWindowTitle(tr("Visual Algorithms"));
     setWindowState(Qt::WindowMaximized);
     setMinimumSize(1300, 800);
 
@@ -37,40 +38,42 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 
 void MainWindow::displayInit()
 {
-    dfsDisplay              = new Display::DFS;
-    bfsDisplay              = new Display::BFS;
-    singleLinkedListDisplay = new Display::SingleLinkedList;
+    bfsDisplay              = new Display::Bfs;
+    dfsDisplay              = new Display::Dfs;
     insertSortDisplay       = new Display::InsertSort;
+    singleLinkedListDisplay = new Display::SingleLinkedList;
 
-    displayWidget->setScene(dfsDisplay);
+    displayWidget->setScene(bfsDisplay);
 
-    list << dfsDisplay;
-    list << bfsDisplay;
-    list << singleLinkedListDisplay;
-    list << insertSortDisplay;
+    sceneList << bfsDisplay;
+    sceneList << dfsDisplay;
+    sceneList << insertSortDisplay;
+    sceneList << singleLinkedListDisplay;
 }
 
 void MainWindow::configInit()
 {
     configComboBox = new QComboBox;
     configComboBox->setEditable(true);
-    configComboBox->insertItem(0, tr("DFS"));
-    configComboBox->insertItem(1, tr("BFS"));
-    configComboBox->insertItem(2, tr("Single Linked List"));
-    configComboBox->insertItem(3, tr("Insert Sort"));
+    configComboBox->insertItem(0, tr("Breadth-First Search"));
+    configComboBox->insertItem(1, tr("Depth-First Search"));
+    configComboBox->insertItem(2, tr("Insert Sort"));
+    configComboBox->insertItem(3, tr("Single Linked List"));
 
-    dfsConfig              = new Config::DFS;
-    bfsConfig              = new Config::BFS;
+    bfsConfig              = new Config::Bfs;
+    dfsConfig              = new Config::Dfs;
+    insertSortConfig       = new Config::InsertSort;
     singleLinkedListConfig = new Config::SingleLinkedList;
 
     configStackWidget = new QStackedWidget;
-    configStackWidget->addWidget(dfsConfig);
     configStackWidget->addWidget(bfsConfig);
+    configStackWidget->addWidget(dfsConfig);
+    configStackWidget->addWidget(insertSortConfig);
     configStackWidget->addWidget(singleLinkedListConfig);
 
-    QVBoxLayout *configLayout = new QVBoxLayout(configWidget);
-    configLayout->addWidget(configComboBox);
-    configLayout->addWidget(configStackWidget);
+    QVBoxLayout *vLayout = new QVBoxLayout(configWidget);
+    vLayout->addWidget(configComboBox);
+    vLayout->addWidget(configStackWidget);
 }
 
 void MainWindow::setConnection()
@@ -79,39 +82,48 @@ void MainWindow::setConnection()
     connect(configComboBox, SIGNAL(currentIndexChanged(int)), SLOT(changeScene(int)));
     connect(configComboBox, SIGNAL(currentIndexChanged(int)), SLOT(reset(int)));
 
-    connect(dfsConfig->startPushButton, SIGNAL(clicked(bool)), dfsDisplay, SLOT(start_dfs()));
-    connect(dfsConfig->pausePushButton, SIGNAL(clicked(bool)), dfsDisplay, SLOT(pause()));
-    connect(dfsConfig->resetPushButton, SIGNAL(clicked(bool)), dfsDisplay, SLOT(reset()));
-    connect(dfsConfig->speedSlider, SIGNAL(valueChanged(int)), dfsDisplay, SLOT(changeSpeed(int)));
-    connect(dfsConfig, SIGNAL(comboBoxEnabled(bool)), SLOT(setComboBoxEnabled(bool)));
-    connect(dfsDisplay, SIGNAL(finished()), dfsConfig, SLOT(finishedReset()));
-
-    connect(bfsConfig->startPushButton, SIGNAL(clicked(bool)), bfsDisplay, SLOT(start_bfs()));
-    connect(bfsConfig->pausePushButton, SIGNAL(clicked(bool)), bfsDisplay, SLOT(pause()));
-    connect(bfsConfig->resetPushButton, SIGNAL(clicked(bool)), bfsDisplay, SLOT(reset()));
-    connect(bfsConfig->speedSlider, SIGNAL(valueChanged(int)), bfsDisplay, SLOT(changeSpeed(int)));
-    connect(bfsConfig, SIGNAL(comboBoxEnabled(bool)), SLOT(setComboBoxEnabled(bool)));
+    connect(bfsConfig, SIGNAL(startSignal()), bfsDisplay, SLOT(start()));
+    connect(bfsConfig, SIGNAL(pauseSignal()), bfsDisplay, SLOT(pause()));
+    connect(bfsConfig, SIGNAL(resetSignal()), bfsDisplay, SLOT(reset()));
+    connect(bfsConfig, SIGNAL(replaySignal()), bfsDisplay, SLOT(replay()));
+    connect(bfsConfig, SIGNAL(sliderChanged(int)), bfsDisplay, SLOT(changeSpeed(int)));
     connect(bfsDisplay, SIGNAL(finished()), bfsConfig, SLOT(finishedReset()));
+    connect(bfsConfig, SIGNAL(comboBoxEnabled(bool)), SLOT(setComboBoxEnabled(bool)));
 
-    connect(singleLinkedListConfig->pausePushButton, SIGNAL(clicked(bool)), singleLinkedListDisplay, SLOT(pause()));
-    connect(singleLinkedListConfig->resetPushButton, SIGNAL(clicked(bool)), singleLinkedListDisplay, SLOT(reset()));
-    connect(singleLinkedListConfig->speedSlider, SIGNAL(valueChanged(int)), singleLinkedListDisplay, SLOT(changeSpeed(int)));
+    connect(dfsConfig, SIGNAL(startSignal()), dfsDisplay, SLOT(start()));
+    connect(dfsConfig, SIGNAL(pauseSignal()), dfsDisplay, SLOT(pause()));
+    connect(dfsConfig, SIGNAL(resetSignal()), dfsDisplay, SLOT(reset()));
+    connect(dfsConfig, SIGNAL(replaySignal()), dfsDisplay, SLOT(replay()));
+    connect(dfsConfig, SIGNAL(sliderChanged(int)), dfsDisplay, SLOT(changeSpeed(int)));
+    connect(dfsDisplay, SIGNAL(finished()), dfsConfig, SLOT(finishedReset()));
+    connect(dfsConfig, SIGNAL(comboBoxEnabled(bool)), SLOT(setComboBoxEnabled(bool)));
+
+    connect(insertSortConfig, SIGNAL(startSignal()), insertSortDisplay, SLOT(start()));
+    connect(insertSortConfig, SIGNAL(pauseSignal()), insertSortDisplay, SLOT(pause()));
+    connect(insertSortConfig, SIGNAL(resetSignal()), insertSortDisplay, SLOT(reset()));
+    connect(insertSortConfig, SIGNAL(replaySignal()), insertSortDisplay, SLOT(replay()));
+    connect(insertSortConfig, SIGNAL(sliderChanged(int)), insertSortDisplay, SLOT(changeSpeed(int)));
+    connect(insertSortDisplay, SIGNAL(finished()), insertSortConfig, SLOT(finishedReset()));
+    connect(insertSortConfig, SIGNAL(comboBoxEnabled(bool)), SLOT(setComboBoxEnabled(bool)));
+    connect(insertSortConfig, SIGNAL(generateByNumber(int)), insertSortDisplay, SLOT(generate(int)));
+    connect(insertSortConfig, SIGNAL(generateByString(QString)), insertSortDisplay, SLOT(generate(QString)));
+
     connect(singleLinkedListConfig, SIGNAL(insertSignal(int, QString)), singleLinkedListDisplay, SLOT(insert(int, QString)));
     connect(singleLinkedListConfig, SIGNAL(findSignal(QString)), singleLinkedListDisplay, SLOT(find(QString)));
     connect(singleLinkedListConfig, SIGNAL(removeSignal(int)), singleLinkedListDisplay, SLOT(remove(int)));
     connect(singleLinkedListConfig, SIGNAL(removeSignal(QString)), singleLinkedListDisplay, SLOT(remove(QString)));
+    connect(singleLinkedListConfig, SIGNAL(pauseSignal()), singleLinkedListDisplay, SLOT(pause()));
+    connect(singleLinkedListConfig, SIGNAL(resetSignal()), singleLinkedListDisplay, SLOT(reset()));
+    connect(singleLinkedListConfig, SIGNAL(replaySignal()), singleLinkedListDisplay, SLOT(replay()));
+    connect(singleLinkedListConfig, SIGNAL(sliderChanged(int)), singleLinkedListDisplay, SLOT(changeSpeed(int)));
     connect(singleLinkedListDisplay, SIGNAL(finished()), singleLinkedListConfig, SLOT(finishedReset()));
-    connect(singleLinkedListDisplay, SIGNAL(runFailed(bool)), singleLinkedListConfig, SLOT(runFailedReset(bool)));
-}
-
-MainWindow::~MainWindow()
-{
-
+    connect(singleLinkedListConfig, SIGNAL(comboBoxEnabled(bool)), SLOT(setComboBoxEnabled(bool)));
+    connect(singleLinkedListDisplay, SIGNAL(runFailed()), singleLinkedListConfig, SLOT(runFailedReset()));
 }
 
 void MainWindow::changeScene(int i)
 {
-    displayWidget->setScene(list[i]);
+    displayWidget->setScene(sceneList[i]);
 }
 
 void MainWindow::setComboBoxEnabled(bool isEnabled)
@@ -124,16 +136,16 @@ void MainWindow::reset(int i)
     switch (i)
     {
     case 0:
-        dfsConfig->reset();
-        dfsDisplay->reset();
-        break;
-    case 1:
         bfsConfig->reset();
         bfsDisplay->reset();
         break;
+    case 1:
+        dfsConfig->reset();
+        dfsDisplay->reset();
+        break;
     case 2:
-        singleLinkedListConfig->resetAll();
-        singleLinkedListDisplay->reset();
+        insertSortConfig->reset();
+        insertSortDisplay->reset();
         break;
     }
 }

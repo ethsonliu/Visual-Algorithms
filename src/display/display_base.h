@@ -1,66 +1,40 @@
 #ifndef DISPLAY_BASE_H
 #define DISPLAY_BASE_H
 
-#include <QTest>
-#include <QWidget>
-#include <QVBoxLayout>
-#include <QGraphicsScene>
-
 #define DISPLAY_NAMESPACE_START namespace Display {
-#define DISPLAY_NAMESPACE_END   }
-
-#define WAIT_A_MINUTE_1 \
-    while (isPause) \
+#define DISPLAY_NAMESPACE_END }
+#define PAUSE_AND_RESET \
+    while (paused) \
     { \
-        if (isReset) \
-        { \
-            isFinished = true; \
-            return; \
-        } \
-        QTest::qWait(10); \
-    } \
-    QTest::qWait(speed);
-
-#define WAIT_A_MINUTE_2 \
-    while (isPause) \
-    { \
-        if (isReset) \
+        if (reseted) \
             return; \
         QTest::qWait(10); \
     } \
-    QTest::qWait(speed);
+    QTest::qWait(intervalTime);
+
+#include <QGraphicsScene>
+#include <QTest>
 
 class DisplayScene : public QGraphicsScene
 {
     Q_OBJECT
 
 public:
-    explicit DisplayScene(QGraphicsScene *parent = 0) : QGraphicsScene(parent)
-    {
-        sceneWidth  = 1380;
-        sceneHeight = 930;
-        isPause     = false;
-        isReset     = false;
-
-        setSceneRect(-sceneWidth / 2, -sceneHeight / 2, sceneWidth, sceneHeight);
-    }
+    DisplayScene(QGraphicsScene *parent = 0);
 
 public slots:
-    void pause()
-    {
-        isPause = !isPause;
-    }
+    void pause();
 
 signals:
     void finished();
 
 protected:
-    int sceneWidth;
-    int sceneHeight;
-
-    volatile bool isReset;
-    volatile bool isPause;
-    volatile int  speed;
+    int  sceneWidth;
+    int  sceneHeight;
+    int  runningTime;
+    int  intervalTime;
+    bool paused;
+    bool reseted;
 };
 
 #endif // DISPLAY_BASE_H
