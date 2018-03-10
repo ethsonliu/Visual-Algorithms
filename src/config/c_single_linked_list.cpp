@@ -328,7 +328,7 @@ void SingleLinkedList::runFailedReset()
     pausePushButton->setEnabled(false);
     resetPushButton->setEnabled(true);
     replayPushButton->setEnabled(false);
-// wxWidgets
+
     emit comboBoxEnabled(true);
 }
 
