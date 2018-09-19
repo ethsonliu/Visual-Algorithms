@@ -1,7 +1,7 @@
 ﻿#include "main_window.h"
 #include <QApplication>
 
-double g_scaledSize; // for screen resolution fit
+float gScaledSize; /* for screen resolution fit */
 
 int main(int argc, char *argv[])
 {

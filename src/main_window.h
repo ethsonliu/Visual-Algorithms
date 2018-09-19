@@ -17,4 +17,4 @@ private:
     QTabWidget* m_tabWidget;
 };//qthread内定义gui widget
 
-#endif // MAIN_WINDOW_H
+#endif /* MAIN_WINDOW_H */

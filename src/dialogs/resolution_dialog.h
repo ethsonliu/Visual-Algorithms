@@ -6,11 +6,11 @@
 class ResolutionDialog : public QDialog
 {
 public:
-    ResolutionDialog(QWidget* parent = 0);
+    ResolutionDialog(QDialog* parent = 0);
     ~ResolutionDialog();
 
 private:
 
 };
 
-#endif // RESOLUTION_DIALOG_H
+#endif /* RESOLUTION_DIALOG_H */

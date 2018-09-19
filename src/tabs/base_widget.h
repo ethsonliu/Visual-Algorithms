@@ -1,11 +1,8 @@
 ﻿#ifndef BASE_WIDGET_H
 #define BASE_WIDGET_H
 
+#include "config.h"
 #include <QWidget>
-
-extern double g_scaledSize;
-
-#define FIT(x) int((x) * g_scaledSize)
 
 class BaseWidget : public QWidget
 {
@@ -14,4 +11,4 @@ public:
     ~BaseWidget();
 };
 
-#endif // BASE_WIDGET_H
+#endif /* BASE_WIDGET_H */
