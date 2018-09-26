@@ -4,7 +4,3 @@ ResolutionDialog::ResolutionDialog(QDialog* parent) : QDialog(parent)
 {
 
 }
-
-ResolutionDialog::~ResolutionDialog()
-{
-}

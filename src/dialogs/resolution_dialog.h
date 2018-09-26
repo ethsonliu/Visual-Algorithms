@@ -7,7 +7,6 @@ class ResolutionDialog : public QDialog
 {
 public:
     ResolutionDialog(QDialog* parent = 0);
-    ~ResolutionDialog();
 
 private:
 
