@@ -28,14 +28,12 @@ SOURCES += \
         main.cpp \
         main_window.cpp \
     tabs/base_widget.cpp \
-    dialogs/resolution_dialog.cpp \
     dialogs/option_dialog.cpp \
     dialogs/message_dialog.cpp
 
 HEADERS += \
         main_window.h \
     tabs/base_widget.h \
-    dialogs/resolution_dialog.h \
     dialogs/option_dialog.h \
     config.h \
     dialogs/message_dialog.h

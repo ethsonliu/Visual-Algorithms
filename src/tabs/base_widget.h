@@ -7,8 +7,7 @@
 class BaseWidget : public QWidget
 {
 public:
-    BaseWidget(QWidget* parent = 0);
-    ~BaseWidget();
+    BaseWidget(QWidget* parent = nullptr);
 };
 
 #endif /* BASE_WIDGET_H */
