@@ -1,7 +1,9 @@
 ﻿#include "main_window.h"
+#include <QToolBar>
+#include <QMenuBar>
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 {
-    this->setWindowState(Qt::WindowMaximized);
+    this->setWindowTitle(tr("Visual Algorithms"));
+    QMenuBar* menuBar = this->menuBar();
 }
-
