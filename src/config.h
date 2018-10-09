@@ -10,8 +10,8 @@
 
 #endif
 
-extern float g_scaledSize;
+extern float gScaledSize;
 
-#define FIT(x) int((x) * g_scaledSize)
+#define FIT(x) int((x) * gScaledSize)
 
 #endif /* CONFIG_H */

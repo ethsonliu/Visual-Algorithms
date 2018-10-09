@@ -10,6 +10,13 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = 0);
 
+private slots:
+    void rewardMeSlot();
+    void feedbackSlot();
+    void updateSlot();
+    void aboutMeSlot();
+    void aboutVASSlot();
+
 private:
     QWidget* m_centralWidget;
     QWidget* m_navWidget;
