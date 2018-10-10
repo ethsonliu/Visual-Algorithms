@@ -37,3 +37,6 @@ HEADERS += \
     dialogs/option_dialog.h \
     config.h \
     dialogs/message_dialog.h
+
+RESOURCES += \
+    resources/icons.qrc
