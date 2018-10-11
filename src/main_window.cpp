@@ -1,12 +1,27 @@
 ﻿#include "main_window.h"
 #include <QToolBar>
 #include <QMenuBar>
+#include <QHBoxLayout>
+#include <QVBoxLayout>
 
 MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
 {
     this->setWindowTitle(tr("Visual Algorithms"));
     this->setWindowState(Qt::WindowMaximized);
 
+    createToolBar();
+    createNavWidget();
+    createTabWidget();
+
+    m_centralWidget = new QWidget;
+    QHBoxLayout* hLayout = new QHBoxLayout(m_centralWidget);
+    hLayout->addWidget(m_navWidget);
+    hLayout->addWidget(m_tabWidget);
+    this->setCentralWidget(m_centralWidget);
+}
+
+void MainWindow::createToolBar()
+{
     QMenuBar* menuBar = new QMenuBar;
     QMenu* fileMenu = menuBar->addMenu(tr("File"));
     fileMenu->addAction(tr("Open Source Code Directory..."));
@@ -39,6 +54,27 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
     toolBar->addAction(QIcon(":/icons/replay.svg"), tr("Replay"));
     toolBar->addAction(QIcon(":/icons/restore.svg"), tr("Restore"));
     toolBar->setMovable(false);
+}
+
+void MainWindow::createNavWidget()
+{
+    m_searchLineEdit = new QLineEdit;
+    m_searchLineEdit->setPlaceholderText(tr("Type here to search"));
+    m_searchLineEdit->addAction(QIcon(":/icons/search.svg"), QLineEdit::LeadingPosition);
+
+    m_treeWidget = new QTreeWidget;
+
+    m_navWidget = new QWidget;
+    m_navWidget->setFixedWidth(FIT(400));
+    QVBoxLayout* vLayout = new QVBoxLayout(m_navWidget);
+    vLayout->addWidget(m_searchLineEdit);
+    vLayout->addWidget(m_treeWidget);
+
+}
+
+void MainWindow::createTabWidget()
+{
+    m_tabWidget = new QTabWidget;
 }
 
 void MainWindow::rewardMeSlot()

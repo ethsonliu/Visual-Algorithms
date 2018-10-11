@@ -4,5 +4,7 @@
         <file>icons/play.svg</file>
         <file>icons/replay.svg</file>
         <file>icons/restore.svg</file>
+        <file>icons/home.svg</file>
+        <file>icons/search.svg</file>
     </qresource>
 </RCC>
