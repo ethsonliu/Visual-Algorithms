@@ -6,5 +6,7 @@
         <file>icons/restore.svg</file>
         <file>icons/home.svg</file>
         <file>icons/search.svg</file>
+        <file>icons/open.svg</file>
+        <file>icons/donate.png</file>
     </qresource>
 </RCC>

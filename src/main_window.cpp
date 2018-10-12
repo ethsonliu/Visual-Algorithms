@@ -6,7 +6,9 @@
 
 MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
 {
+    /* https://filosophy.org/writing/visual-algorithms-precision-and-recall/ */
     this->setWindowTitle(tr("Visual Algorithms"));
+    //this->setWindowIcon(QIcon(":/icons/app.ico"));
     this->setWindowState(Qt::WindowMaximized);
 
     createToolBar();
