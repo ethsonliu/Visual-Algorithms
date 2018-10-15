@@ -3,12 +3,12 @@
 #include <QMenuBar>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
+#include <QFontDatabase>
 
 MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
 {
     /* https://filosophy.org/writing/visual-algorithms-precision-and-recall/ */
     this->setWindowTitle(tr("Visual Algorithms"));
-    //this->setWindowIcon(QIcon(":/icons/app.ico"));
     this->setWindowState(Qt::WindowMaximized);
 
     createToolBar();
@@ -20,6 +20,16 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
     hLayout->addWidget(m_navWidget);
     hLayout->addWidget(m_tabWidget);
     this->setCentralWidget(m_centralWidget);
+
+//    QFont font;
+//    font.setFamily("Arial");
+//    this->setFont(font);
+
+//    QFontDatabase database;
+//        foreach(const QString &family, database.families())
+//        {
+//            qDebug() << family;
+//        }
 }
 
 void MainWindow::createToolBar()
@@ -46,7 +56,9 @@ void MainWindow::createToolBar()
     helpMenu->addSeparator();
     helpMenu->addAction(tr("About Me"), this, &MainWindow::aboutMeSlot);
     helpMenu->addAction(tr("About Visual Algorithms"), this, &MainWindow::aboutVASSlot);
-
+QFont font;
+font.setPixelSize(FIT(13));
+menuBar->setFont(font);
     /* icons download by https://www.iconfinder.com */
     QToolBar* menuToolBar = this->addToolBar(tr("Menu"));
     menuToolBar->addWidget(menuBar);
@@ -56,6 +68,13 @@ void MainWindow::createToolBar()
     toolBar->addAction(QIcon(":/icons/replay.svg"), tr("Replay"));
     toolBar->addAction(QIcon(":/icons/restore.svg"), tr("Restore"));
     toolBar->setMovable(false);
+    QToolBar* sliderToolBar = this->addToolBar(tr("Speed Slider"));
+    m_speedSlider = new QSlider(Qt::Horizontal);
+    m_speedSlider->setRange(0, 100);
+    m_speedSlider->setValue(m_speedSlider->maximum() >> 1);
+    sliderToolBar->setFixedWidth(FIT(240));
+    sliderToolBar->addWidget(m_speedSlider);
+    sliderToolBar->setMovable(false);
 }
 
 void MainWindow::createNavWidget()

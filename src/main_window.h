@@ -5,6 +5,7 @@
 #include <QMainWindow>
 #include <QTreeWidget>
 #include <QLineEdit>
+#include <QSlider>
 
 class MainWindow : public QMainWindow
 {
@@ -26,14 +27,14 @@ private slots:
     void aboutVASSlot();
 
 private:
-    QWidget*    m_centralWidget;
-    QWidget*    m_navWidget;
-    QTabWidget* m_tabWidget;
+    QWidget*     m_centralWidget;
+    QWidget*     m_navWidget;
+    QTabWidget*  m_tabWidget;
 
     QTreeWidget* m_treeWidget;
     QLineEdit*   m_searchLineEdit;
 
-
-};//qthread内定义gui widget
+    QSlider*     m_speedSlider;
+};
 
 #endif /* MAIN_WINDOW_H */
