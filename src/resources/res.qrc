@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>app_icon.ico</file>
+        <file>donate.png</file>
+        <file>home.svg</file>
+        <file>open.svg</file>
+        <file>pause.svg</file>
+        <file>play.svg</file>
+        <file>replay.svg</file>
+        <file>restore.svg</file>
+        <file>search.svg</file>
+    </qresource>
+    <qresource prefix="/qss">
+        <file>main.qss</file>
+    </qresource>
+</RCC>

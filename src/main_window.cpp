@@ -20,16 +20,6 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
     hLayout->addWidget(m_navWidget);
     hLayout->addWidget(m_tabWidget);
     this->setCentralWidget(m_centralWidget);
-
-//    QFont font;
-//    font.setFamily("Arial");
-//    this->setFont(font);
-
-//    QFontDatabase database;
-//    foreach(const QString &family, database.families())
-//    {
-//        qDebug() << family;
-//    }
 }
 
 void MainWindow::createToolBar()
@@ -56,15 +46,6 @@ void MainWindow::createToolBar()
     helpMenu->addSeparator();
     helpMenu->addAction(tr("About Me"), this, &MainWindow::aboutMeSlot);
     helpMenu->addAction(tr("About Visual Algorithms"), this, &MainWindow::aboutVASSlot);
-    //menuBar->setStyle(0);
-    menuBar->setStyleSheet("QMenuBar{font-size: 13px;}");
-    menuBar->setStyleSheet("QMenuBar::item {spacing: 4px; margin: 2px 2px;}");
-    //menuBar->setStyleSheet("QMenuBar::item {background: transparent;}");
-
-//QFont font = menuBar->font();
-//font.setPixelSize(FIT(13));
-//menuBar->setFont(font);
-    //VA_DEBUG(menuBar->font());
 
     /* icons download by https://www.iconfinder.com */
     QToolBar* menuToolBar = this->addToolBar(tr("Menu"));
