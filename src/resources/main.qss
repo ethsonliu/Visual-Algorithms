@@ -1,52 +1,5 @@
-QMenuBar {
-    background-color: #31363b;
-    color: #eff0f1;
-}
-
-QMenuBar::item {
-    background: transparent;
-}
-
-QMenuBar::item:selected {
-    background: transparent;
-    border: 1px solid #76797C;
-}
-
-QMenuBar::item:pressed {
-    border: 1px solid #76797C;
-    background-color: #3daee9;
-    color: #eff0f1;
-    margin-bottom: -1px;
-    padding-bottom: 1px;
-}
-
-QMenu {
-    border: 1px solid #76797C;
-    color: #eff0f1;
-    margin: 2px;
-}
-
-QMenu::icon {
-    margin: 5px;
-}
-
-QMenu::item {
-    padding: 5px 30px 5px 30px;
-    border: 1px solid transparent;
-}
-
-QMenu::item:selected {
-    color: #eff0f1;
-}
-
-QMenu::separator {
-    height: 2px;
-    background: lightblue;
-    margin-left: 10px;
-    margin-right: 5px;
-}
-
-QMenu::indicator {
-    width: 18px;
-    height: 18px;
+﻿QMenuBar::item
+{
+/*    margin: 0px 10px;
+    padding: 5px;*/
 }

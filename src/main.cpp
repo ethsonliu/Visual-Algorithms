@@ -1,9 +1,9 @@
-#include "config.h"
+﻿#include "config.h"
 #include "main_window.h"
 #include <QApplication>
 #include <QScreen>
 #include <QFile>
-#include <QTextStream>
+#include <QTextCodec>
 
 float gScaledSize; /* for screen resolution fit */
 
@@ -11,13 +11,14 @@ int main(int argc, char* argv[])
 {
     QApplication a(argc, argv);
 
+    /* set qss style for the app */
     QFile file(":/qss/main.qss");
     file.open(QFile::ReadOnly);
     if (file.isOpen())
     {
-        //QTextStream in(&file);
-        //qDebug() << file.size() << in.readAll();
-        qApp->setStyleSheet(file.readAll());
+        QTextCodec *codec = QTextCodec::codecForName("UTF-8");
+        QString qss = codec->toUnicode(file.readAll());
+        qApp->setStyleSheet(qss);
         file.close();
     }
 
