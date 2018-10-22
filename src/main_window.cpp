@@ -29,23 +29,26 @@ void MainWindow::createToolBar()
     fileMenu->addAction(tr("Open Source Code Directory..."));
     fileMenu->addSeparator();
     fileMenu->addAction(tr("Exit"));
-    QMenu* languageMenu = menuBar->addMenu(tr("Languages"));
-    languageMenu->addAction(tr("(System Language)"));
-    languageMenu->addAction(tr("English"));
-    languageMenu->addAction(tr("Simplified Chinese"));
+    QMenu* languagesMenu = menuBar->addMenu(tr("Languages"));
+    languagesMenu->addAction(tr("(System Language)"));
+    languagesMenu->addAction(tr("English"));
+    languagesMenu->addAction(tr("Simplified Chinese"));
     QMenu* tabsMenu = menuBar->addMenu(tr("Tabs"));
     tabsMenu->addAction(tr("Go to Home Tab"));
     tabsMenu->addSeparator();
     tabsMenu->addAction(tr("Next Tab"));
     tabsMenu->addAction(tr("Previous Tab"));
-    QMenu* rewardMenu = menuBar->addMenu(tr("Donate"));
-    rewardMenu->addAction(tr("Donate to Me"), this, &MainWindow::rewardMeSlot);
+    QMenu* donateMenu = menuBar->addMenu(tr("Donate"));
+    donateMenu->addAction(tr("Donate to Me"), this, &MainWindow::rewardMeSlot);
     QMenu* helpMenu = menuBar->addMenu(tr("Help"));
     helpMenu->addAction(tr("Feedbacks"), this, &MainWindow::feedbackSlot);
     helpMenu->addAction(tr("Software Updates"), this, &MainWindow::updateSlot);
     helpMenu->addSeparator();
     helpMenu->addAction(tr("About Me"), this, &MainWindow::aboutMeSlot);
     helpMenu->addAction(tr("About Visual Algorithms"), this, &MainWindow::aboutVASSlot);
+    menuBar->setFixedHeight(menuBar->minimumSizeHint().height());
+    //menuBar->setFixedWidth(280);
+
 
     /* icons download by https://www.iconfinder.com */
     QToolBar* menuToolBar = this->addToolBar(tr("Menu"));
@@ -56,6 +59,7 @@ void MainWindow::createToolBar()
     toolBar->addAction(QIcon(":/icons/replay.svg"), tr("Replay"));
     toolBar->addAction(QIcon(":/icons/restore.svg"), tr("Restore"));
     toolBar->setMovable(false);
+    toolBar->addSeparator();
     QToolBar* sliderToolBar = this->addToolBar(tr("Speed Slider"));
     m_speedSlider = new QSlider(Qt::Horizontal);
     m_speedSlider->setRange(0, 100);
