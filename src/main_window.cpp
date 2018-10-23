@@ -4,6 +4,7 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QFontDatabase>
+#include <QIcon>
 
 MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
 {
@@ -44,21 +45,24 @@ void MainWindow::createToolBar()
     helpMenu->addAction(tr("Feedbacks"), this, &MainWindow::feedbackSlot);
     helpMenu->addAction(tr("Software Updates"), this, &MainWindow::updateSlot);
     helpMenu->addSeparator();
-    helpMenu->addAction(tr("About Me"), this, &MainWindow::aboutMeSlot);
+    helpMenu->addAction(tr("About Author"), this, &MainWindow::aboutMeSlot);
     helpMenu->addAction(tr("About Visual Algorithms"), this, &MainWindow::aboutVASSlot);
     menuBar->setFixedHeight(menuBar->minimumSizeHint().height());
-    //menuBar->setFixedWidth(280);
-
 
     /* icons download by https://www.iconfinder.com */
     QToolBar* menuToolBar = this->addToolBar(tr("Menu"));
     menuToolBar->addWidget(menuBar);
     menuToolBar->setMovable(false);
+    menuToolBar->addSeparator();
+    //menuToolBar->addAction(new QAction(QIcon(":/icons/h_separ_toolbar.png"), "sep1"));
     QToolBar* toolBar = this->addToolBar(tr("Tool"));
     toolBar->addAction(QIcon(":/icons/play.svg"), tr("Play"));
+    //toolBar->addAction(new QAction(QIcon(":/icons/h_separ_toolbar.png"), "sep1"));
+    toolBar->addSeparator();
     toolBar->addAction(QIcon(":/icons/replay.svg"), tr("Replay"));
     toolBar->addAction(QIcon(":/icons/restore.svg"), tr("Restore"));
     toolBar->setMovable(false);
+    //toolBar->addAction(new QAction(QIcon(":/icons/h_separ_toolbar.png"), "sep1"));
     toolBar->addSeparator();
     QToolBar* sliderToolBar = this->addToolBar(tr("Speed Slider"));
     m_speedSlider = new QSlider(Qt::Horizontal);
@@ -67,6 +71,8 @@ void MainWindow::createToolBar()
     sliderToolBar->setFixedWidth(FIT(240));
     sliderToolBar->addWidget(m_speedSlider);
     sliderToolBar->setMovable(false);
+    QToolBar* emptyToolBar = this->addToolBar(tr("Empty"));
+    emptyToolBar->setMovable(false);
 }
 
 void MainWindow::createNavWidget()

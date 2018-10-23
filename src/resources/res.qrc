@@ -9,6 +9,7 @@
         <file>replay.svg</file>
         <file>restore.svg</file>
         <file>search.svg</file>
+        <file>h_separ_toolbar.png</file>
     </qresource>
     <qresource prefix="/qss">
         <file>main.qss</file>

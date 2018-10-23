@@ -3,3 +3,8 @@
     background-color: white;
     border: none;
 }
+
+QToolBar::separator
+{
+    margin: 10px;
+}
