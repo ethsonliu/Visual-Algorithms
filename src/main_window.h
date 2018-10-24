@@ -23,7 +23,6 @@ private slots:
     void rewardMeSlot();
     void feedbackSlot();
     void updateSlot();
-    void aboutMeSlot();
     void aboutVASSlot();
 
 private:

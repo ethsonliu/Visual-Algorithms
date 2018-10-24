@@ -4,7 +4,16 @@
     border: none;
 }
 
-QToolBar::separator
+QToolButton::hover
 {
-    margin: 10px;
+    background-color: rgb(237, 244, 253);
+    border-radius: 6px;
+    border-color: rgb(229, 229, 229);
+}
+
+QToolButton::pressed
+{
+    background-color: rgb(237, 244, 253);
+    border-radius: 6px;
+    border-color: rgb(229, 229, 229);
 }

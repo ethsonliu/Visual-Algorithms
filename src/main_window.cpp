@@ -1,14 +1,16 @@
 ﻿#include "main_window.h"
+#include <QIcon>
 #include <QToolBar>
 #include <QMenuBar>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QFontDatabase>
-#include <QIcon>
+#include <QToolButton>
 
 MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
 {
     /* https://filosophy.org/writing/visual-algorithms-precision-and-recall/ */
+    /* icons download by https://www.iconfinder.com */
     this->setWindowTitle(tr("Visual Algorithms"));
     this->setWindowState(Qt::WindowMaximized);
 
@@ -25,6 +27,7 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
 
 void MainWindow::createToolBar()
 {
+    /* create menubar object, and add some menus to it */
     QMenuBar* menuBar = new QMenuBar;
     QMenu* fileMenu = menuBar->addMenu(tr("File"));
     fileMenu->addAction(tr("Open Source Code Directory..."));
@@ -45,27 +48,43 @@ void MainWindow::createToolBar()
     helpMenu->addAction(tr("Feedbacks"), this, &MainWindow::feedbackSlot);
     helpMenu->addAction(tr("Software Updates"), this, &MainWindow::updateSlot);
     helpMenu->addSeparator();
-    helpMenu->addAction(tr("About Author"), this, &MainWindow::aboutMeSlot);
     helpMenu->addAction(tr("About Visual Algorithms"), this, &MainWindow::aboutVASSlot);
     menuBar->setFixedHeight(menuBar->minimumSizeHint().height());
 
-    /* icons download by https://www.iconfinder.com */
+    /* add the menubar above to the toolbar */
     QToolBar* menuToolBar = this->addToolBar(tr("Menu"));
     menuToolBar->addWidget(menuBar);
     menuToolBar->setMovable(false);
-    menuToolBar->addSeparator();
-    //menuToolBar->addAction(new QAction(QIcon(":/icons/h_separ_toolbar.png"), "sep1"));
+
+    QString toolButtonQss;
+    toolButtonQss.sprintf("QToolButton{margin: %dpx; padding: 0px %dpx;}", FIT(2), FIT(3));
+    QString sliderQss;
+    sliderQss.sprintf("QSlider{padding: 0px %dpx;}", FIT(55));
+
+
+    /* add some toolbuttons to the toolbar */
     QToolBar* toolBar = this->addToolBar(tr("Tool"));
-    toolBar->addAction(QIcon(":/icons/play.svg"), tr("Play"));
-    //toolBar->addAction(new QAction(QIcon(":/icons/h_separ_toolbar.png"), "sep1"));
     toolBar->addSeparator();
-    toolBar->addAction(QIcon(":/icons/replay.svg"), tr("Replay"));
-    toolBar->addAction(QIcon(":/icons/restore.svg"), tr("Restore"));
+    QToolButton* playToolButton = new QToolButton;
+    playToolButton->setIcon(QIcon(":/icons/play.svg"));
+    playToolButton->setStyleSheet(toolButtonQss);
+    toolBar->addWidget(playToolButton);
+    toolBar->addSeparator();
+    QToolButton* replayToolButton = new QToolButton;
+    replayToolButton->setIcon(QIcon(":/icons/replay.svg"));
+    replayToolButton->setStyleSheet(toolButtonQss);
+    toolBar->addWidget(replayToolButton);
+    QToolButton* restoreToolButton = new QToolButton;
+    restoreToolButton->setIcon(QIcon(":/icons/restore.svg"));
+    restoreToolButton->setStyleSheet(toolButtonQss);
+    toolBar->addWidget(restoreToolButton);
+    toolBar->addSeparator();
     toolBar->setMovable(false);
-    //toolBar->addAction(new QAction(QIcon(":/icons/h_separ_toolbar.png"), "sep1"));
-    toolBar->addSeparator();
+
+    /* add a slider to the toolbar */
     QToolBar* sliderToolBar = this->addToolBar(tr("Speed Slider"));
     m_speedSlider = new QSlider(Qt::Horizontal);
+    //m_speedSlider->setStyleSheet(sliderQss);
     m_speedSlider->setRange(0, 100);
     m_speedSlider->setValue(m_speedSlider->maximum() >> 1);
     sliderToolBar->setFixedWidth(FIT(240));
@@ -107,11 +126,6 @@ void MainWindow::feedbackSlot()
 }
 
 void MainWindow::updateSlot()
-{
-
-}
-
-void MainWindow::aboutMeSlot()
 {
 
 }
