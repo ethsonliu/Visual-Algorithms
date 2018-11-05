@@ -6,14 +6,37 @@
 
 QToolButton::hover
 {
-    background-color: rgb(237, 244, 253);
+    background-color: rgb(239, 245, 253);
     border-radius: 6px;
-    border-color: rgb(229, 229, 229);
+    border: 1px solid rgb(219, 220, 220);
 }
 
 QToolButton::pressed
 {
-    background-color: rgb(237, 244, 253);
+    background-color: rgb(235, 236, 237);
     border-radius: 6px;
-    border-color: rgb(229, 229, 229);
+    border: 1px solid rgb(219, 220, 220);
+}
+
+QSlider::sub-page:horizontal
+{
+    background-color: rgb(37, 168, 198);
+}
+
+
+QSlider::add-page:horizontal
+{
+    background-color: rgb(87, 97, 106);
+}
+
+QSlider::groove:horizontal
+{
+    background: transparent;
+    height: 10px;
+}
+
+QSlider::handle:horizontal
+{
+    border-image: url(:/images/slider_handle.png);
+    margin: 0px -5px;
 }

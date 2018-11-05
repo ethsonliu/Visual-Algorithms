@@ -6,6 +6,7 @@
 #include <QVBoxLayout>
 #include <QFontDatabase>
 #include <QToolButton>
+#include <QGraphicsDropShadowEffect>
 
 MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
 {
@@ -27,7 +28,7 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
 
 void MainWindow::createToolBar()
 {
-    /* create menubar object, and add some menus to it */
+    /* create menubar, and add some menus to it */
     QMenuBar* menuBar = new QMenuBar;
     QMenu* fileMenu = menuBar->addMenu(tr("File"));
     fileMenu->addAction(tr("Open Source Code Directory..."));
@@ -59,23 +60,23 @@ void MainWindow::createToolBar()
     QString toolButtonQss;
     toolButtonQss.sprintf("QToolButton{margin: %dpx; padding: 0px %dpx;}", FIT(2), FIT(3));
     QString sliderQss;
-    sliderQss.sprintf("QSlider{padding: 0px %dpx;}", FIT(55));
+    sliderQss.sprintf("QSlider{margin: 0px %dpx;}", FIT(4));
 
 
     /* add some toolbuttons to the toolbar */
     QToolBar* toolBar = this->addToolBar(tr("Tool"));
     toolBar->addSeparator();
     QToolButton* playToolButton = new QToolButton;
-    playToolButton->setIcon(QIcon(":/icons/play.svg"));
+    playToolButton->setIcon(QIcon(":/images/play.svg"));
     playToolButton->setStyleSheet(toolButtonQss);
     toolBar->addWidget(playToolButton);
     toolBar->addSeparator();
     QToolButton* replayToolButton = new QToolButton;
-    replayToolButton->setIcon(QIcon(":/icons/replay.svg"));
+    replayToolButton->setIcon(QIcon(":/images/replay.svg"));
     replayToolButton->setStyleSheet(toolButtonQss);
     toolBar->addWidget(replayToolButton);
     QToolButton* restoreToolButton = new QToolButton;
-    restoreToolButton->setIcon(QIcon(":/icons/restore.svg"));
+    restoreToolButton->setIcon(QIcon(":/images/restore.svg"));
     restoreToolButton->setStyleSheet(toolButtonQss);
     toolBar->addWidget(restoreToolButton);
     toolBar->addSeparator();
@@ -84,11 +85,25 @@ void MainWindow::createToolBar()
     /* add a slider to the toolbar */
     QToolBar* sliderToolBar = this->addToolBar(tr("Speed Slider"));
     m_speedSlider = new QSlider(Qt::Horizontal);
-    //m_speedSlider->setStyleSheet(sliderQss);
     m_speedSlider->setRange(0, 100);
     m_speedSlider->setValue(m_speedSlider->maximum() >> 1);
+    connect(m_speedSlider, &QSlider::valueChanged, [this](int value)\
+                                                   {\
+                                                        if (value < 2)\
+                                                        {\
+                                                            m_speedSlider->setValue(2);\
+                                                            return;\
+                                                        }\
+
+                                                        if (value > 98)\
+                                                        {\
+                                                            m_speedSlider->setValue(98);\
+                                                            return;\
+                                                        }\
+                                                   }); /* avoid the handle to exceed the slider border */
     sliderToolBar->setFixedWidth(FIT(240));
     sliderToolBar->addWidget(m_speedSlider);
+    sliderToolBar->setStyleSheet(sliderQss);
     sliderToolBar->setMovable(false);
     QToolBar* emptyToolBar = this->addToolBar(tr("Empty"));
     emptyToolBar->setMovable(false);
@@ -98,7 +113,7 @@ void MainWindow::createNavWidget()
 {
     m_searchLineEdit = new QLineEdit;
     m_searchLineEdit->setPlaceholderText(tr("Type here to search"));
-    m_searchLineEdit->addAction(QIcon(":/icons/search.svg"), QLineEdit::LeadingPosition);
+    m_searchLineEdit->addAction(QIcon(":/images/search.svg"), QLineEdit::LeadingPosition);
 
     m_treeWidget = new QTreeWidget;
 

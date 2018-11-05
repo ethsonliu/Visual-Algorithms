@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/icons">
+    <qresource prefix="/images">
         <file>app_icon.ico</file>
         <file>donate.png</file>
         <file>home.svg</file>
@@ -9,7 +9,7 @@
         <file>replay.svg</file>
         <file>restore.svg</file>
         <file>search.svg</file>
-        <file>h_separ_toolbar.png</file>
+        <file>slider_handle.png</file>
     </qresource>
     <qresource prefix="/qss">
         <file>main.qss</file>
