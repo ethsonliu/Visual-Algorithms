@@ -10,6 +10,8 @@
         <file>restore.svg</file>
         <file>search.svg</file>
         <file>slider_handle.png</file>
+        <file>record.svg</file>
+        <file>snapshot.svg</file>
     </qresource>
     <qresource prefix="/qss">
         <file>main.qss</file>

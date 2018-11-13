@@ -18,12 +18,25 @@ private:
     void createToolBar();
     void createNavWidget();
     void createTabWidget();
+    void play();
+    void pause();
 
 private slots:
-    void rewardMeSlot();
+    void openSlot();
+    void exitSlot();
+    void homeTabSlot();
+    void nextTabSlot();
+    void previousTabSlot();
+    void donateSlot();
     void feedbackSlot();
     void updateSlot();
-    void aboutVASSlot();
+    void aboutSlot();
+    void playSlot();
+    void replaySlot();
+    void restoreSlot();
+    void snapshotSlot();
+    void recordslot();
+    void speedChangedSlot(int value);
 
 private:
     QWidget*     m_centralWidget;

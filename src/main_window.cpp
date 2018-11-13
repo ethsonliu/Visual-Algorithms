@@ -4,9 +4,7 @@
 #include <QMenuBar>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
-#include <QFontDatabase>
 #include <QToolButton>
-#include <QGraphicsDropShadowEffect>
 
 MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
 {
@@ -31,7 +29,7 @@ void MainWindow::createToolBar()
     /* create menubar, and add some menus to it */
     QMenuBar* menuBar = new QMenuBar;
     QMenu* fileMenu = menuBar->addMenu(tr("File"));
-    fileMenu->addAction(tr("Open Source Code Directory..."));
+    fileMenu->addAction(tr("Open Source Code Directory..."), this, &MainWindow::openSlot);
     fileMenu->addSeparator();
     fileMenu->addAction(tr("Exit"));
     QMenu* languagesMenu = menuBar->addMenu(tr("Languages"));
@@ -39,17 +37,17 @@ void MainWindow::createToolBar()
     languagesMenu->addAction(tr("English"));
     languagesMenu->addAction(tr("Simplified Chinese"));
     QMenu* tabsMenu = menuBar->addMenu(tr("Tabs"));
-    tabsMenu->addAction(tr("Go to Home Tab"));
+    tabsMenu->addAction(tr("Go to Home Tab"), this, &MainWindow::homeTabSlot);
     tabsMenu->addSeparator();
-    tabsMenu->addAction(tr("Next Tab"));
-    tabsMenu->addAction(tr("Previous Tab"));
+    tabsMenu->addAction(tr("Next Tab"), this, &MainWindow::nextTabSlot);
+    tabsMenu->addAction(tr("Previous Tab"), this, &MainWindow::previousTabSlot);
     QMenu* donateMenu = menuBar->addMenu(tr("Donate"));
-    donateMenu->addAction(tr("Donate to Me"), this, &MainWindow::rewardMeSlot);
+    donateMenu->addAction(tr("Donate to Me"), this, &MainWindow::donateSlot);
     QMenu* helpMenu = menuBar->addMenu(tr("Help"));
     helpMenu->addAction(tr("Feedbacks"), this, &MainWindow::feedbackSlot);
     helpMenu->addAction(tr("Software Updates"), this, &MainWindow::updateSlot);
     helpMenu->addSeparator();
-    helpMenu->addAction(tr("About Visual Algorithms"), this, &MainWindow::aboutVASSlot);
+    helpMenu->addAction(tr("About Visual Algorithms"), this, &MainWindow::aboutSlot);
     menuBar->setFixedHeight(menuBar->minimumSizeHint().height());
 
     /* add the menubar above to the toolbar */
@@ -62,13 +60,13 @@ void MainWindow::createToolBar()
     QString sliderQss;
     sliderQss.sprintf("QSlider{margin: 0px %dpx;}", FIT(4));
 
-
     /* add some toolbuttons to the toolbar */
     QToolBar* toolBar = this->addToolBar(tr("Tool"));
     toolBar->addSeparator();
     QToolButton* playToolButton = new QToolButton;
     playToolButton->setIcon(QIcon(":/images/play.svg"));
     playToolButton->setStyleSheet(toolButtonQss);
+    connect(playToolButton, &QToolButton::clicked, this, &MainWindow::playSlot);
     toolBar->addWidget(playToolButton);
     toolBar->addSeparator();
     QToolButton* replayToolButton = new QToolButton;
@@ -79,6 +77,15 @@ void MainWindow::createToolBar()
     restoreToolButton->setIcon(QIcon(":/images/restore.svg"));
     restoreToolButton->setStyleSheet(toolButtonQss);
     toolBar->addWidget(restoreToolButton);
+    toolBar->addSeparator();
+    QToolButton* snapshotToolButton = new QToolButton;
+    snapshotToolButton->setIcon(QIcon(":/images/snapshot.svg"));
+    snapshotToolButton->setStyleSheet(toolButtonQss);
+    toolBar->addWidget(snapshotToolButton);
+    QToolButton* recordToolButton = new QToolButton;
+    recordToolButton->setIcon(QIcon(":/images/record.svg"));
+    recordToolButton->setStyleSheet(toolButtonQss);
+    toolBar->addWidget(recordToolButton);
     toolBar->addSeparator();
     toolBar->setMovable(false);
 
@@ -111,7 +118,12 @@ void MainWindow::createToolBar()
 
 void MainWindow::createNavWidget()
 {
+    QFont font;
+    font.setPixelSize(FIT(13));
+
     m_searchLineEdit = new QLineEdit;
+    m_searchLineEdit->setFont(font);
+    m_searchLineEdit->setFixedHeight(FIT(24));
     m_searchLineEdit->setPlaceholderText(tr("Type here to search"));
     m_searchLineEdit->addAction(QIcon(":/images/search.svg"), QLineEdit::LeadingPosition);
 
@@ -130,7 +142,42 @@ void MainWindow::createTabWidget()
     m_tabWidget = new QTabWidget;
 }
 
-void MainWindow::rewardMeSlot()
+void MainWindow::play()
+{
+
+}
+
+void MainWindow::pause()
+{
+
+}
+
+void MainWindow::openSlot()
+{
+
+}
+
+void MainWindow::exitSlot()
+{
+
+}
+
+void MainWindow::homeTabSlot()
+{
+
+}
+
+void MainWindow::nextTabSlot()
+{
+
+}
+
+void MainWindow::previousTabSlot()
+{
+
+}
+
+void MainWindow::donateSlot()
 {
 
 }
@@ -145,7 +192,37 @@ void MainWindow::updateSlot()
 
 }
 
-void MainWindow::aboutVASSlot()
+void MainWindow::aboutSlot()
+{
+
+}
+
+void MainWindow::playSlot()
+{
+
+}
+
+void MainWindow::replaySlot()
+{
+
+}
+
+void MainWindow::restoreSlot()
+{
+
+}
+
+void MainWindow::snapshotSlot()
+{
+
+}
+
+void MainWindow::recordslot()
+{
+
+}
+
+void MainWindow::speedChangedSlot(int value)
 {
 
 }
