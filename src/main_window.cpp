@@ -1,10 +1,10 @@
 ﻿#include "main_window.h"
+#include "widgets/tool_button.h"
 #include <QIcon>
 #include <QToolBar>
 #include <QMenuBar>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
-#include <QToolButton>
 
 MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
 {
@@ -63,28 +63,32 @@ void MainWindow::createToolBar()
     /* add some toolbuttons to the toolbar */
     QToolBar* toolBar = this->addToolBar(tr("Tool"));
     toolBar->addSeparator();
-    QToolButton* playToolButton = new QToolButton;
+    ToolButton* playToolButton = new ToolButton;
     playToolButton->setIcon(QIcon(":/images/play.svg"));
     playToolButton->setStyleSheet(toolButtonQss);
-    connect(playToolButton, &QToolButton::clicked, this, &MainWindow::playSlot);
+    connect(playToolButton, &ToolButton::clicked, this, &MainWindow::playSlot);
     toolBar->addWidget(playToolButton);
     toolBar->addSeparator();
-    QToolButton* replayToolButton = new QToolButton;
+    ToolButton* replayToolButton = new ToolButton;
     replayToolButton->setIcon(QIcon(":/images/replay.svg"));
     replayToolButton->setStyleSheet(toolButtonQss);
+    replayToolButton->setToolTip(tr("Replay the animation"));
     toolBar->addWidget(replayToolButton);
-    QToolButton* restoreToolButton = new QToolButton;
+    ToolButton* restoreToolButton = new ToolButton;
     restoreToolButton->setIcon(QIcon(":/images/restore.svg"));
     restoreToolButton->setStyleSheet(toolButtonQss);
+    restoreToolButton->setToolTip(tr("Restore to the initial state"));
     toolBar->addWidget(restoreToolButton);
     toolBar->addSeparator();
-    QToolButton* snapshotToolButton = new QToolButton;
+    ToolButton* snapshotToolButton = new ToolButton;
     snapshotToolButton->setIcon(QIcon(":/images/snapshot.svg"));
     snapshotToolButton->setStyleSheet(toolButtonQss);
+    snapshotToolButton->setToolTip(tr("Take a snapshot of the animation"));
     toolBar->addWidget(snapshotToolButton);
-    QToolButton* recordToolButton = new QToolButton;
+    ToolButton* recordToolButton = new ToolButton;
     recordToolButton->setIcon(QIcon(":/images/record.svg"));
     recordToolButton->setStyleSheet(toolButtonQss);
+    recordToolButton->setToolTip(tr("Take a record to GIF file"));
     toolBar->addWidget(recordToolButton);
     toolBar->addSeparator();
     toolBar->setMovable(false);

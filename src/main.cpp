@@ -16,7 +16,7 @@ int main(int argc, char* argv[])
     file.open(QFile::ReadOnly);
     if (file.isOpen())
     {
-        QTextCodec *codec = QTextCodec::codecForName("UTF-8");
+        QTextCodec* codec = QTextCodec::codecForName("UTF-8");
         QString qss = codec->toUnicode(file.readAll());
         qApp->setStyleSheet(qss);
         file.close();

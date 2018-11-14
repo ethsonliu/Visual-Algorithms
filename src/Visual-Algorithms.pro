@@ -26,18 +26,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 RC_ICONS = resources/app_icon.ico
 
 SOURCES += \
-        main.cpp \
-        main_window.cpp \
+    main.cpp \
+    main_window.cpp \
     tabs/base_widget.cpp \
-    dialogs/option_dialog.cpp \
-    dialogs/message_dialog.cpp
+    widgets/option_dialog.cpp \
+    widgets/message_dialog.cpp \
+    widgets/tool_button.cpp
 
 HEADERS += \
-        main_window.h \
-    tabs/base_widget.h \
-    dialogs/option_dialog.h \
     config.h \
-    dialogs/message_dialog.h
+    main_window.h \
+    tabs/base_widget.h \
+    widgets/option_dialog.h \
+    widgets/message_dialog.h \
+    widgets/tool_button.h
 
 RESOURCES += \
     resources/res.qrc
