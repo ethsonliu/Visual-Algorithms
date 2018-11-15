@@ -132,13 +132,27 @@ void MainWindow::createNavWidget()
     m_searchLineEdit->addAction(QIcon(":/images/search.svg"), QLineEdit::LeadingPosition);
 
     m_treeWidget = new QTreeWidget;
+    m_treeWidget->setFont(font);
+    m_treeWidget->setHeaderLabel("");
+    QTreeWidgetItem* searchItem = new QTreeWidgetItem(m_treeWidget, QStringList(tr("Search")));
+    QTreeWidgetItem* aStarItem = new QTreeWidgetItem(searchItem, QStringList(tr("A Star")));
+    QTreeWidgetItem* bfsItem = new QTreeWidgetItem(searchItem, QStringList(tr("BFS")));
+    QTreeWidgetItem* dfsItem = new QTreeWidgetItem(searchItem, QStringList(tr("DFS")));
+    searchItem->addChild(aStarItem);
+    searchItem->addChild(bfsItem);
+    searchItem->addChild(dfsItem);
+    QTreeWidgetItem* sortItem = new QTreeWidgetItem(m_treeWidget, QStringList(tr("Sort")));
+    QTreeWidgetItem* insertSortItem = new QTreeWidgetItem(sortItem, QStringList(tr("Insert Sort")));
+    QTreeWidgetItem* mergeSortItem = new QTreeWidgetItem(sortItem, QStringList(tr("Merge Sort")));
+    sortItem->addChild(insertSortItem);
+    sortItem->addChild(mergeSortItem);
 
     m_navWidget = new QWidget;
     m_navWidget->setFixedWidth(FIT(400));
     QVBoxLayout* vLayout = new QVBoxLayout(m_navWidget);
     vLayout->addWidget(m_searchLineEdit);
     vLayout->addWidget(m_treeWidget);
-
+    vLayout->setSpacing(FIT(10));
 }
 
 void MainWindow::createTabWidget()

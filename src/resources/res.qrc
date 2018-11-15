@@ -12,6 +12,8 @@
         <file>slider_handle.png</file>
         <file>record.svg</file>
         <file>snapshot.svg</file>
+        <file>tree_close.png</file>
+        <file>tree_open.png</file>
     </qresource>
     <qresource prefix="/qss">
         <file>main.qss</file>

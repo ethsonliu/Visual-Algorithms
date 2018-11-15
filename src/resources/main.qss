@@ -40,3 +40,32 @@ QSlider::handle:horizontal
     border-image: url(:/images/slider_handle.png);
     margin: 0px -5px;
 }
+
+QTreeWidget::branch:closed:has-children
+{
+    image: url(:/images/tree_close.png);
+}
+
+QTreeWidget::branch:open:has-children
+{
+    image: url(:/images/tree_open.png);
+}
+
+QTreeWidget::item
+{
+    height: 25px;
+    border: none;
+    background-color: transparent;
+}
+
+QTreeWidget::item:hover, QTreeWidget::branch:hover
+{
+    color: rgb(43, 179, 246);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+QTreeWidget::item:selected, QTreeWidget::branch:selected
+{
+    background-color: rgb(0, 160, 230);
+}
