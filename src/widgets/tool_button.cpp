@@ -6,18 +6,18 @@ ToolButton::ToolButton(QToolButton* parent) : QToolButton(parent)
 {
 }
 
-bool ToolButton::event(QEvent* e)
+bool ToolButton::event(QEvent* event)
 {
-    if (e->type() == QEvent::ToolTip)
+    if (event->type() == QEvent::ToolTip)
     {
-        QHelpEvent* helpEvent = static_cast<QHelpEvent*>(e);
+        QHelpEvent* helpEvent = static_cast<QHelpEvent*>(event);
 
         /* to adjust the the position of tooltip */
         if (helpEvent)
-            QToolTip::showText(helpEvent->globalPos() + QPoint(-1 * this->width() / 2, 20), toolTip());
+            QToolTip::showText(helpEvent->globalPos() + QPoint(-1 * this->width() / 2, FIT(20)), toolTip());
 
         return true;
     }
 
-    return QWidget::event(e);
+    return QWidget::event(event);
 }

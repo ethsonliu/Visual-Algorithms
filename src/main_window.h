@@ -6,6 +6,7 @@
 #include <QTreeWidget>
 #include <QLineEdit>
 #include <QSlider>
+#include <QEvent>
 
 class MainWindow : public QMainWindow
 {
@@ -13,6 +14,8 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget* parent = nullptr);
+//    virtual bool eventFilter(QObject *watched, QEvent *event);
+//    virtual void mouseMoveEvent(QMouseEvent* event);
 
 private:
     void createToolBar();

@@ -5,6 +5,7 @@
 #include <QMenuBar>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
+#include <QMouseEvent>
 
 MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
 {
@@ -22,7 +23,36 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
     hLayout->addWidget(m_navWidget);
     hLayout->addWidget(m_tabWidget);
     this->setCentralWidget(m_centralWidget);
+    m_treeWidget->setTabletTracking(true);
+    m_navWidget->setTabletTracking(true);
+    m_centralWidget->setTabletTracking(true);
+    this->setTabletTracking(true);
 }
+
+//bool MainWindow::eventFilter(QObject* watched, QEvent* event)
+//{
+//    if (watched == m_treeWidget)
+//    {
+//        if (event->type() == QEvent::HoverMove)
+//        {
+//            QMouseEvent* e = static_cast<QMouseEvent*>(event);
+
+//            if (m_treeWidget->itemAt(m_treeWidget->viewport()->mapFromGlobal(e->globalPos())))
+//                m_treeWidget->setCursor(Qt::PointingHandCursor);
+//            else
+//                m_treeWidget->setCursor(Qt::ArrowCursor);
+
+//            return true;
+//        }
+//    }
+
+//    return QMainWindow::eventFilter(watched, event);
+//}
+
+//void MainWindow::mouseMoveEvent(QMouseEvent* event)
+//{
+//    VA_DEBUG(event->pos());
+//}
 
 void MainWindow::createToolBar()
 {
@@ -133,19 +163,23 @@ void MainWindow::createNavWidget()
 
     m_treeWidget = new QTreeWidget;
     m_treeWidget->setFont(font);
-    m_treeWidget->setHeaderLabel("");
-    QTreeWidgetItem* searchItem = new QTreeWidgetItem(m_treeWidget, QStringList(tr("Search")));
-    QTreeWidgetItem* aStarItem = new QTreeWidgetItem(searchItem, QStringList(tr("A Star")));
-    QTreeWidgetItem* bfsItem = new QTreeWidgetItem(searchItem, QStringList(tr("BFS")));
-    QTreeWidgetItem* dfsItem = new QTreeWidgetItem(searchItem, QStringList(tr("DFS")));
+    m_treeWidget->setHeaderHidden(true);
+    QTreeWidgetItem* searchItem = new QTreeWidgetItem(m_treeWidget, QStringList(tr("Searching")));
+    QTreeWidgetItem* aStarItem = new QTreeWidgetItem(searchItem, QStringList(tr("A Star search")));
+    QTreeWidgetItem* bfsItem = new QTreeWidgetItem(searchItem, QStringList(tr("Breadth First Search")));//traversal
+    QTreeWidgetItem* dfsItem = new QTreeWidgetItem(searchItem, QStringList(tr("Depth First Search")));
     searchItem->addChild(aStarItem);
     searchItem->addChild(bfsItem);
     searchItem->addChild(dfsItem);
-    QTreeWidgetItem* sortItem = new QTreeWidgetItem(m_treeWidget, QStringList(tr("Sort")));
-    QTreeWidgetItem* insertSortItem = new QTreeWidgetItem(sortItem, QStringList(tr("Insert Sort")));
-    QTreeWidgetItem* mergeSortItem = new QTreeWidgetItem(sortItem, QStringList(tr("Merge Sort")));
-    sortItem->addChild(insertSortItem);
-    sortItem->addChild(mergeSortItem);
+    QTreeWidgetItem* sortintItem = new QTreeWidgetItem(m_treeWidget, QStringList(tr("Sorting")));
+    QTreeWidgetItem* insertionSortItem = new QTreeWidgetItem(sortintItem, QStringList(tr("Insertion Sort")));
+    QTreeWidgetItem* mergeSortItem = new QTreeWidgetItem(sortintItem, QStringList(tr("Merge Sort")));
+    QTreeWidgetItem* heapSortItem = new QTreeWidgetItem(sortintItem, QStringList(tr("Heap Sort")));
+    QTreeWidgetItem* selectionSortItem = new QTreeWidgetItem(sortintItem, QStringList(tr("Selection Sort")));
+    sortintItem->addChild(insertionSortItem);
+    sortintItem->addChild(mergeSortItem);
+    sortintItem->addChild(heapSortItem);
+    sortintItem->addChild(selectionSortItem);
 
     m_navWidget = new QWidget;
     m_navWidget->setFixedWidth(FIT(400));
