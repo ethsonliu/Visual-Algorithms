@@ -21,32 +21,37 @@ TreeWidget::TreeWidget(QTreeWidget* parent) : QTreeWidget(parent)
     sortintItem->addChild(mergeSortItem);
     sortintItem->addChild(heapSortItem);
     sortintItem->addChild(selectionSortItem);
+    QTreeWidgetItem* testItem = new QTreeWidgetItem(this, QStringList(tr("Origin")));
+    QTreeWidgetItem* test1Item = new QTreeWidgetItem(testItem, QStringList(tr("Ubuntu 18.04 x64 Origin")));
+    QTreeWidgetItem* test2Item = new QTreeWidgetItem(testItem, QStringList(tr("Ubuntu 14.04 x64 Origin")));
+    testItem->addChild(test1Item);
+    testItem->addChild(test2Item);
 }
 
-void TreeWidget::mouseMoveEvent(QMouseEvent* event)
-{
-    static QTreeWidgetItem* preItem = nullptr;
+//void TreeWidget::mouseMoveEvent(QMouseEvent* event)
+//{
+//    static QTreeWidgetItem* preItem = nullptr;
 
-    QFont font;
-    QTreeWidgetItem* item = this->itemAt(event->pos());
+//    QFont font;
+//    QTreeWidgetItem* item = this->itemAt(event->pos());
 
-    if (preItem)
-    {
-        font.setUnderline(false);
-        preItem->setData(0, Qt::FontRole, font);
-    }
+//    if (preItem)
+//    {
+//        font.setUnderline(false);
+//        preItem->setData(0, Qt::FontRole, font);
+//    }
 
-    if (item)
-    {
-        this->setCursor(Qt::PointingHandCursor);
-        preItem = item;
-        font.setUnderline(true);
-        item->setData(0, Qt::FontRole, font);
-    }
-    else
-    {
-        this->setCursor(Qt::ArrowCursor);
-    }
+//    if (item)
+//    {
+//        this->setCursor(Qt::PointingHandCursor);
+//        preItem = item;
+//        font.setUnderline(true);
+//        item->setData(0, Qt::FontRole, font);
+//    }
+//    else
+//    {
+//        this->setCursor(Qt::ArrowCursor);
+//    }
 
-    QTreeWidget::mouseMoveEvent(event);
-}
+//    QTreeWidget::mouseMoveEvent(event);
+//}

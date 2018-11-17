@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/images">
-        <file>app_icon.ico</file>
+        <file>app.ico</file>
         <file>donate.png</file>
         <file>home.svg</file>
         <file>open.svg</file>
@@ -12,8 +12,8 @@
         <file>slider_handle.png</file>
         <file>record.svg</file>
         <file>snapshot.svg</file>
-        <file>tree_close.png</file>
-        <file>tree_open.png</file>
+        <file>branch_close.svg</file>
+        <file>branch_open.svg</file>
     </qresource>
     <qresource prefix="/qss">
         <file>main.qss</file>

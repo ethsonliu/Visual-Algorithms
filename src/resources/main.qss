@@ -20,13 +20,13 @@ QToolButton::pressed
 
 QSlider::sub-page:horizontal
 {
-    background-color: rgb(37, 168, 198);
+    background-color: rgb(51, 153, 255);
 }
-
 
 QSlider::add-page:horizontal
 {
-    background-color: rgb(87, 97, 106);
+    /*background-color: rgb(87, 97, 106);*/
+    background-color: rgb(71, 71, 71);
 }
 
 QSlider::groove:horizontal
@@ -46,33 +46,16 @@ QTreeWidget
     show-decoration-selected: 1;
 }
 
-/*QTreeWidget::item:hover, QTreeWidget::branch:hover
+QTreeWidget::branch:has-children:!has-siblings:closed,
+QTreeWidget::branch:closed:has-children:has-siblings
 {
-    color: rgb(43, 179, 246);
-    text-decoration-line: underline;
-}*/
-
-
-/*QTreeWidget::branch:closed:has-children
-{
-    image: url(:/images/tree_close.png);
+    border-image: none;
+    image: url(:/images/branch_close.svg);
 }
 
-QTreeWidget::branch:open:has-children
+QTreeWidget::branch:open:has-children:!has-siblings,
+QTreeWidget::branch:open:has-children:has-siblings
 {
-    image: url(:/images/tree_open.png);
+    border-image: none;
+    image: url(:/images/branch_open.svg);
 }
-
-QTreeWidget::item
-{
-    height: 25px;
-    border: none;
-    background-color: transparent;
-}
-
-
-
-QTreeWidget::item:selected, QTreeWidget::branch:selected
-{
-    background-color: rgb(0, 160, 230);
-}*/
