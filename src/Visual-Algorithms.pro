@@ -31,7 +31,8 @@ SOURCES += \
     tabs/base_widget.cpp \
     widgets/option_dialog.cpp \
     widgets/message_dialog.cpp \
-    widgets/tool_button.cpp
+    widgets/tool_button.cpp \
+    widgets/tree_widget.cpp
 
 HEADERS += \
     config.h \
@@ -39,7 +40,8 @@ HEADERS += \
     tabs/base_widget.h \
     widgets/option_dialog.h \
     widgets/message_dialog.h \
-    widgets/tool_button.h
+    widgets/tool_button.h \
+    widgets/tree_widget.h
 
 RESOURCES += \
     resources/res.qrc

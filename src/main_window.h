@@ -2,6 +2,7 @@
 #define MAIN_WINDOW_H
 
 #include "config.h"
+#include "widgets/tree_widget.h"
 #include <QMainWindow>
 #include <QTreeWidget>
 #include <QLineEdit>
@@ -14,8 +15,6 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget* parent = nullptr);
-//    virtual bool eventFilter(QObject *watched, QEvent *event);
-//    virtual void mouseMoveEvent(QMouseEvent* event);
 
 private:
     void createToolBar();
@@ -46,7 +45,7 @@ private:
     QWidget*     m_navWidget;
     QTabWidget*  m_tabWidget;
 
-    QTreeWidget* m_treeWidget;
+    TreeWidget*  m_treeWidget;
     QLineEdit*   m_searchLineEdit;
 
     QSlider*     m_speedSlider;
