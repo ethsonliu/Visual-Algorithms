@@ -146,6 +146,10 @@ void MainWindow::createNavWidget()
 void MainWindow::createTabWidget()
 {
     m_tabWidget = new QTabWidget;
+    m_tabWidget->addTab(new QWidget, QIcon(":/images/tab.svg"), "abc");
+    m_tabWidget->addTab(new QWidget, QIcon(":/images/tab.svg"), "abcde");
+    m_tabWidget->addTab(new QWidget, QIcon(":/images/tab.svg"), "abcdefg");
+    m_tabWidget->addTab(new QWidget, QIcon(":/images/tab.svg"), "abcdefghi");
 }
 
 void MainWindow::play()

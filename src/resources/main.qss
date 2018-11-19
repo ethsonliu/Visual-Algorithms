@@ -20,12 +20,11 @@ QToolButton::pressed
 
 QSlider::sub-page:horizontal
 {
-    background-color: rgb(51, 153, 255);
+    background-color: rgb(37, 168, 198);
 }
 
 QSlider::add-page:horizontal
 {
-    /*background-color: rgb(87, 97, 106);*/
     background-color: rgb(71, 71, 71);
 }
 
@@ -46,16 +45,3 @@ QTreeWidget
     show-decoration-selected: 1;
 }
 
-QTreeWidget::branch:has-children:!has-siblings:closed,
-QTreeWidget::branch:closed:has-children:has-siblings
-{
-    border-image: none;
-    image: url(:/images/branch_close.svg);
-}
-
-QTreeWidget::branch:open:has-children:!has-siblings,
-QTreeWidget::branch:open:has-children:has-siblings
-{
-    border-image: none;
-    image: url(:/images/branch_open.svg);
-}

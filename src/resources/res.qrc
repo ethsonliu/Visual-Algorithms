@@ -12,8 +12,8 @@
         <file>slider_handle.png</file>
         <file>record.svg</file>
         <file>snapshot.svg</file>
-        <file>branch_close.svg</file>
-        <file>branch_open.svg</file>
+        <file>branch.svg</file>
+        <file>tab.svg</file>
     </qresource>
     <qresource prefix="/qss">
         <file>main.qss</file>

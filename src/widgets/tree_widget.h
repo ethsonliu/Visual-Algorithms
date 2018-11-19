@@ -11,7 +11,6 @@ class TreeWidget : public QTreeWidget
 
 public:
     TreeWidget(QTreeWidget* parent = nullptr);
-    //virtual void mouseMoveEvent(QMouseEvent* event);
 };
 
 #endif /* TREE_WIDGET_H */
