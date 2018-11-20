@@ -146,10 +146,15 @@ void MainWindow::createNavWidget()
 void MainWindow::createTabWidget()
 {
     m_tabWidget = new QTabWidget;
-    m_tabWidget->addTab(new QWidget, QIcon(":/images/tab.svg"), "abc");
-    m_tabWidget->addTab(new QWidget, QIcon(":/images/tab.svg"), "abcde");
-    m_tabWidget->addTab(new QWidget, QIcon(":/images/tab.svg"), "abcdefg");
-    m_tabWidget->addTab(new QWidget, QIcon(":/images/tab.svg"), "abcdefghi");
+    m_tabWidget->setTabsClosable(true);
+
+    m_tabWidget->addTab(new QWidget, QIcon(":/images/tab.svg"), "Ubuntu 18.04 x64 Dev");
+    m_tabWidget->addTab(new QWidget, QIcon(":/images/tab.svg"), "Ubuntu 18.04 x64 Dev");
+    m_tabWidget->addTab(new QWidget, QIcon(":/images/tab.svg"), "Ubuntu 10.04 x64 Origin");
+    m_tabWidget->addTab(new QWidget, QIcon(":/images/tab.svg"), "Linux x86");
+    QFont font;
+    font.setPixelSize(13);
+    //m_tabWidget->setFont(font);
 }
 
 void MainWindow::play()
