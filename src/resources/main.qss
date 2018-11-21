@@ -53,6 +53,7 @@ QTabBar
 QTabWidget::pane
 {
     background-color: white;
+    border-top: none;
 }
 
 QTabBar::tab
@@ -86,3 +87,4 @@ QTabBar::close-button:hover
 {
     image: url(:/images/close_red.svg);
 }
+
