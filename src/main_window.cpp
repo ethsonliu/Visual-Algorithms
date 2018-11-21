@@ -19,6 +19,7 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
     createTabWidget();
 
     m_centralWidget = new QWidget;
+    //m_centralWidget->setStyleSheet("QWidget{background-color: rgb(228, 229, 231);}");
     QHBoxLayout* hLayout = new QHBoxLayout(m_centralWidget);
     hLayout->addWidget(m_navWidget);
     hLayout->addWidget(m_tabWidget);
