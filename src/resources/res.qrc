@@ -14,7 +14,8 @@
         <file>snapshot.svg</file>
         <file>branch.svg</file>
         <file>tab.svg</file>
-        <file>close_black.svg</file>
+        <file>tab_close_normal.svg</file>
+        <file>tab_close_hover.svg</file>
     </qresource>
     <qresource prefix="/qss">
         <file>main.qss</file>

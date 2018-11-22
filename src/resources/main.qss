@@ -53,6 +53,12 @@ QTreeWidget
 QTabBar
 {
     border-bottom: none;
+    font-weight: bold;
+}
+
+QTabWidget
+{
+    border: 3px solid red;
 }
 
 QTabWidget::pane
@@ -63,32 +69,29 @@ QTabWidget::pane
 
 QTabBar::tab
 {
-    background: rgb(235, 236, 237);
+    font-weight: normal;
+    background-color: rgb(235, 236, 237);
     border: 1px solid rgb(179, 179, 179);
     border-bottom: none;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
-    padding: 6px;
+    padding: 4px;
     margin-left: 3px;
 }
 
 QTabBar::tab:selected
 {
     font-weight: bold;
-    padding: 4px;
-    border-left: none;
-    border-top: none;
-    border-bottom: none;
     background-color: white;
 }
 
 QTabBar::close-button
 {
-    image: url(:/images/close_black.svg);
+    image: url(:/images/tab_close_normal.svg);
 }
 
 QTabBar::close-button:hover
 {
-    image: url(:/images/close_red.svg);
+    image: url(:/images/tab_close_hover.svg);
 }
 

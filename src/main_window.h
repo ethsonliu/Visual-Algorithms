@@ -3,6 +3,7 @@
 
 #include "config.h"
 #include "widgets/tree_widget.h"
+#include "widgets/tool_button.h"
 #include <QMainWindow>
 #include <QTreeWidget>
 #include <QLineEdit>
@@ -49,6 +50,7 @@ private:
     QLineEdit*   m_searchLineEdit;
 
     QSlider*     m_speedSlider;
+    ToolButton*  m_playToolButton;
 };
 
 #endif /* MAIN_WINDOW_H */

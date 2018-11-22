@@ -1,5 +1,4 @@
 ﻿#include "main_window.h"
-#include "widgets/tool_button.h"
 #include <QIcon>
 #include <QToolBar>
 #include <QMenuBar>
@@ -65,11 +64,11 @@ void MainWindow::createToolBar()
     /* add some toolbuttons to the toolbar */
     QToolBar* toolBar = this->addToolBar(tr("Tool"));
     toolBar->addSeparator();
-    ToolButton* playToolButton = new ToolButton;
-    playToolButton->setIcon(QIcon(":/images/play.svg"));
-    playToolButton->setStyleSheet(toolButtonQss);
-    connect(playToolButton, &ToolButton::clicked, this, &MainWindow::playSlot);
-    toolBar->addWidget(playToolButton);
+    m_playToolButton = new ToolButton;
+    m_playToolButton->setIcon(QIcon(":/images/play.svg"));
+    m_playToolButton->setStyleSheet(toolButtonQss);
+    connect(m_playToolButton, &ToolButton::clicked, this, &MainWindow::playSlot);
+    toolBar->addWidget(m_playToolButton);
     toolBar->addSeparator();
     ToolButton* replayToolButton = new ToolButton;
     replayToolButton->setIcon(QIcon(":/images/replay.svg"));
@@ -100,20 +99,7 @@ void MainWindow::createToolBar()
     m_speedSlider = new QSlider(Qt::Horizontal);
     m_speedSlider->setRange(0, 100);
     m_speedSlider->setValue(m_speedSlider->maximum() >> 1);
-    connect(m_speedSlider, &QSlider::valueChanged, [this](int value)\
-                                                   {\
-                                                        if (value < 2)\
-                                                        {\
-                                                            m_speedSlider->setValue(2);\
-                                                            return;\
-                                                        }\
-
-                                                        if (value > 98)\
-                                                        {\
-                                                            m_speedSlider->setValue(98);\
-                                                            return;\
-                                                        }\
-                                                   }); /* avoid the handle to exceed the slider border */
+    connect(m_speedSlider, &QSlider::valueChanged, this, &MainWindow::speedChangedSlot);
     sliderToolBar->setFixedWidth(FIT(240));
     sliderToolBar->addWidget(m_speedSlider);
     sliderToolBar->setStyleSheet(sliderQss);
@@ -141,7 +127,7 @@ void MainWindow::createNavWidget()
     QVBoxLayout* vLayout = new QVBoxLayout(m_navWidget);
     vLayout->addWidget(m_searchLineEdit);
     vLayout->addWidget(m_treeWidget);
-    vLayout->setSpacing(FIT(10));
+    vLayout->setSpacing(FIT(8));
 }
 
 void MainWindow::createTabWidget()
@@ -153,9 +139,6 @@ void MainWindow::createTabWidget()
     m_tabWidget->addTab(new QWidget, QIcon(":/images/tab.svg"), "Ubuntu 18.04 x64 Dev");
     m_tabWidget->addTab(new QWidget, QIcon(":/images/tab.svg"), "Ubuntu 10.04 x64 Origin");
     m_tabWidget->addTab(new QWidget, QIcon(":/images/tab.svg"), "Linux x86");
-    QFont font;
-    font.setPixelSize(13);
-    //m_tabWidget->setFont(font);
 }
 
 void MainWindow::play()
@@ -215,7 +198,20 @@ void MainWindow::aboutSlot()
 
 void MainWindow::playSlot()
 {
+    static bool isPlaySvg = true;
 
+    if (isPlaySvg)
+    {
+        m_playToolButton->setIcon(QIcon(":/images/pause.svg"));
+        this->play();
+    }
+    else
+    {
+        m_playToolButton->setIcon(QIcon(":/images/play.svg"));
+        this->pause();
+    }
+
+    isPlaySvg = !isPlaySvg;
 }
 
 void MainWindow::replaySlot()
@@ -240,5 +236,15 @@ void MainWindow::recordslot()
 
 void MainWindow::speedChangedSlot(int value)
 {
+    /* avoid the handle to exceed the slider border */
+    if (value < 2)
+    {
+        m_speedSlider->setValue(2);
+    }
+    else if (value > 98)
+    {
+        m_speedSlider->setValue(98);
+    }
 
+    //////
 }
