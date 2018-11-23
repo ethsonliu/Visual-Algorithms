@@ -1,4 +1,10 @@
-﻿QMainWindow
+﻿QWidget
+{
+    font-family: 'Microsoft YaHei UI';
+    font-size: 13px;
+}
+
+QMainWindow
 {
     background-color: rgb(228, 229, 231);
 }
@@ -7,6 +13,12 @@ QToolBar
 {
     background-color: white;
     border: none;
+}
+
+QToolButton
+{
+    margin: 2px;
+    padding: 0px 3px;
 }
 
 QToolButton::hover
@@ -21,6 +33,11 @@ QToolButton::pressed
     background-color: rgb(235, 236, 237);
     border-radius: 6px;
     border: 1px solid rgb(219, 220, 220);
+}
+
+QSlider
+{
+    margin: 0px 4px;
 }
 
 QSlider::sub-page:horizontal
@@ -56,17 +73,6 @@ QTabBar
     font-weight: bold;
 }
 
-QTabWidget
-{
-    border: 3px solid red;
-}
-
-QTabWidget::pane
-{
-    background-color: white;
-    border-top: none;
-}
-
 QTabBar::tab
 {
     font-weight: normal;
@@ -94,4 +100,12 @@ QTabBar::close-button:hover
 {
     image: url(:/images/tab_close_hover.svg);
 }
+
+QTabWidget::pane
+{
+    background-color: white;
+    border-top: none;
+}
+
+
 
