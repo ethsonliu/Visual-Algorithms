@@ -14,7 +14,7 @@ bool ToolButton::event(QEvent* event)
 
         /* to adjust the the position of tooltip */
         if (helpEvent)
-            QToolTip::showText(helpEvent->globalPos() + QPoint(-1 * this->width() / 2, FIT(20)), toolTip());
+            QToolTip::showText(helpEvent->globalPos() + QPoint(-1 * this->width() / 2, 20), toolTip());
 
         return true;
     }
