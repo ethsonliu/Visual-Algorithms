@@ -5,8 +5,6 @@
 #include <QFile>
 #include <QTextCodec>
 
-float gScaledSize; /* for screen resolution fit */
-
 int main(int argc, char* argv[])
 {
     QApplication a(argc, argv);
@@ -21,9 +19,6 @@ int main(int argc, char* argv[])
         qApp->setStyleSheet(qss);
         file.close();
     }
-
-    QScreen* screen = QGuiApplication::primaryScreen();
-    gScaledSize = screen->geometry().width() * 1.0 / 1920;
 
     MainWindow w;
     w.show();

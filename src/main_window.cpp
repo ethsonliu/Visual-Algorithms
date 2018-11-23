@@ -18,7 +18,6 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
     createTabWidget();
 
     m_centralWidget = new QWidget;
-    //m_centralWidget->setStyleSheet("QWidget{background-color: rgb(228, 229, 231);}");
     QHBoxLayout* hLayout = new QHBoxLayout(m_centralWidget);
     hLayout->addWidget(m_navWidget);
     hLayout->addWidget(m_tabWidget);
@@ -56,40 +55,30 @@ void MainWindow::createToolBar()
     menuToolBar->addWidget(menuBar);
     menuToolBar->setMovable(false);
 
-    QString toolButtonQss;
-    toolButtonQss.sprintf("QToolButton{margin: %dpx; padding: 0px %dpx;}", FIT(2), FIT(3));
-    QString sliderQss;
-    sliderQss.sprintf("QSlider{margin: 0px %dpx;}", FIT(4));
-
     /* add some toolbuttons to the toolbar */
     QToolBar* toolBar = this->addToolBar(tr("Tool"));
     toolBar->addSeparator();
     m_playToolButton = new ToolButton;
     m_playToolButton->setIcon(QIcon(":/images/play.svg"));
-    m_playToolButton->setStyleSheet(toolButtonQss);
     connect(m_playToolButton, &ToolButton::clicked, this, &MainWindow::playSlot);
     toolBar->addWidget(m_playToolButton);
     toolBar->addSeparator();
     ToolButton* replayToolButton = new ToolButton;
     replayToolButton->setIcon(QIcon(":/images/replay.svg"));
-    replayToolButton->setStyleSheet(toolButtonQss);
     replayToolButton->setToolTip(tr("Replay the animation"));
     toolBar->addWidget(replayToolButton);
     ToolButton* restoreToolButton = new ToolButton;
     restoreToolButton->setIcon(QIcon(":/images/restore.svg"));
-    restoreToolButton->setStyleSheet(toolButtonQss);
     restoreToolButton->setToolTip(tr("Restore to the initial state"));
     toolBar->addWidget(restoreToolButton);
     toolBar->addSeparator();
     ToolButton* snapshotToolButton = new ToolButton;
     snapshotToolButton->setIcon(QIcon(":/images/snapshot.svg"));
-    snapshotToolButton->setStyleSheet(toolButtonQss);
     snapshotToolButton->setToolTip(tr("Take a snapshot of the animation"));
     toolBar->addWidget(snapshotToolButton);
     ToolButton* recordToolButton = new ToolButton;
     recordToolButton->setIcon(QIcon(":/images/record.svg"));
-    recordToolButton->setStyleSheet(toolButtonQss);
-    recordToolButton->setToolTip(tr("Take a record to GIF file"));
+    recordToolButton->setToolTip(tr("Take record to a GIF file"));
     toolBar->addWidget(recordToolButton);
     toolBar->addSeparator();
     toolBar->setMovable(false);
@@ -100,9 +89,8 @@ void MainWindow::createToolBar()
     m_speedSlider->setRange(0, 100);
     m_speedSlider->setValue(m_speedSlider->maximum() >> 1);
     connect(m_speedSlider, &QSlider::valueChanged, this, &MainWindow::speedChangedSlot);
-    sliderToolBar->setFixedWidth(FIT(240));
+    sliderToolBar->setFixedWidth(240);
     sliderToolBar->addWidget(m_speedSlider);
-    sliderToolBar->setStyleSheet(sliderQss);
     sliderToolBar->setMovable(false);
     QToolBar* emptyToolBar = this->addToolBar(tr("Empty"));
     emptyToolBar->setMovable(false);
@@ -110,24 +98,19 @@ void MainWindow::createToolBar()
 
 void MainWindow::createNavWidget()
 {
-    QFont font;
-    font.setPixelSize(FIT(13));
-
     m_searchLineEdit = new QLineEdit;
-    m_searchLineEdit->setFont(font);
-    m_searchLineEdit->setFixedHeight(FIT(24));
+    m_searchLineEdit->setFixedHeight(24);
     m_searchLineEdit->setPlaceholderText(tr("Type here to search"));
     m_searchLineEdit->addAction(QIcon(":/images/search.svg"), QLineEdit::LeadingPosition);
 
     m_treeWidget = new TreeWidget;
-    m_treeWidget->setFont(font);
 
     m_navWidget = new QWidget;
-    m_navWidget->setFixedWidth(FIT(400));
+    m_navWidget->setFixedWidth(400);
     QVBoxLayout* vLayout = new QVBoxLayout(m_navWidget);
     vLayout->addWidget(m_searchLineEdit);
     vLayout->addWidget(m_treeWidget);
-    vLayout->setSpacing(FIT(8));
+    vLayout->setSpacing(8);
 }
 
 void MainWindow::createTabWidget()
