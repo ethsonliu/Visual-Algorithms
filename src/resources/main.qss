@@ -1,7 +1,7 @@
 ﻿QWidget
 {
-    font-family: 'Microsoft YaHei UI';
-    font-size: 13px;
+    font-family: 'Calibri'; /* use 'Segoe UI' is greate too */
+    font-size: 16px;
 }
 
 QMainWindow
