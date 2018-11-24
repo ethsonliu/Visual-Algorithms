@@ -16,6 +16,8 @@
         <file>tab_close_normal.svg</file>
         <file>tab_close_hover.svg</file>
         <file>app.ico</file>
+        <file>left_arrow_normal.svg</file>
+        <file>right_arrow_normal.svg</file>
     </qresource>
     <qresource prefix="/qss">
         <file>main.qss</file>

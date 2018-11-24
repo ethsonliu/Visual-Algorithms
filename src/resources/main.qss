@@ -1,12 +1,26 @@
 ﻿QWidget
 {
-    font-family: 'Calibri'; /* use 'Segoe UI' is greate too */
-    font-size: 16px;
+    font-family: 'Microsoft YaHei UI';
 }
 
 QMainWindow
 {
     background-color: rgb(228, 229, 231);
+}
+
+QLineEdit
+{
+    font-size: 13px;
+}
+
+QMenu
+{
+    font-size: 13px;
+}
+
+QMenuBar
+{
+    font-size: 13px;
 }
 
 QToolBar
@@ -15,20 +29,20 @@ QToolBar
     border: none;
 }
 
-QToolButton
+QToolBar QToolButton
 {
     margin: 2px;
     padding: 0px 3px;
 }
 
-QToolButton::hover
+QToolBar QToolButton::hover
 {
     background-color: rgb(239, 245, 253);
     border-radius: 6px;
     border: 1px solid rgb(219, 220, 220);
 }
 
-QToolButton::pressed
+QToolBar QToolButton::pressed
 {
     background-color: rgb(235, 236, 237);
     border-radius: 6px;
@@ -64,12 +78,14 @@ QSlider::handle:horizontal
 
 QTreeWidget
 {
+    font-size: 13px;
     show-decoration-selected: 1;
 }
 
 QTabBar
 {
     border-bottom: none;
+    font-size: 12px;
     font-weight: bold;
 }
 
@@ -99,7 +115,63 @@ QTabBar::close-button
 QTabBar::close-button:hover
 {
     image: url(:/images/tab_close_hover.svg);
+    background-color: white;
+    border: none;
 }
+
+QTabBar QToolButton
+{
+    border: 2px solid rgb(179, 179, 179);
+}
+
+/*QTabBar QToolButton::left-arrow
+{
+    image: url(:/images/left_arrow_normal.svg);
+    background-color: rgb(228, 229, 231);
+    border: none;
+}
+
+QTabBar QToolButton::left-arrow:hover
+{
+    image: url(:/images/left_arrow_normal.svg);
+    background-color: rgb(228, 229, 231);
+    border: none;
+}*/
+
+/*QTabBar QToolButton::left-arrow:disabled
+{
+    image: url(:/images/left_arrow_normal.svg);
+    background-color: rgb(228, 229, 231);
+    border: none;
+}*/
+
+/*QTabBar QToolButton::right-arrow
+{
+    image: url(:/images/right_arrow_normal.svg);
+    background-color: rgb(228, 229, 231);
+    border: none;
+}
+
+QTabBar QToolButton::right-arrow:hover
+{
+    image: url(:/images/right_arrow_normal.svg);
+    background-color: rgb(228, 229, 231);
+    border: none;
+}
+
+QTabBar QToolButton::right-arrow:pressed
+{
+    image: url(:/images/right_arrow_normal.svg);
+    background-color: rgb(228, 229, 231);
+    border: none;
+}*/
+
+/*QTabBar QToolButton::right-arrow:disabled
+{
+    image: url(:/images/right_arrow_normal.svg);
+    background-color: rgb(228, 229, 231);
+    border: none;
+}*/
 
 QTabWidget::pane
 {
