@@ -20,6 +20,9 @@
         <file>right_arrow_normal.svg</file>
         <file>left_arrow_disabled.svg</file>
         <file>right_arrow_disabled.svg</file>
+        <file>update.svg</file>
+        <file>dot_normal.svg</file>
+        <file>dot_hover.svg</file>
     </qresource>
     <qresource prefix="/qss">
         <file>main.qss</file>
