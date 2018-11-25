@@ -29,25 +29,27 @@ void MainWindow::createToolBar()
     /* create menubar, and add some menus to it */
     QMenuBar* menuBar = new QMenuBar;
     QMenu* fileMenu = menuBar->addMenu(tr("File"));
-    fileMenu->addAction(tr("Open Source Code Directory..."), this, &MainWindow::openSlot);
+    fileMenu->addAction(QIcon(":/images/open.svg"), tr("Open Source Code Directory..."), this, &MainWindow::openSlot);
     fileMenu->addSeparator();
     fileMenu->addAction(tr("Exit"));
     QMenu* languagesMenu = menuBar->addMenu(tr("Languages"));
-    languagesMenu->addAction(tr("(System Language)"));
+    connect(languagesMenu, &QMenu::triggered, this, &MainWindow::changeLanguageSlot);
+    languagesMenu->addAction(QIcon(":/images/dot_hover.svg"), tr("(System Language)"));
+    languagesMenu->addSeparator();
     languagesMenu->addAction(tr("English"));
     languagesMenu->addAction(tr("Simplified Chinese"));
     QMenu* tabsMenu = menuBar->addMenu(tr("Tabs"));
-    tabsMenu->addAction(tr("Go to Home Tab"), this, &MainWindow::homeTabSlot);
+    tabsMenu->addAction(QIcon(":/images/home.svg"), tr("Go to Home Tab"), this, &MainWindow::homeTabSlot);
     tabsMenu->addSeparator();
     tabsMenu->addAction(tr("Next Tab"), this, &MainWindow::nextTabSlot);
     tabsMenu->addAction(tr("Previous Tab"), this, &MainWindow::previousTabSlot);
     QMenu* donateMenu = menuBar->addMenu(tr("Donate"));
-    donateMenu->addAction(tr("Donate to Me"), this, &MainWindow::donateSlot);
+    donateMenu->addAction(QIcon(":/images/donate.png"), tr("Donate to Me"), this, &MainWindow::donateSlot);
     QMenu* helpMenu = menuBar->addMenu(tr("Help"));
     helpMenu->addAction(tr("Feedbacks"), this, &MainWindow::feedbackSlot);
-    helpMenu->addAction(tr("Software Updates"), this, &MainWindow::updateSlot);
+    helpMenu->addAction(QIcon(":/images/update.svg"), tr("Software Updates"), this, &MainWindow::updateSlot);
     helpMenu->addSeparator();
-    helpMenu->addAction(tr("About Visual Algorithms"), this, &MainWindow::aboutSlot);
+    helpMenu->addAction(QIcon(":/images/app.ico"), tr("About Visual Algorithms"), this, &MainWindow::aboutSlot);
     menuBar->setFixedHeight(menuBar->minimumSizeHint().height());
 
     /* add the menubar above to the toolbar */
@@ -117,11 +119,12 @@ void MainWindow::createTabWidget()
 {
     m_tabWidget = new QTabWidget;
     m_tabWidget->setTabsClosable(true);
+    //tabCloseRequested
 
-    m_tabWidget->addTab(new QWidget, QIcon(":/images/tab.svg"), "Ubuntu 18.04 x64 Dev");
-    m_tabWidget->addTab(new QWidget, QIcon(":/images/tab.svg"), "Ubuntu 18.04 x64 Dev");
-    m_tabWidget->addTab(new QWidget, QIcon(":/images/tab.svg"), "Ubuntu 10.04 x64 Origin");
-    m_tabWidget->addTab(new QWidget, QIcon(":/images/tab.svg"), "Linux x86");
+    m_tabWidget->addTab(new QWidget, QIcon(":/images/tab.svg"), "Ubuntu 01.00 x64 Dev");
+    m_tabWidget->addTab(new QWidget, QIcon(":/images/tab.svg"), "Ubuntu 02.00 x64 Dev");
+    m_tabWidget->addTab(new QWidget, QIcon(":/images/tab.svg"), "Ubuntu 03.00 x64 Origin");
+    m_tabWidget->addTab(new QWidget, QIcon(":/images/tab.svg"), "Ubuntu 04.00 x64 Origin");
 }
 
 void MainWindow::play()
@@ -155,6 +158,11 @@ void MainWindow::nextTabSlot()
 }
 
 void MainWindow::previousTabSlot()
+{
+
+}
+
+void MainWindow::changeLanguageSlot(QAction* action)
 {
 
 }

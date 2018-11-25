@@ -30,6 +30,7 @@ private slots:
     void homeTabSlot();
     void nextTabSlot();
     void previousTabSlot();
+    void changeLanguageSlot(QAction* action);
     void donateSlot();
     void feedbackSlot();
     void updateSlot();
