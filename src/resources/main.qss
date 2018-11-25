@@ -115,69 +115,43 @@ QTabBar::close-button
 QTabBar::close-button:hover
 {
     image: url(:/images/tab_close_hover.svg);
-    background-color: white;
-    border: none;
+}
+
+QTabBar::scroller
+{
+    border-left: 1px solid rgb(179, 179, 179);
 }
 
 QTabBar QToolButton
 {
-    border: 2px solid rgb(179, 179, 179);
+    border: none;
+    background-color: rgb(228, 229, 231);
 }
 
-/*QTabBar QToolButton::left-arrow
+QTabBar QToolButton::left-arrow
 {
     image: url(:/images/left_arrow_normal.svg);
-    background-color: rgb(228, 229, 231);
-    border: none;
+    border-left: 1px solid rgb(179, 179, 179);
 }
 
-QTabBar QToolButton::left-arrow:hover
+QTabBar QToolButton::left-arrow:disabled
 {
-    image: url(:/images/left_arrow_normal.svg);
-    background-color: rgb(228, 229, 231);
-    border: none;
-}*/
-
-/*QTabBar QToolButton::left-arrow:disabled
-{
-    image: url(:/images/left_arrow_normal.svg);
-    background-color: rgb(228, 229, 231);
-    border: none;
-}*/
-
-/*QTabBar QToolButton::right-arrow
-{
-    image: url(:/images/right_arrow_normal.svg);
-    background-color: rgb(228, 229, 231);
-    border: none;
+    image: url(:/images/left_arrow_disabled.svg);
 }
 
-QTabBar QToolButton::right-arrow:hover
+QTabBar QToolButton::right-arrow
 {
     image: url(:/images/right_arrow_normal.svg);
-    background-color: rgb(228, 229, 231);
-    border: none;
 }
 
-QTabBar QToolButton::right-arrow:pressed
+QTabBar QToolButton::right-arrow:disabled
 {
-    image: url(:/images/right_arrow_normal.svg);
-    background-color: rgb(228, 229, 231);
-    border: none;
-}*/
-
-/*QTabBar QToolButton::right-arrow:disabled
-{
-    image: url(:/images/right_arrow_normal.svg);
-    background-color: rgb(228, 229, 231);
-    border: none;
-}*/
+    image: url(:/images/right_arrow_disabled.svg);
+}
 
 QTabWidget::pane
 {
     background-color: white;
     border-top: none;
 }
-
-
 
