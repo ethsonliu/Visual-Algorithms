@@ -13,14 +13,14 @@ QLineEdit
     font-size: 13px;
 }
 
-QMenu
+QMenuBar
 {
     font-size: 13px;
 }
 
-QMenuBar
+QMenu
 {
-    font-size: 13px;
+    font-size: 12px;
 }
 
 QToolBar
