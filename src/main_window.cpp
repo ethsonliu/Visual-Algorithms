@@ -34,10 +34,17 @@ void MainWindow::createToolBar()
     fileMenu->addAction(tr("Exit"));
     QMenu* languagesMenu = menuBar->addMenu(tr("Languages"));
     connect(languagesMenu, &QMenu::triggered, this, &MainWindow::changeLanguageSlot);
-    languagesMenu->addAction(QIcon(":/images/dot_hover.svg"), tr("(System Language)"));
+    QAction* action = languagesMenu->addAction(QIcon(":/images/dot.svg"), tr("(System Language)"));
+    action->setCheckable(true);
+    action->setChecked(true);
+    m_lastLanguageAction = action;
     languagesMenu->addSeparator();
-    languagesMenu->addAction(tr("English"));
-    languagesMenu->addAction(tr("Simplified Chinese"));
+    action = languagesMenu->addAction(QIcon(":/images/dot.svg"), tr("English"));
+    action->setCheckable(true);
+    action->setIconVisibleInMenu(false);
+    action = languagesMenu->addAction(QIcon(":/images/dot.svg"), tr("Simplified Chinese"));
+    action->setCheckable(true);
+    action->setIconVisibleInMenu(false);
     QMenu* tabsMenu = menuBar->addMenu(tr("Tabs"));
     tabsMenu->addAction(QIcon(":/images/home.svg"), tr("Go to Home Tab"), this, &MainWindow::homeTabSlot);
     tabsMenu->addSeparator();
@@ -164,7 +171,11 @@ void MainWindow::previousTabSlot()
 
 void MainWindow::changeLanguageSlot(QAction* action)
 {
-
+    m_lastLanguageAction->setIconVisibleInMenu(false);
+    m_lastLanguageAction->setChecked(false);
+    m_lastLanguageAction = action;
+    action->setIconVisibleInMenu(true);
+    action->setChecked(true);
 }
 
 void MainWindow::donateSlot()

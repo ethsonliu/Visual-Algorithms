@@ -49,9 +49,9 @@ private:
 
     TreeWidget*  m_treeWidget;
     QLineEdit*   m_searchLineEdit;
-
     QSlider*     m_speedSlider;
     ToolButton*  m_playToolButton;
+    QAction*     m_lastLanguageAction;
 };
 
 #endif /* MAIN_WINDOW_H */
