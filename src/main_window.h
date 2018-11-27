@@ -45,6 +45,7 @@ private slots:
 private:
     QWidget*     m_centralWidget;
     QWidget*     m_navWidget;
+    QFrame*      m_frame;
     QTabWidget*  m_tabWidget;
 
     TreeWidget*  m_treeWidget;

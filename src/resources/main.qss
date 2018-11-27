@@ -154,4 +154,3 @@ QTabWidget::pane
     background-color: white;
     border-top: none;
 }
-

@@ -1,4 +1,5 @@
 ﻿#include "main_window.h"
+#include "tabs/base_widget.h"
 #include <QIcon>
 #include <QToolBar>
 #include <QMenuBar>
@@ -17,10 +18,21 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
     createNavWidget();
     createTabWidget();
 
+
+
     m_centralWidget = new QWidget;
     QHBoxLayout* hLayout = new QHBoxLayout(m_centralWidget);
     hLayout->addWidget(m_navWidget);
-    hLayout->addWidget(m_tabWidget);
+    QVBoxLayout* vLayout = new QVBoxLayout;
+    vLayout->addWidget(m_frame);
+
+
+
+    vLayout->addSpacing(8);
+    hLayout->addLayout(vLayout);
+    hLayout->setSpacing(0);
+    hLayout->setMargin(0);
+
     this->setCentralWidget(m_centralWidget);
 }
 
@@ -115,20 +127,27 @@ void MainWindow::createNavWidget()
     m_treeWidget = new TreeWidget;
 
     m_navWidget = new QWidget;
-    m_navWidget->setFixedWidth(400);
+    m_navWidget->setFixedWidth(330);
     QVBoxLayout* vLayout = new QVBoxLayout(m_navWidget);
     vLayout->addWidget(m_searchLineEdit);
     vLayout->addWidget(m_treeWidget);
     vLayout->setSpacing(8);
+    vLayout->setContentsMargins(8, 12, 8, 8);
 }
 
 void MainWindow::createTabWidget()
 {
+    m_frame = new QFrame;
+    m_frame->setFrameShape(QFrame::Box);
+    QVBoxLayout* vLayout = new QVBoxLayout(m_frame);
     m_tabWidget = new QTabWidget;
     m_tabWidget->setTabsClosable(true);
+    vLayout->addWidget(m_tabWidget);
+    vLayout->setSpacing(0);
+    vLayout->setContentsMargins(0, 12, 8, 8);
     //tabCloseRequested
 
-    m_tabWidget->addTab(new QWidget, QIcon(":/images/tab.svg"), "Ubuntu 01.00 x64 Dev");
+    m_tabWidget->addTab(new BaseWidget, QIcon(":/images/tab.svg"), "Ubuntu 01.00 x64 Dev");
     m_tabWidget->addTab(new QWidget, QIcon(":/images/tab.svg"), "Ubuntu 02.00 x64 Dev");
     m_tabWidget->addTab(new QWidget, QIcon(":/images/tab.svg"), "Ubuntu 03.00 x64 Origin");
     m_tabWidget->addTab(new QWidget, QIcon(":/images/tab.svg"), "Ubuntu 04.00 x64 Origin");
