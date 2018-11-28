@@ -9,7 +9,6 @@
 
 MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
 {
-    /* https://filosophy.org/writing/visual-algorithms-precision-and-recall/ */
     /* icons download by https://www.iconfinder.com */
     this->setWindowTitle(tr("Visual Algorithms"));
     this->setWindowState(Qt::WindowMaximized);
@@ -18,21 +17,24 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
     createNavWidget();
     createTabWidget();
 
-
-
     m_centralWidget = new QWidget;
-    QHBoxLayout* hLayout = new QHBoxLayout(m_centralWidget);
-    hLayout->addWidget(m_navWidget);
-    QVBoxLayout* vLayout = new QVBoxLayout;
-    vLayout->addWidget(m_frame);
 
+    QVBoxLayout* vLayout1 = new QVBoxLayout;
+    vLayout1->addSpacing(22);
+    vLayout1->addWidget(m_navWidget);
+    vLayout1->addSpacing(8);
 
+    QVBoxLayout* vLayout2 = new QVBoxLayout;
+    vLayout2->addWidget(m_frame);
+    vLayout2->addSpacing(8);
 
-    vLayout->addSpacing(8);
-    hLayout->addLayout(vLayout);
-    hLayout->setSpacing(0);
-    hLayout->setMargin(0);
+    QHBoxLayout* hLayout = new QHBoxLayout;
+    hLayout->addLayout(vLayout1);
+    hLayout->addLayout(vLayout2);
+    hLayout->setSpacing(8);
+    hLayout->setContentsMargins(8, 0, 0, 0);
 
+    m_centralWidget->setLayout(hLayout);
     this->setCentralWidget(m_centralWidget);
 }
 
@@ -120,7 +122,7 @@ void MainWindow::createToolBar()
 void MainWindow::createNavWidget()
 {
     m_searchLineEdit = new QLineEdit;
-    m_searchLineEdit->setFixedHeight(24);
+    m_searchLineEdit->setFixedHeight(28);
     m_searchLineEdit->setPlaceholderText(tr("Type here to search"));
     m_searchLineEdit->addAction(QIcon(":/images/search.svg"), QLineEdit::LeadingPosition);
 
@@ -132,19 +134,22 @@ void MainWindow::createNavWidget()
     vLayout->addWidget(m_searchLineEdit);
     vLayout->addWidget(m_treeWidget);
     vLayout->setSpacing(8);
-    vLayout->setContentsMargins(8, 12, 8, 8);
+    vLayout->setMargin(0);
 }
 
 void MainWindow::createTabWidget()
 {
     m_frame = new QFrame;
-    m_frame->setFrameShape(QFrame::Box);
-    QVBoxLayout* vLayout = new QVBoxLayout(m_frame);
+    m_frame->setFrameShape(QFrame::StyledPanel);
+
     m_tabWidget = new QTabWidget;
     m_tabWidget->setTabsClosable(true);
+
+    QVBoxLayout* vLayout = new QVBoxLayout(m_frame);
     vLayout->addWidget(m_tabWidget);
     vLayout->setSpacing(0);
-    vLayout->setContentsMargins(0, 12, 8, 8);
+    vLayout->setContentsMargins(0, 10, 0, 0);
+
     //tabCloseRequested
 
     m_tabWidget->addTab(new BaseWidget, QIcon(":/images/tab.svg"), "Ubuntu 01.00 x64 Dev");

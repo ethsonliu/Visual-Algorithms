@@ -10,6 +10,7 @@ BaseWidget::BaseWidget(QWidget* parent) : QWidget(parent)
     settingsGroupBox = new QGroupBox(tr("Settings"));
     descriptionGroupBox = new QGroupBox(tr("Description"));
     QVBoxLayout* vLayout1 = new QVBoxLayout(helperWidget);
+    vLayout1->addSpacing(30);
     vLayout1->addWidget(settingsGroupBox);
     vLayout1->addWidget(descriptionGroupBox);
     vLayout1->setSpacing(10);
