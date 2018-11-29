@@ -164,3 +164,18 @@ QGraphicsView
 {
     border: none;
 }
+
+QGroupBox
+{
+    font-size: 16px;
+}
+
+QGroupBox::title
+{
+    color: rgb(70, 84, 206);
+    subcontrol-position: top left;
+    padding-left: 8px;
+    padding-top: 0px;
+    padding-right: 2px;
+    padding-bottom: 0px;
+}
