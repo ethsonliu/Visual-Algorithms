@@ -22,6 +22,9 @@
         <file>right_arrow_disabled.svg</file>
         <file>update.svg</file>
         <file>dot.svg</file>
+        <file>down_arrow.svg</file>
+        <file>description.svg</file>
+        <file>setting.svg</file>
     </qresource>
     <qresource prefix="/qss">
         <file>main.qss</file>
