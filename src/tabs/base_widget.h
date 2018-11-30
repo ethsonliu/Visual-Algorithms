@@ -4,7 +4,6 @@
 #include "config.h"
 #include <QGraphicsView>
 #include <QGraphicsScene>
-#include <QGroupBox>
 #include <QLabel>
 
 class BaseWidget : public QWidget
@@ -12,15 +11,18 @@ class BaseWidget : public QWidget
 public:
     BaseWidget(QWidget* parent = nullptr);
 
-public:
+protected:
+    void setPaneName(QString name);
+
+private:
+    QWidget* createTitleWidget(QString name, QString iconPath);
+
+protected:
     QWidget*        m_helperWidget;
+    QWidget*        m_settingWidget;
+    QWidget*        m_descriptionWidget;
     QGraphicsView*  m_view;
     QGraphicsScene* m_scene;
-    QGroupBox*      m_settingsGroupBox;
-    QGroupBox*      m_descriptionGroupBox;
-
-public:
-    void setTitle(QString title);
 
 private:
     QLabel* m_iconLabel;
