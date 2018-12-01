@@ -32,7 +32,9 @@ SOURCES += \
     widgets/option_dialog.cpp \
     widgets/message_dialog.cpp \
     widgets/tool_button.cpp \
-    widgets/tree_widget.cpp
+    widgets/tree_widget.cpp \
+    scenes/searching_base_scene.cpp \
+    scenes/items/rect_item.cpp
 
 HEADERS += \
     config.h \
@@ -41,7 +43,9 @@ HEADERS += \
     widgets/option_dialog.h \
     widgets/message_dialog.h \
     widgets/tool_button.h \
-    widgets/tree_widget.h
+    widgets/tree_widget.h \
+    scenes/searching_base_scene.h \
+    scenes/items/rect_item.h
 
 RESOURCES += \
     resources/res.qrc
