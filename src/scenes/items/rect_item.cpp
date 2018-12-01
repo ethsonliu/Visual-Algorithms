@@ -5,12 +5,7 @@ RectItem::RectItem(qreal x, qreal y, qreal width, qreal height) : QGraphicsRectI
     setColor(Qt::white);
 }
 
-QColor RectItem::color()
-{
-    return brush().color();
-}
-
-void RectItem::setColor(QColor color)
+void RectItem::setColor(const QColor & color)
 {
     setBrush(QBrush(color));
 }

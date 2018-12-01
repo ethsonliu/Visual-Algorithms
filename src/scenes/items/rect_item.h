@@ -11,8 +11,8 @@ class RectItem : public QObject, public QGraphicsRectItem
 
 public:
     RectItem(qreal x, qreal y, qreal width, qreal height);
-    QColor color();
-    void setColor(QColor color);
+    inline QColor color() const { return brush().color(); }
+    void setColor(const QColor & color);
 };
 
 
