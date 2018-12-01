@@ -1,30 +1,29 @@
 <RCC>
     <qresource prefix="/images">
+        <file>app.ico</file>
+        <file>branch.svg</file>
+        <file>description.svg</file>
         <file>donate.png</file>
+        <file>dot.svg</file>
         <file>home.svg</file>
+        <file>left_arrow_disabled.svg</file>
+        <file>left_arrow_normal.svg</file>
         <file>open.svg</file>
         <file>pause.svg</file>
         <file>play.svg</file>
+        <file>record.svg</file>
         <file>replay.svg</file>
         <file>restore.svg</file>
-        <file>search.svg</file>
-        <file>slider_handle.png</file>
-        <file>record.svg</file>
-        <file>snapshot.svg</file>
-        <file>branch.svg</file>
-        <file>tab.svg</file>
-        <file>tab_close_normal.svg</file>
-        <file>tab_close_hover.svg</file>
-        <file>app.ico</file>
-        <file>left_arrow_normal.svg</file>
-        <file>right_arrow_normal.svg</file>
-        <file>left_arrow_disabled.svg</file>
         <file>right_arrow_disabled.svg</file>
-        <file>update.svg</file>
-        <file>dot.svg</file>
-        <file>down_arrow.svg</file>
-        <file>description.svg</file>
+        <file>right_arrow_normal.svg</file>
+        <file>search.svg</file>
         <file>setting.svg</file>
+        <file>slider_handle.png</file>
+        <file>snapshot.svg</file>
+        <file>tab.svg</file>
+        <file>tab_close_hover.svg</file>
+        <file>tab_close_normal.svg</file>
+        <file>update.svg</file>
     </qresource>
     <qresource prefix="/qss">
         <file>main.qss</file>
