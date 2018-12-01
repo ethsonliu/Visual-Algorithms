@@ -67,15 +67,15 @@ BaseWidget::BaseWidget(QWidget* parent) : QWidget(parent)
     vLayout2->setSpacing(0);
     vLayout2->setMargin(0);
 
-    this->setLayout(vLayout2);
+    setLayout(vLayout2);
 }
 
-void BaseWidget::setPaneName(QString name)
+void BaseWidget::setPaneName(const QString & name)
 {
     m_titleLabel->setText(name);
 }
 
-QWidget* BaseWidget::createTitleWidget(QString name, QString iconPath)
+QWidget* BaseWidget::createTitleWidget(const QString & name, const QString & iconPath)
 {
     QPixmap pixmap(iconPath);
     pixmap = pixmap.scaled(16, 16);

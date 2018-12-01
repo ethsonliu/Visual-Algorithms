@@ -10,12 +10,16 @@ class BaseWidget : public QWidget
 {
 public:
     BaseWidget(QWidget* parent = nullptr);
+    virtual void play() = 0;
+    virtual void pause() = 0;
+    virtual void replay() = 0;
+    virtual void restore() = 0;
 
 protected:
-    void setPaneName(QString name);
+    void setPaneName(const QString & name);
 
 private:
-    QWidget* createTitleWidget(QString name, QString iconPath);
+    QWidget* createTitleWidget(const QString & name, const QString & iconPath);
 
 protected:
     QWidget*        m_settingWidget;

@@ -10,8 +10,8 @@
 MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
 {
     /* icons download by https://www.iconfinder.com */
-    this->setWindowTitle(tr("Visual Algorithms"));
-    this->setWindowState(Qt::WindowMaximized);
+    setWindowTitle(tr("Visual Algorithms"));
+    setWindowState(Qt::WindowMaximized);
 
     createToolBar();
     createNavWidget();
@@ -31,11 +31,11 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
     QHBoxLayout* hLayout = new QHBoxLayout;
     hLayout->addLayout(vLayout1);
     hLayout->addLayout(vLayout2);
-    hLayout->setSpacing(8);
+    hLayout->setSpacing(4);
     hLayout->setContentsMargins(8, 0, 0, 0);
 
     m_centralWidget->setLayout(hLayout);
-    this->setCentralWidget(m_centralWidget);
+    setCentralWidget(m_centralWidget);
 }
 
 void MainWindow::createToolBar()
@@ -74,12 +74,12 @@ void MainWindow::createToolBar()
     menuBar->setFixedHeight(menuBar->minimumSizeHint().height());
 
     /* add the menubar above to the toolbar */
-    QToolBar* menuToolBar = this->addToolBar(tr("Menu"));
+    QToolBar* menuToolBar = addToolBar(tr("Menu"));
     menuToolBar->addWidget(menuBar);
     menuToolBar->setMovable(false);
 
     /* add some toolbuttons to the toolbar */
-    QToolBar* toolBar = this->addToolBar(tr("Tool"));
+    QToolBar* toolBar = addToolBar(tr("Tool"));
     toolBar->addSeparator();
     m_playToolButton = new ToolButton;
     m_playToolButton->setIcon(QIcon(":/images/play.svg"));
@@ -107,7 +107,7 @@ void MainWindow::createToolBar()
     toolBar->setMovable(false);
 
     /* add a slider to the toolbar */
-    QToolBar* sliderToolBar = this->addToolBar(tr("Speed Slider"));
+    QToolBar* sliderToolBar = addToolBar(tr("Speed Slider"));
     m_speedSlider = new QSlider(Qt::Horizontal);
     m_speedSlider->setRange(0, 100);
     m_speedSlider->setValue(m_speedSlider->maximum() >> 1);
@@ -115,7 +115,7 @@ void MainWindow::createToolBar()
     sliderToolBar->setFixedWidth(240);
     sliderToolBar->addWidget(m_speedSlider);
     sliderToolBar->setMovable(false);
-    QToolBar* emptyToolBar = this->addToolBar(tr("Empty"));
+    QToolBar* emptyToolBar = addToolBar(tr("Empty"));
     emptyToolBar->setMovable(false);
 }
 
@@ -152,7 +152,7 @@ void MainWindow::createTabWidget()
 
     //tabCloseRequested
 
-    m_tabWidget->addTab(new BaseWidget, QIcon(":/images/tab.svg"), "Ubuntu 01.00 x64 Dev");
+    //m_tabWidget->addTab(new BaseWidget, QIcon(":/images/tab.svg"), "Ubuntu 01.00 x64 Dev");
     m_tabWidget->addTab(new QWidget, QIcon(":/images/tab.svg"), "Ubuntu 02.00 x64 Dev");
     m_tabWidget->addTab(new QWidget, QIcon(":/images/tab.svg"), "Ubuntu 03.00 x64 Origin");
     m_tabWidget->addTab(new QWidget, QIcon(":/images/tab.svg"), "Ubuntu 04.00 x64 Origin");
@@ -229,12 +229,12 @@ void MainWindow::playSlot()
     if (isPlaySvg)
     {
         m_playToolButton->setIcon(QIcon(":/images/pause.svg"));
-        this->play();
+        play();
     }
     else
     {
         m_playToolButton->setIcon(QIcon(":/images/play.svg"));
-        this->pause();
+        pause();
     }
 
     isPlaySvg = !isPlaySvg;
