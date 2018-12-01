@@ -122,7 +122,7 @@ void MainWindow::createToolBar()
 void MainWindow::createNavWidget()
 {
     m_searchLineEdit = new QLineEdit;
-    m_searchLineEdit->setFixedHeight(28);
+    m_searchLineEdit->setFixedHeight(26);
     m_searchLineEdit->setPlaceholderText(tr("Type here to search"));
     m_searchLineEdit->addAction(QIcon(":/images/search.svg"), QLineEdit::LeadingPosition);
 
