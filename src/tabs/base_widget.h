@@ -18,15 +18,15 @@ private:
     QWidget* createTitleWidget(QString name, QString iconPath);
 
 protected:
-    QWidget*        m_helperWidget;
     QWidget*        m_settingWidget;
     QWidget*        m_descriptionWidget;
     QGraphicsView*  m_view;
     QGraphicsScene* m_scene;
 
 private:
-    QLabel* m_iconLabel;
-    QLabel* m_titleLabel;
+    QWidget*        m_helperWidget;
+    QLabel*         m_iconLabel;
+    QLabel*         m_titleLabel;
 };
 
 #endif /* BASE_WIDGET_H */

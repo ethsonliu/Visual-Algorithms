@@ -12,29 +12,38 @@ BaseWidget::BaseWidget(QWidget* parent) : QWidget(parent)
 
     m_titleLabel = new QLabel;
     m_titleLabel->setText("Ubuntu 18.04 x64 Dev");
-    m_titleLabel->setStyleSheet("QLabel{font-size: 22px; color: rgb(7, 123, 227);}");
+    m_titleLabel->setStyleSheet("QLabel{font-size: 20px; color: rgb(7, 123, 227);}");
 
     QHBoxLayout* hLayout1 = new QHBoxLayout;
     hLayout1->addWidget(m_iconLabel);
     hLayout1->addWidget(m_titleLabel);
     hLayout1->addStretch();
     hLayout1->setSpacing(8);
-    hLayout1->setContentsMargins(8, 8, 0, 8);
+    hLayout1->setContentsMargins(10, 10, 0, 10);
 
     m_helperWidget = new QWidget;
     m_helperWidget->setFixedWidth(350);
 
     m_view = new QGraphicsView;
 
-    QWidget* settingWidget = createTitleWidget(tr("Settings"), ":/images/setting.svg");
-    QWidget* descriptionWidget = createTitleWidget(tr("Description"), ":/images/description.svg");
+    QWidget* settingTitleWidget = createTitleWidget(tr("Settings"), ":/images/setting.svg");
+    QWidget* descriptionTitleWidget = createTitleWidget(tr("Description"), ":/images/description.svg");
+
+    QSizePolicy sizePolicy;
+    sizePolicy.setVerticalPolicy(QSizePolicy::Expanding);
+
+    m_settingWidget = new QWidget;
+    m_settingWidget->setSizePolicy(sizePolicy);
+
+    m_descriptionWidget = new QWidget;
+    m_descriptionWidget->setFixedHeight(300);
 
     QVBoxLayout* vLayout1 = new QVBoxLayout(m_helperWidget);
-    vLayout1->addSpacing(30);
-    vLayout1->addWidget(settingWidget);
-    vLayout1->addSpacing(100);
-    vLayout1->addWidget(descriptionWidget);
-    vLayout1->setSpacing(10);
+    vLayout1->addSpacing(10);
+    vLayout1->addWidget(settingTitleWidget);
+    vLayout1->addWidget(m_settingWidget);
+    vLayout1->addWidget(descriptionTitleWidget);
+    vLayout1->addWidget(m_descriptionWidget);
     vLayout1->setMargin(0);
 
     QFrame* vLineFrame = new QFrame;
