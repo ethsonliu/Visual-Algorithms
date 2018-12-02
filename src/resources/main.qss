@@ -61,7 +61,7 @@ QSlider::sub-page:horizontal
 
 QSlider::add-page:horizontal
 {
-    background-color: rgb(71, 71, 71);
+    background-color: rgb(78, 78, 78);
 }
 
 QSlider::groove:horizontal

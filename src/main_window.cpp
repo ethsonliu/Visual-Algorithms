@@ -1,5 +1,5 @@
 ﻿#include "main_window.h"
-#include "tabs/base_widget.h"
+#include "panes/bfs_pane.h"
 #include <QIcon>
 #include <QToolBar>
 #include <QMenuBar>
@@ -17,8 +17,6 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
     createNavWidget();
     createTabWidget();
 
-    m_centralWidget = new QWidget;
-
     QVBoxLayout* vLayout1 = new QVBoxLayout;
     vLayout1->addSpacing(22);
     vLayout1->addWidget(m_navWidget);
@@ -34,7 +32,9 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
     hLayout->setSpacing(4);
     hLayout->setContentsMargins(8, 0, 0, 0);
 
+    m_centralWidget = new QWidget;
     m_centralWidget->setLayout(hLayout);
+
     setCentralWidget(m_centralWidget);
 }
 
@@ -128,34 +128,36 @@ void MainWindow::createNavWidget()
 
     m_treeWidget = new TreeWidget;
 
-    m_navWidget = new QWidget;
-    m_navWidget->setFixedWidth(330);
-    QVBoxLayout* vLayout = new QVBoxLayout(m_navWidget);
+    QVBoxLayout* vLayout = new QVBoxLayout;
     vLayout->addWidget(m_searchLineEdit);
     vLayout->addWidget(m_treeWidget);
     vLayout->setSpacing(8);
     vLayout->setMargin(0);
+
+    m_navWidget = new QWidget;
+    m_navWidget->setFixedWidth(330);
+    m_navWidget->setLayout(vLayout);
 }
 
 void MainWindow::createTabWidget()
 {
-    m_frame = new QFrame;
-    m_frame->setFrameShape(QFrame::StyledPanel);
-
     m_tabWidget = new QTabWidget;
     m_tabWidget->setTabsClosable(true);
+    m_tabWidget->addTab(new BfsPane, QIcon(":/images/tab.svg"), "Ubuntu 02.00 x64 Dev");
+    m_tabWidget->addTab(new QWidget, QIcon(":/images/tab.svg"), "Ubuntu 02.00 x64 Dev");
+    m_tabWidget->addTab(new QWidget, QIcon(":/images/tab.svg"), "Ubuntu 03.00 x64 Origin");
+    m_tabWidget->addTab(new QWidget, QIcon(":/images/tab.svg"), "Ubuntu 04.00 x64 Origin");
 
-    QVBoxLayout* vLayout = new QVBoxLayout(m_frame);
+    QVBoxLayout* vLayout = new QVBoxLayout;
     vLayout->addWidget(m_tabWidget);
     vLayout->setSpacing(0);
     vLayout->setContentsMargins(0, 10, 0, 0);
 
-    //tabCloseRequested
+    m_frame = new QFrame;
+    m_frame->setFrameShape(QFrame::StyledPanel);
+    m_frame->setLayout(vLayout);
 
-    //m_tabWidget->addTab(new BaseWidget, QIcon(":/images/tab.svg"), "Ubuntu 01.00 x64 Dev");
-    m_tabWidget->addTab(new QWidget, QIcon(":/images/tab.svg"), "Ubuntu 02.00 x64 Dev");
-    m_tabWidget->addTab(new QWidget, QIcon(":/images/tab.svg"), "Ubuntu 03.00 x64 Origin");
-    m_tabWidget->addTab(new QWidget, QIcon(":/images/tab.svg"), "Ubuntu 04.00 x64 Origin");
+    //tabCloseRequested
 }
 
 void MainWindow::play()
