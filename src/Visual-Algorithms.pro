@@ -28,24 +28,30 @@ RC_ICONS = resources/app.ico
 SOURCES += \
     main.cpp \
     main_window.cpp \
-    tabs/base_widget.cpp \
     widgets/option_dialog.cpp \
     widgets/message_dialog.cpp \
     widgets/tool_button.cpp \
     widgets/tree_widget.cpp \
     scenes/searching_base_scene.cpp \
-    scenes/items/rect_item.cpp
+    scenes/items/rect_item.cpp \
+    scenes/base_scene.cpp \
+    scenes/bfs_scene.cpp \
+    panes/base_pane.cpp \
+    panes/bfs_pane.cpp
 
 HEADERS += \
     config.h \
     main_window.h \
-    tabs/base_widget.h \
     widgets/option_dialog.h \
     widgets/message_dialog.h \
     widgets/tool_button.h \
     widgets/tree_widget.h \
     scenes/searching_base_scene.h \
-    scenes/items/rect_item.h
+    scenes/items/rect_item.h \
+    scenes/base_scene.h \
+    scenes/bfs_scene.h \
+    panes/bfs_pane.h \
+    panes/base_pane.h
 
 RESOURCES += \
     resources/res.qrc
