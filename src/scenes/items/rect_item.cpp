@@ -1,11 +1,14 @@
 ﻿#include "rect_item.h"
+#include <QPen>
 
 RectItem::RectItem(qreal x, qreal y, qreal width, qreal height) : QGraphicsRectItem(x, y, width, height)
 {
-    setColor(Qt::white);
 }
 
-void RectItem::setColor(const QColor & color)
+void RectItem::setBorder(const QColor & borderColor, int borderWidth)
 {
-    setBrush(QBrush(color));
+    QPen pen;
+    pen.setColor(borderColor);
+    pen.setWidth(borderWidth);
+    setPen(pen);
 }
