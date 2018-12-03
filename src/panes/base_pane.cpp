@@ -35,11 +35,6 @@ BasePane::BasePane(QWidget* parent) : QWidget(parent)
     setLayout(vLayout);
 }
 
-void BasePane::setPaneTitle(const QString & name)
-{
-    m_titleLabel->setText(name);
-}
-
 QHBoxLayout* BasePane::createMainPane()
 {
     QHBoxLayout* settingTitleLayout     = createTitle(tr("Settings"), ":/images/setting.svg");
