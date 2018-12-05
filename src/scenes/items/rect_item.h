@@ -12,7 +12,7 @@ class RectItem : public QObject, public QGraphicsRectItem
 public:
     RectItem(qreal x, qreal y, qreal width, qreal height);
     inline QColor brushColor() const { return brush().color(); }
-    void setBorder(const QColor & borderColor, int borderWidth = 1);
+    void setBorder(const QColor & color, int width = 1);
 };
 
 #endif /* RECT_ITEM_H */

@@ -5,10 +5,10 @@ RectItem::RectItem(qreal x, qreal y, qreal width, qreal height) : QGraphicsRectI
 {
 }
 
-void RectItem::setBorder(const QColor & borderColor, int borderWidth)
+void RectItem::setBorder(const QColor & color, int width)
 {
     QPen pen;
-    pen.setColor(borderColor);
-    pen.setWidth(borderWidth);
+    pen.setColor(color);
+    pen.setWidth(width);
     setPen(pen);
 }
