@@ -12,6 +12,7 @@ class SearchingBaseScene : public BaseScene
 
 public:
     SearchingBaseScene(QGraphicsScene* parent = nullptr);
+    void setMouseEnabled(bool enabled);
 
 protected:
     void mousePressEvent(QGraphicsSceneMouseEvent* event);

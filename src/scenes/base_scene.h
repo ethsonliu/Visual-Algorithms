@@ -8,7 +8,7 @@ class BaseScene : public QGraphicsScene
     Q_OBJECT
 
 public:
-    BaseScene(QGraphicsScene *parent = 0);
+    BaseScene(QGraphicsScene* parent = nullptr);
 
 public slots:
     virtual void startSlot() = 0;
