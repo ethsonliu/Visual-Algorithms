@@ -5,23 +5,25 @@
 #include "base_scene.h"
 #include <QVector>
 #include <QGraphicsScene>
+#include <atomic>
 
 class SearchingBaseScene : public BaseScene
 {
     Q_OBJECT
 
 public:
-    SearchingBaseScene(QGraphicsScene* parent = nullptr);
-    void setMouseEnabled(bool enabled);
+    SearchingBaseScene(BaseScene* parent = nullptr);
+    inline void setMouseEnabled(bool enabled) { m_mouseEventEnabled.store(enabled); }
+    inline bool mouseIsEnabled() const { return m_mouseEventEnabled.load(); }
 
 protected:
     void mousePressEvent(QGraphicsSceneMouseEvent* event);
     void mouseMoveEvent(QGraphicsSceneMouseEvent* event);
-    void mouseReleaseEvent(QGraphicsSceneMouseEvent* event);
+
+private:
+    int isInBound(const QPointF & point) const;
 
 protected:
-    bool               m_mouseEventEnabled;
-    bool               m_mousePressed;
     int                m_rowNum;
     int                m_columnNum;
     int                m_itemsNum;
@@ -29,6 +31,10 @@ protected:
     int                m_startIndex;
     int                m_endIndex;
     QVector<RectItem*> m_rectItemVector;
+
+private:
+    std::atomic<bool>  m_mouseEventEnabled;
+    int                m_preMouseIndex;
 };
 
 #endif /* SEARCHING_BASE_SCENE_H */
