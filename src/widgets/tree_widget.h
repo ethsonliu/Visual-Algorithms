@@ -1,7 +1,7 @@
 ﻿#ifndef TREE_WIDGET_H
 #define TREE_WIDGET_H
 
-#include "config.h"
+#include "../config.h"
 #include <QTreeWidget>
 #include <QMouseEvent>
 

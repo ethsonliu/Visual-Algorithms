@@ -2,7 +2,7 @@
 #define BFS_WIDGET_H
 
 #include "base_pane.h"
-#include "./scenes/bfs_scene.h"
+#include "../scenes/bfs_scene.h"
 
 class BfsPane : public BasePane
 {

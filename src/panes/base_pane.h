@@ -1,7 +1,7 @@
 ﻿#ifndef BASE_WIDGET_H
 #define BASE_WIDGET_H
 
-#include "config.h"
+#include "../config.h"
 #include <QGraphicsView>
 #include <QGraphicsScene>
 #include <QHBoxLayout>

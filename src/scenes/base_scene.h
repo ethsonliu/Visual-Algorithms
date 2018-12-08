@@ -1,6 +1,7 @@
 ﻿#ifndef BASE_SCENE_H
 #define BASE_SCENE_H
 
+#include "../config.h"
 #include <QGraphicsScene>
 
 class BaseScene : public QGraphicsScene

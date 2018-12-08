@@ -1,7 +1,7 @@
 ﻿#ifndef TOOL_BUTTON_H
 #define TOOL_BUTTON_H
 
-#include "config.h"
+#include "../config.h"
 #include <QToolButton>
 #include <QEvent>
 
