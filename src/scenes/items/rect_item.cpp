@@ -3,6 +3,7 @@
 
 RectItem::RectItem(qreal x, qreal y, qreal width, qreal height) : QGraphicsRectItem(x, y, width, height)
 {
+    setBrush(Qt::white);
 }
 
 void RectItem::setBorder(const QColor & color, int width)
