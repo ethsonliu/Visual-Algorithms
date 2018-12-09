@@ -9,6 +9,7 @@ class BfsPane : public BasePane
     Q_OBJECT
 
 public:
+
     BfsPane(BasePane* parent = nullptr);
 
 public slots:
@@ -16,6 +17,7 @@ public slots:
     virtual void pauseSlot();
     virtual void replaySlot();
     virtual void restoreSlot();
+
 };
 
 #endif /* BFS_WIDGET_H */

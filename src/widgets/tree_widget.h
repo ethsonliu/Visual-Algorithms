@@ -10,7 +10,9 @@ class TreeWidget : public QTreeWidget
     Q_OBJECT
 
 public:
+
     TreeWidget(QTreeWidget* parent = nullptr);
+
 };
 
 #endif /* TREE_WIDGET_H */

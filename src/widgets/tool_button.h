@@ -7,9 +7,12 @@
 
 class ToolButton : public QToolButton
 {
+
 public:
+
     ToolButton(QToolButton* parent = nullptr);
     virtual bool event(QEvent* event);
+
 };
 
 #endif /* TOOL_BUTTON_H */

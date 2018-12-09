@@ -15,9 +15,21 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
+
     MainWindow(QWidget* parent = nullptr);
 
 private:
+
+    QWidget*     m_centralWidget;
+    QWidget*     m_navWidget;
+    QFrame*      m_frame;
+    QTabWidget*  m_tabWidget;
+    TreeWidget*  m_treeWidget;
+    QLineEdit*   m_searchLineEdit;
+    QSlider*     m_speedSlider;
+    ToolButton*  m_playToolButton;
+    QAction*     m_lastLanguageAction;
+
     void createToolBar();
     void createNavWidget();
     void createTabWidget();
@@ -25,6 +37,7 @@ private:
     void pause();
 
 private slots:
+
     void openSlot();
     void exitSlot();
     void homeTabSlot();
@@ -42,17 +55,6 @@ private slots:
     void recordslot();
     void speedChangedSlot(int value);
 
-private:
-    QWidget*     m_centralWidget;
-    QWidget*     m_navWidget;
-    QFrame*      m_frame;
-    QTabWidget*  m_tabWidget;
-
-    TreeWidget*  m_treeWidget;
-    QLineEdit*   m_searchLineEdit;
-    QSlider*     m_speedSlider;
-    ToolButton*  m_playToolButton;
-    QAction*     m_lastLanguageAction;
 };
 
 #endif /* MAIN_WINDOW_H */
