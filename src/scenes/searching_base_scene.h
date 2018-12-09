@@ -12,18 +12,13 @@ class SearchingBaseScene : public BaseScene
     Q_OBJECT
 
 public:
+
     SearchingBaseScene(BaseScene* parent = nullptr);
     inline void setMouseEnabled(bool enabled) { m_mouseEventEnabled.store(enabled); }
     inline bool mouseIsEnabled() const { return m_mouseEventEnabled.load(); }
 
 protected:
-    void mousePressEvent(QGraphicsSceneMouseEvent* event);
-    void mouseMoveEvent(QGraphicsSceneMouseEvent* event);
 
-private:
-    int isInBound(const QPointF & point) const;
-
-protected:
     int                m_rowNum;
     int                m_columnNum;
     int                m_itemsNum;
@@ -32,9 +27,25 @@ protected:
     int                m_endIndex;
     QVector<RectItem*> m_rectItemVector;
 
+    static const QColor COLOR_START;
+    static const QColor COLOR_END;
+    static const QColor COLOR_BLANK;
+    static const QColor COLOR_OBSTACLE;
+    static const QColor COLOR_PASS;
+    static const QColor BORDER_GRAY;
+    static const QColor BORDER_DARK;
+
+    void mousePressEvent(QGraphicsSceneMouseEvent* event);
+    void mouseMoveEvent(QGraphicsSceneMouseEvent* event);
+    void setRectItemColor(int index, const QColor & color);
+
 private:
+
     std::atomic<bool>  m_mouseEventEnabled;
     int                m_preMouseIndex;
+
+    int indexInBound(const QPointF & point) const;
+
 };
 
 #endif /* SEARCHING_BASE_SCENE_H */
