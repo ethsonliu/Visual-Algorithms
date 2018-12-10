@@ -14,8 +14,6 @@ class SearchingBaseScene : public BaseScene
 public:
 
     SearchingBaseScene(BaseScene* parent = nullptr);
-    inline void setMouseEnabled(bool enabled) { m_mouseEventEnabled.store(enabled); }
-    inline bool mouseIsEnabled() const { return m_mouseEventEnabled.load(); }
 
 protected:
 
@@ -27,17 +25,20 @@ protected:
     int                m_endIndex;
     QVector<RectItem*> m_rectItemVector;
 
-    static const QColor COLOR_START;
-    static const QColor COLOR_END;
-    static const QColor COLOR_BLANK;
-    static const QColor COLOR_OBSTACLE;
-    static const QColor COLOR_PASS;
-    static const QColor BORDER_GRAY;
-    static const QColor BORDER_DARK;
+    static const QColor color_start;
+    static const QColor color_end;
+    static const QColor color_blank;
+    static const QColor color_obstacle;
+    static const QColor color_pass;
+    static const QColor border_gray;
+    static const QColor border_dark;
 
     void mousePressEvent(QGraphicsSceneMouseEvent* event);
     void mouseMoveEvent(QGraphicsSceneMouseEvent* event);
     void setRectItemColor(int index, const QColor & color);
+
+    inline void setMouseEnabled(bool enabled) { m_mouseEventEnabled.store(enabled); }
+    inline bool mouseIsEnabled() const { return m_mouseEventEnabled.load(); }
 
 private:
 
