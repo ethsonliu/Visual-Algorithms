@@ -37,7 +37,9 @@ SOURCES += \
     scenes/base_scene.cpp \
     scenes/bfs_scene.cpp \
     panes/base_pane.cpp \
-    panes/bfs_pane.cpp
+    panes/bfs_pane.cpp \
+    threads/bfs_thread.cpp \
+    threads/base_thread.cpp
 
 HEADERS += \
     config.h \
@@ -51,7 +53,9 @@ HEADERS += \
     scenes/base_scene.h \
     scenes/bfs_scene.h \
     panes/bfs_pane.h \
-    panes/base_pane.h
+    panes/base_pane.h \
+    threads/bfs_thread.h \
+    threads/base_thread.h
 
 RESOURCES += \
     resources/res.qrc
