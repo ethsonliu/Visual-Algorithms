@@ -24,7 +24,7 @@ public slots:
 private:
 
     QHBoxLayout* createMainPane();
-    QHBoxLayout* createTitle(const QString & name, const QString & iconPath);
+    QHBoxLayout* createTitle(const QString & iconPath, const QString & name);
 
 protected:
 

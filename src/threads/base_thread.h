@@ -23,7 +23,6 @@ public slots:
 protected:
 
     enum ThreadState { running, paused };
-    enum SearchingFlag { start, end, blank, obstacle, pass };
 
     std::atomic<ThreadState> m_threadState;
 

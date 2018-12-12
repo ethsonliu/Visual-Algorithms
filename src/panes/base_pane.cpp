@@ -76,7 +76,7 @@ QHBoxLayout* BasePane::createMainPane()
     return hLayout;
 }
 
-QHBoxLayout* BasePane::createTitle(const QString & name, const QString & iconPath)
+QHBoxLayout* BasePane::createTitle(const QString & iconPath, const QString & name)
 {
     QPixmap pixmap(iconPath);
     pixmap = pixmap.scaled(16, 16);

@@ -3,6 +3,7 @@
 
 #include "base_pane.h"
 #include "../scenes/bfs_scene.h"
+#include "../threads/bfs_thread.h"
 
 class BfsPane : public BasePane
 {

@@ -1,6 +1,6 @@
 ﻿#include "bfs_thread.h"
 
-BfsThread::BfsThread(BaseThread* parent) : BaseThread(parent)
+BfsThread::BfsThread(SearchingBaseThread* parent) : SearchingBaseThread(parent)
 {
 
 }
