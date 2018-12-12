@@ -32,14 +32,15 @@ SOURCES += \
     widgets/message_dialog.cpp \
     widgets/tool_button.cpp \
     widgets/tree_widget.cpp \
-    scenes/searching_base_scene.cpp \
     scenes/items/rect_item.cpp \
     scenes/base_scene.cpp \
     scenes/bfs_scene.cpp \
     panes/base_pane.cpp \
     panes/bfs_pane.cpp \
     threads/bfs_thread.cpp \
-    threads/base_thread.cpp
+    threads/base_thread.cpp \
+    scenes/searching_scene.cpp \
+    threads/searching_thread.cpp
 
 HEADERS += \
     config.h \
@@ -48,14 +49,15 @@ HEADERS += \
     widgets/message_dialog.h \
     widgets/tool_button.h \
     widgets/tree_widget.h \
-    scenes/searching_base_scene.h \
     scenes/items/rect_item.h \
     scenes/base_scene.h \
     scenes/bfs_scene.h \
     panes/bfs_pane.h \
     panes/base_pane.h \
     threads/bfs_thread.h \
-    threads/base_thread.h
+    threads/base_thread.h \
+    scenes/searching_scene.h \
+    threads/searching_thread.h
 
 RESOURCES += \
     resources/res.qrc
