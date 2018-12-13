@@ -27,7 +27,7 @@ protected:
     std::atomic<ThreadState> m_threadState;
 
     inline void setThreadState(ThreadState state) { m_threadState.store(state); }
-    inline ThreadState ThreadState() const { return m_threadState.load(); }
+    inline ThreadState threadState() const { return m_threadState.load(); }
 
 };
 
