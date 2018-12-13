@@ -11,6 +11,9 @@ class SearchingBaseThread : public BaseThread
 public:
 
     SearchingBaseThread(BaseThread* parent = nullptr);
+    ~SearchingBaseThread();
+
+    void init(int* ma, int width, int height, int start, int end);
 
 public slots:
 
@@ -19,10 +22,13 @@ public slots:
     virtual void replaySlot() = 0;
     virtual void restoreSlot() = 0;
 
+protected:
 
-
-private:
-
+    int* m_ma;
+    int  m_width;
+    int  m_height;
+    int  m_start;
+    int  m_end;
 
 };
 
