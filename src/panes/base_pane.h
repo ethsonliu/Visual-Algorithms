@@ -14,12 +14,10 @@ public:
 
     BasePane(QWidget* parent = nullptr);
 
-public slots:
-
-    virtual void playSlot() = 0;
-    virtual void pauseSlot() = 0;
-    virtual void replaySlot() = 0;
-    virtual void restoreSlot() = 0;
+    virtual void play() = 0;
+    virtual void pause() = 0;
+    virtual void replay() = 0;
+    virtual void restore() = 0;
 
 private:
 

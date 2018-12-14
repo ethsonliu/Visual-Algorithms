@@ -2,7 +2,7 @@
 
 BfsScene::BfsScene(SearchingBaseScene* parent) : SearchingBaseScene(parent)
 {
-
+    m_object = new BfsObject;
 }
 
 void BfsScene::startSlot()

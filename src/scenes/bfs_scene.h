@@ -2,6 +2,7 @@
 #define BFS_SCENE_H
 
 #include "searching_scene.h"
+#include "../objects/bfs_object.h"
 
 class BfsScene : public SearchingBaseScene
 {

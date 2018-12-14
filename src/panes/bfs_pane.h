@@ -3,7 +3,6 @@
 
 #include "base_pane.h"
 #include "../scenes/bfs_scene.h"
-#include "../threads/bfs_thread.h"
 
 class BfsPane : public BasePane
 {
@@ -13,11 +12,10 @@ public:
 
     BfsPane(BasePane* parent = nullptr);
 
-public slots:
-    virtual void playSlot();
-    virtual void pauseSlot();
-    virtual void replaySlot();
-    virtual void restoreSlot();
+    virtual void play();
+    virtual void pause();
+    virtual void replay();
+    virtual void restore();
 
 };
 

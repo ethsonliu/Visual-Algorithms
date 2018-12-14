@@ -8,22 +8,22 @@ BfsPane::BfsPane(BasePane* parent) : BasePane(parent)
     m_view->setScene(m_scene);
 }
 
-void BfsPane::playSlot()
+void BfsPane::play()
 {
 
 }
 
-void BfsPane::pauseSlot()
+void BfsPane::pause()
 {
 
 }
 
-void BfsPane::replaySlot()
+void BfsPane::replay()
 {
 
 }
 
-void BfsPane::restoreSlot()
+void BfsPane::restore()
 {
 
 }

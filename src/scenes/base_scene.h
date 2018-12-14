@@ -2,6 +2,7 @@
 #define BASE_SCENE_H
 
 #include "../config.h"
+#include <QThread>
 #include <QGraphicsScene>
 
 class BaseScene : public QGraphicsScene
@@ -11,6 +12,7 @@ class BaseScene : public QGraphicsScene
 public:
 
     BaseScene(QGraphicsScene* parent = nullptr);
+    ~BaseScene();
 
 public slots:
 
@@ -19,15 +21,13 @@ public slots:
     virtual void replaySlot() = 0;
     virtual void restoreSlot() = 0;
 
-signals:
-
-    void finishedSignal();
-
 protected:
 
-    int  m_sceneWidth;
-    int  m_sceneHeight;
+    int      m_sceneWidth;
+    int      m_sceneHeight;
 
+    QObject*  m_object;
+    QThread*  m_thread;
 };
 
 #endif /* BASE_SCENE_H */
