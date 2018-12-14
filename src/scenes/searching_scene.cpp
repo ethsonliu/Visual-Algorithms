@@ -1,8 +1,8 @@
 ﻿#include "searching_scene.h"
 #include <QGraphicsSceneMouseEvent>
 
-const QColor SearchingBaseScene::color_start    = QColor(0, 221, 0);
-const QColor SearchingBaseScene::color_end      = QColor(238, 68, 0);
+const QColor SearchingBaseScene::color_start    = QColor(  0, 221,   0);
+const QColor SearchingBaseScene::color_end      = QColor(238,  68,   0);
 const QColor SearchingBaseScene::color_blank    = QColor(255, 255, 255);
 const QColor SearchingBaseScene::color_obstacle = QColor(128, 128, 128);
 const QColor SearchingBaseScene::color_pass     = QColor(152, 251, 152);

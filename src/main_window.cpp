@@ -40,7 +40,7 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
 
 void MainWindow::createToolBar()
 {
-    /* create menubar, and add some menus to it */
+    /* create menubar */
     QMenuBar* menuBar = new QMenuBar;
     QMenu* fileMenu = menuBar->addMenu(tr("File"));
     fileMenu->addAction(QIcon(":/images/open.svg"), tr("Open Source Code Directory..."), this, &MainWindow::openSlot);
@@ -73,12 +73,12 @@ void MainWindow::createToolBar()
     helpMenu->addAction(QIcon(":/images/app.ico"), tr("About Visual Algorithms"), this, &MainWindow::aboutSlot);
     menuBar->setFixedHeight(menuBar->minimumSizeHint().height());
 
-    /* add the menubar above to the toolbar */
+    /* add the menubar to the toolbar */
     QToolBar* menuToolBar = addToolBar(tr("Menu"));
     menuToolBar->addWidget(menuBar);
     menuToolBar->setMovable(false);
 
-    /* add some toolbuttons to the toolbar */
+    /* add toolbuttons to the toolbar */
     QToolBar* toolBar = addToolBar(tr("Tool"));
     toolBar->addSeparator();
     m_playToolButton = new ToolButton;
