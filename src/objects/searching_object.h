@@ -1,17 +1,17 @@
-#ifndef SEARCHING_BASE_THREAD_H
+﻿#ifndef SEARCHING_BASE_THREAD_H
 #define SEARCHING_BASE_THREAD_H
 
-#include "base_thread.h"
+#include "base_object.h"
 
 enum SearchingFlag { start, end, blank, obstacle, pass };
 
-class SearchingBaseThread : public BaseThread
+class SearchingBaseObject : public BaseObject
 {
 
 public:
 
-    SearchingBaseThread(BaseThread* parent = nullptr);
-    ~SearchingBaseThread();
+    SearchingBaseObject(BaseObject* parent = nullptr);
+    ~SearchingBaseObject();
 
     void init(int* ma, int width, int height, int start, int end);
 

@@ -5,13 +5,13 @@
 #include <QObject>
 #include <atomic>
 
-class BaseThread : public QObject
+class BaseObject : public QObject
 {
     Q_OBJECT
 
 public:
 
-    BaseThread(QObject* parent = nullptr);
+    BaseObject(QObject* parent = nullptr);
 
 public slots:
 

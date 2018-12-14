@@ -1,15 +1,15 @@
 ﻿#ifndef BFS_THREAD_H
 #define BFS_THREAD_H
 
-#include "searching_thread.h"
+#include "searching_object.h"
 
-class BfsThread : public SearchingBaseThread
+class BfsObject : public SearchingBaseObject
 {
     Q_OBJECT
 
 public:
 
-    BfsThread(SearchingBaseThread* parent = nullptr);
+    BfsObject(SearchingBaseObject* parent = nullptr);
 
 public slots:
 

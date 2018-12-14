@@ -37,10 +37,10 @@ SOURCES += \
     scenes/bfs_scene.cpp \
     panes/base_pane.cpp \
     panes/bfs_pane.cpp \
-    threads/bfs_thread.cpp \
-    threads/base_thread.cpp \
     scenes/searching_scene.cpp \
-    threads/searching_thread.cpp
+    objects/base_object.cpp \
+    objects/bfs_object.cpp \
+    objects/searching_object.cpp
 
 HEADERS += \
     config.h \
@@ -54,10 +54,10 @@ HEADERS += \
     scenes/bfs_scene.h \
     panes/bfs_pane.h \
     panes/base_pane.h \
-    threads/bfs_thread.h \
-    threads/base_thread.h \
     scenes/searching_scene.h \
-    threads/searching_thread.h
+    objects/base_object.h \
+    objects/bfs_object.h \
+    objects/searching_object.h
 
 RESOURCES += \
     resources/res.qrc
