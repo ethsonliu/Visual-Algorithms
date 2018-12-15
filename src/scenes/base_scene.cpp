@@ -6,11 +6,13 @@ BaseScene::BaseScene(QGraphicsScene* parent) : QGraphicsScene(parent)
     m_sceneHeight = 840;
 
     m_object      = nullptr;
+    m_thread      = nullptr;
 
     setSceneRect(-m_sceneWidth / 2, -m_sceneHeight / 2, m_sceneWidth, m_sceneHeight);
 }
 
 BaseScene::~BaseScene()
 {
-    delete m_object;
+    m_object->deleteLater();
+    m_thread->deleteLater();
 }

@@ -21,6 +21,7 @@ SearchingBaseScene::SearchingBaseScene(BaseScene* parent) : BaseScene(parent)
     m_endIndex          = m_startIndex + 20;
     m_preMouseIndex     = 0;
 
+    m_ma = new int[size_t(m_itemsNum)];
     m_rectItemVector.reserve(m_itemsNum);
 
     RectItem* item;
@@ -37,6 +38,11 @@ SearchingBaseScene::SearchingBaseScene(BaseScene* parent) : BaseScene(parent)
 
     m_rectItemVector[m_startIndex]->setBrush(color_start);
     m_rectItemVector[m_endIndex]->setBrush(color_end);
+}
+
+SearchingBaseScene::~SearchingBaseScene()
+{
+    delete[] m_ma;
 }
 
 void SearchingBaseScene::mousePressEvent(QGraphicsSceneMouseEvent* event)

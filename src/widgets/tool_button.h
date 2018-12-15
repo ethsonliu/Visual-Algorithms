@@ -11,6 +11,7 @@ class ToolButton : public QToolButton
 public:
 
     ToolButton(QToolButton* parent = nullptr);
+
     virtual bool event(QEvent* event);
 
 };

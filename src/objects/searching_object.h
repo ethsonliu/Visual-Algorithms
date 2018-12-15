@@ -11,15 +11,15 @@ class SearchingBaseObject : public BaseObject
 public:
 
     SearchingBaseObject(BaseObject* parent = nullptr);
-    ~SearchingBaseObject();
+    virtual ~SearchingBaseObject();
 
     void init(int* ma, int width, int height, int start, int end);
 
 public slots:
 
-    virtual void startSlot() = 0;
-    virtual void pauseSlot() = 0;
-    virtual void replaySlot() = 0;
+    virtual void startSlot()   = 0;
+    virtual void pauseSlot()   = 0;
+    virtual void replaySlot()  = 0;
     virtual void restoreSlot() = 0;
 
 protected:

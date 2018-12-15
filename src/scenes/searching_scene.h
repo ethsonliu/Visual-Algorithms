@@ -14,6 +14,12 @@ class SearchingBaseScene : public BaseScene
 public:
 
     SearchingBaseScene(BaseScene* parent = nullptr);
+    virtual ~SearchingBaseScene();
+
+    virtual void start()   = 0;
+    virtual void pause()   = 0;
+    virtual void replay()  = 0;
+    virtual void restore() = 0;
 
 protected:
 
@@ -23,6 +29,7 @@ protected:
     int                m_itemWidth;
     int                m_startIndex;
     int                m_endIndex;
+    int*               m_ma;
     QVector<RectItem*> m_rectItemVector;
 
     static const QColor color_start;
@@ -33,8 +40,8 @@ protected:
     static const QColor border_gray;
     static const QColor border_dark;
 
-    void mousePressEvent(QGraphicsSceneMouseEvent* event);
-    void mouseMoveEvent(QGraphicsSceneMouseEvent* event);
+    virtual void mousePressEvent(QGraphicsSceneMouseEvent* event);
+    virtual void mouseMoveEvent(QGraphicsSceneMouseEvent* event);
     void setRectItemColor(int index, const QColor & color);
 
     inline void setMouseEnabled(bool enabled) { m_mouseEventEnabled.store(enabled); }

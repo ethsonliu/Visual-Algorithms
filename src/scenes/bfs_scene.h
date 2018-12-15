@@ -12,12 +12,10 @@ public:
 
     BfsScene(SearchingBaseScene* parent = nullptr);
 
-public slots:
-
-    virtual void startSlot();
-    virtual void pauseSlot();
-    virtual void replaySlot();
-    virtual void restoreSlot();
+    virtual void start();
+    virtual void pause();
+    virtual void replay();
+    virtual void restore();
 
 };
 

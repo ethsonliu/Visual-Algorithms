@@ -5,22 +5,22 @@ BfsScene::BfsScene(SearchingBaseScene* parent) : SearchingBaseScene(parent)
     m_object = new BfsObject;
 }
 
-void BfsScene::startSlot()
+void BfsScene::start()
 {
 
 }
 
-void BfsScene::pauseSlot()
+void BfsScene::pause()
 {
 
 }
 
-void BfsScene::replaySlot()
+void BfsScene::replay()
 {
 
 }
 
-void BfsScene::restoreSlot()
+void BfsScene::restore()
 {
 
 }
