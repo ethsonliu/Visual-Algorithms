@@ -4,6 +4,7 @@
 #include "config.h"
 #include "widgets/tree_widget.h"
 #include "widgets/tool_button.h"
+#include "panes/base_pane.h"
 #include <QMainWindow>
 #include <QTreeWidget>
 #include <QLineEdit>
@@ -20,21 +21,21 @@ public:
 
 private:
 
-    QWidget*     m_centralWidget;
-    QWidget*     m_navWidget;
-    QFrame*      m_frame;
-    QTabWidget*  m_tabWidget;
-    TreeWidget*  m_treeWidget;
-    QLineEdit*   m_searchLineEdit;
-    QSlider*     m_speedSlider;
-    ToolButton*  m_playToolButton;
-    QAction*     m_lastLanguageAction;
+    QWidget*           m_centralWidget;
+    QWidget*           m_navWidget;
+    QFrame*            m_frame;
+    QTabWidget*        m_tabWidget;
+    TreeWidget*        m_treeWidget;
+    QLineEdit*         m_searchLineEdit;
+    QSlider*           m_speedSlider;
+    ToolButton*        m_playToolButton;
+    QAction*           m_lastLanguageAction;
+    QVector<BasePane*> m_paneVec;
 
     void createToolBar();
     void createNavWidget();
     void createTabWidget();
-    void play();
-    void pause();
+    BasePane* createPaneByFlag(AlgoFlag flag);
 
 private slots:
 
@@ -52,8 +53,9 @@ private slots:
     void replaySlot();
     void restoreSlot();
     void snapshotSlot();
-    void recordslot();
+    void recordSlot();
     void speedChangedSlot(int value);
+    void setCurrentPane(QTreeWidgetItem* item);
 
 };
 

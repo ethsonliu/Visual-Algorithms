@@ -127,6 +127,10 @@ void MainWindow::createNavWidget()
     m_searchLineEdit->addAction(QIcon(":/images/search.svg"), QLineEdit::LeadingPosition);
 
     m_treeWidget = new TreeWidget;
+    connect(m_treeWidget, &TreeWidget::itemDoubleClicked, this, &MainWindow::setCurrentPane);
+
+    m_paneVec.reserve(m_treeWidget->itemCount());
+    m_paneVec.fill(nullptr);
 
     QVBoxLayout* vLayout = new QVBoxLayout;
     vLayout->addWidget(m_searchLineEdit);
@@ -143,10 +147,7 @@ void MainWindow::createTabWidget()
 {
     m_tabWidget = new QTabWidget;
     m_tabWidget->setTabsClosable(true);
-    m_tabWidget->addTab(new BfsPane, QIcon(":/images/tab.svg"), "Ubuntu 02.00 x64 Dev");
-    m_tabWidget->addTab(new QWidget, QIcon(":/images/tab.svg"), "Ubuntu 02.00 x64 Dev");
-    m_tabWidget->addTab(new QWidget, QIcon(":/images/tab.svg"), "Ubuntu 03.00 x64 Origin");
-    m_tabWidget->addTab(new QWidget, QIcon(":/images/tab.svg"), "Ubuntu 04.00 x64 Origin");
+    //m_tabWidget->addTab(new BfsPane, QIcon(":/images/tab.svg"), "Ubuntu 02.00 x64 Dev");
 
     QVBoxLayout* vLayout = new QVBoxLayout;
     vLayout->addWidget(m_tabWidget);
@@ -160,14 +161,30 @@ void MainWindow::createTabWidget()
     //tabCloseRequested
 }
 
-void MainWindow::play()
+BasePane* MainWindow::createPaneByFlag(AlgoFlag flag)
 {
+    BasePane* pane = nullptr;
 
-}
+    switch (flag)
+    {
+        case AlgoFlag::aStar:
+        {
+            break;
+        }
+        case AlgoFlag::breadthFirstSearch:
+        {
+            pane = new BfsPane;
+            break;
+        }
+        case AlgoFlag::depthFirstSearch:
+        {
+            break;
+        }
+        default:
+            break;
+    }
 
-void MainWindow::pause()
-{
-
+    return pane;
 }
 
 void MainWindow::openSlot()
@@ -257,7 +274,7 @@ void MainWindow::snapshotSlot()
 
 }
 
-void MainWindow::recordslot()
+void MainWindow::recordSlot()
 {
 
 }
@@ -275,4 +292,14 @@ void MainWindow::speedChangedSlot(int value)
     }
 
     //////
+}
+
+void MainWindow::setCurrentPane(QTreeWidgetItem* item)
+{
+    AlgoFlag flag = m_treeWidget->indexByItem(item);
+
+    if (nullptr == m_paneVec[flag])
+        m_paneVec[flag] = createPaneByFlag(flag);
+
+    m_tabWidget->setCurrentWidget(m_paneVec[flag]);
 }
