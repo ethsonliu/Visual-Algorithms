@@ -9,12 +9,12 @@ BasePane::BasePane(QWidget* parent) : QWidget(parent)
     QLabel* iconLabel = new QLabel;
     iconLabel->setPixmap(pixmap);
 
-    m_titleLabel = new QLabel;
-    m_titleLabel->setStyleSheet("QLabel{font-size: 20px; color: rgb(7, 123, 227);}");
+    m_paneNameLabel = new QLabel;
+    m_paneNameLabel->setStyleSheet("QLabel{font-size: 20px; color: rgb(7, 123, 227);}");
 
     QHBoxLayout* hLayout1 = new QHBoxLayout;
     hLayout1->addWidget(iconLabel);
-    hLayout1->addWidget(m_titleLabel);
+    hLayout1->addWidget(m_paneNameLabel);
     hLayout1->addStretch();
     hLayout1->setSpacing(8);
     hLayout1->setContentsMargins(10, 10, 0, 10);
