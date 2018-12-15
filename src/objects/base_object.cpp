@@ -2,5 +2,5 @@
 
 BaseObject::BaseObject(QObject* parent) : QObject(parent)
 {
-
+    setThreadState(ThreadState::finished);
 }
