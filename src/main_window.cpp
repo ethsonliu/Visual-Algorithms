@@ -248,12 +248,10 @@ void MainWindow::playSlot()
     if (isPlaySvg)
     {
         m_playToolButton->setIcon(QIcon(":/images/pause.svg"));
-        play();
     }
     else
     {
         m_playToolButton->setIcon(QIcon(":/images/play.svg"));
-        pause();
     }
 
     isPlaySvg = !isPlaySvg;

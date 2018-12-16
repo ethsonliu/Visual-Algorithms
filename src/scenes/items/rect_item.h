@@ -1,7 +1,7 @@
 ﻿#ifndef RECT_ITEM_H
 #define RECT_ITEM_H
 
-#include "../../config.h"
+#include "config.h"
 #include <QBrush>
 #include <QGraphicsRectItem>
 
