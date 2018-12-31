@@ -1,13 +1,12 @@
-﻿#ifndef RECT_ITEM_H
+#ifndef RECT_ITEM_H
 #define RECT_ITEM_H
 
 #include "config.h"
 #include <QBrush>
 #include <QGraphicsRectItem>
 
-class RectItem : public QObject, public QGraphicsRectItem
+class RectItem : public QGraphicsRectItem
 {
-    Q_OBJECT
     Q_PROPERTY(QPointF pos READ pos WRITE setPos)
 
 public:
