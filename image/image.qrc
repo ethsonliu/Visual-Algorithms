@@ -1,13 +1,8 @@
 <RCC>
-    <qresource prefix="/qss">
-        <file>main.qss</file>
-    </qresource>
-    <qresource prefix="/images">
-        <file>app.ico</file>
+    <qresource prefix="/">
         <file>branch.svg</file>
         <file>description.svg</file>
         <file>donate.png</file>
-        <file>dot.svg</file>
         <file>home.svg</file>
         <file>left_arrow_disabled.svg</file>
         <file>left_arrow_normal.svg</file>

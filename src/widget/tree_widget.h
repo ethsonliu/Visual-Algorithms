@@ -1,7 +1,8 @@
-﻿#ifndef TREE_WIDGET_H
-#define TREE_WIDGET_H
+﻿#ifndef VA_WIDGET_TREE_WIDGET_H
+#define VA_WIDGET_TREE_WIDGET_H
 
-#include "../config.h"
+#include "src/config.h"
+
 #include <QTreeWidget>
 #include <QMouseEvent>
 #include <QMap>
@@ -28,4 +29,4 @@ private:
 
 };
 
-#endif /* TREE_WIDGET_H */
+#endif // VA_WIDGET_TREE_WIDGET_H
