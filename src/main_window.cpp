@@ -1,5 +1,6 @@
-﻿#include "main_window.h"
-#include "panes/bfs_pane.h"
+﻿#include "src/main_window.h"
+#include "src/pane/bfs_pane.h"
+
 #include <QIcon>
 #include <QToolBar>
 #include <QMenuBar>
@@ -43,34 +44,34 @@ void MainWindow::createToolBar()
     /* create menubar */
     QMenuBar* menuBar = new QMenuBar;
     QMenu* fileMenu = menuBar->addMenu(tr("File"));
-    fileMenu->addAction(QIcon(":/images/open.svg"), tr("Open Source Code Directory..."), this, &MainWindow::openSlot);
+    fileMenu->addAction(QIcon(":/open.svg"), tr("Open Source Code Directory..."), this, &MainWindow::openSlot);
     fileMenu->addSeparator();
     fileMenu->addAction(tr("Exit"));
     QMenu* languagesMenu = menuBar->addMenu(tr("Languages"));
     connect(languagesMenu, &QMenu::triggered, this, &MainWindow::changeLanguageSlot);
-    QAction* action = languagesMenu->addAction(QIcon(":/images/dot.svg"), tr("(System Language)"));
+    QAction* action = languagesMenu->addAction(QIcon(":/dot.svg"), tr("(System Language)"));
     action->setCheckable(true);
     action->setChecked(true);
     m_lastLanguageAction = action;
     languagesMenu->addSeparator();
-    action = languagesMenu->addAction(QIcon(":/images/dot.svg"), tr("English"));
+    action = languagesMenu->addAction(QIcon(":/dot.svg"), tr("English"));
     action->setCheckable(true);
     action->setIconVisibleInMenu(false);
-    action = languagesMenu->addAction(QIcon(":/images/dot.svg"), tr("Simplified Chinese"));
+    action = languagesMenu->addAction(QIcon(":/dot.svg"), tr("Simplified Chinese"));
     action->setCheckable(true);
     action->setIconVisibleInMenu(false);
     QMenu* tabsMenu = menuBar->addMenu(tr("Tabs"));
-    tabsMenu->addAction(QIcon(":/images/home.svg"), tr("Go to Home Tab"), this, &MainWindow::homeTabSlot);
+    tabsMenu->addAction(QIcon(":/home.svg"), tr("Go to Home Tab"), this, &MainWindow::homeTabSlot);
     tabsMenu->addSeparator();
     tabsMenu->addAction(tr("Next Tab"), this, &MainWindow::nextTabSlot);
     tabsMenu->addAction(tr("Previous Tab"), this, &MainWindow::previousTabSlot);
     QMenu* donateMenu = menuBar->addMenu(tr("Donate"));
-    donateMenu->addAction(QIcon(":/images/donate.png"), tr("Donate to Me"), this, &MainWindow::donateSlot);
+    donateMenu->addAction(QIcon(":/donate.png"), tr("Donate to Me"), this, &MainWindow::donateSlot);
     QMenu* helpMenu = menuBar->addMenu(tr("Help"));
     helpMenu->addAction(tr("Feedbacks"), this, &MainWindow::feedbackSlot);
-    helpMenu->addAction(QIcon(":/images/update.svg"), tr("Software Updates"), this, &MainWindow::updateSlot);
+    helpMenu->addAction(QIcon(":/update.svg"), tr("Software Updates"), this, &MainWindow::updateSlot);
     helpMenu->addSeparator();
-    helpMenu->addAction(QIcon(":/images/app.ico"), tr("About Visual Algorithms"), this, &MainWindow::aboutSlot);
+    helpMenu->addAction(QIcon(":/app.ico"), tr("About Visual Algorithms"), this, &MainWindow::aboutSlot);
     menuBar->setFixedHeight(menuBar->minimumSizeHint().height());
 
     /* add the menubar to the toolbar */
@@ -82,25 +83,25 @@ void MainWindow::createToolBar()
     QToolBar* toolBar = addToolBar(tr("Tool"));
     toolBar->addSeparator();
     m_playToolButton = new ToolButton;
-    m_playToolButton->setIcon(QIcon(":/images/play.svg"));
+    m_playToolButton->setIcon(QIcon(":/play.svg"));
     connect(m_playToolButton, &ToolButton::clicked, this, &MainWindow::playSlot);
     toolBar->addWidget(m_playToolButton);
     toolBar->addSeparator();
     ToolButton* replayToolButton = new ToolButton;
-    replayToolButton->setIcon(QIcon(":/images/replay.svg"));
+    replayToolButton->setIcon(QIcon(":/replay.svg"));
     replayToolButton->setToolTip(tr("Replay the animation"));
     toolBar->addWidget(replayToolButton);
     ToolButton* restoreToolButton = new ToolButton;
-    restoreToolButton->setIcon(QIcon(":/images/restore.svg"));
+    restoreToolButton->setIcon(QIcon(":/restore.svg"));
     restoreToolButton->setToolTip(tr("Restore to the initial state"));
     toolBar->addWidget(restoreToolButton);
     toolBar->addSeparator();
     ToolButton* snapshotToolButton = new ToolButton;
-    snapshotToolButton->setIcon(QIcon(":/images/snapshot.svg"));
+    snapshotToolButton->setIcon(QIcon(":/snapshot.svg"));
     snapshotToolButton->setToolTip(tr("Take a snapshot of the animation"));
     toolBar->addWidget(snapshotToolButton);
     ToolButton* recordToolButton = new ToolButton;
-    recordToolButton->setIcon(QIcon(":/images/record.svg"));
+    recordToolButton->setIcon(QIcon(":/record.svg"));
     recordToolButton->setToolTip(tr("Take record to a GIF file"));
     toolBar->addWidget(recordToolButton);
     toolBar->addSeparator();
@@ -124,7 +125,7 @@ void MainWindow::createNavWidget()
     m_searchLineEdit = new QLineEdit;
     m_searchLineEdit->setFixedHeight(26);
     m_searchLineEdit->setPlaceholderText(tr("Type here to search"));
-    m_searchLineEdit->addAction(QIcon(":/images/search.svg"), QLineEdit::LeadingPosition);
+    m_searchLineEdit->addAction(QIcon(":/search.svg"), QLineEdit::LeadingPosition);
 
     m_treeWidget = new TreeWidget;
     connect(m_treeWidget, &TreeWidget::itemDoubleClicked, this, &MainWindow::setCurrentPane);
@@ -147,7 +148,7 @@ void MainWindow::createTabWidget()
 {
     m_tabWidget = new QTabWidget;
     m_tabWidget->setTabsClosable(true);
-    //m_tabWidget->addTab(new BfsPane, QIcon(":/images/tab.svg"), "Ubuntu 02.00 x64 Dev");
+    m_tabWidget->addTab(new BfsPane, QIcon(":/tab.svg"), "Ubuntu 02.00 x64 Dev");
 
     QVBoxLayout* vLayout = new QVBoxLayout;
     vLayout->addWidget(m_tabWidget);
@@ -247,11 +248,11 @@ void MainWindow::playSlot()
 
     if (isPlaySvg)
     {
-        m_playToolButton->setIcon(QIcon(":/images/pause.svg"));
+        m_playToolButton->setIcon(QIcon(":/pause.svg"));
     }
     else
     {
-        m_playToolButton->setIcon(QIcon(":/images/play.svg"));
+        m_playToolButton->setIcon(QIcon(":/play.svg"));
     }
 
     isPlaySvg = !isPlaySvg;

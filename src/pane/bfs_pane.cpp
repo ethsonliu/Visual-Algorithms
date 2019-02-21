@@ -1,4 +1,4 @@
-﻿#include "bfs_pane.h"
+﻿#include "src/pane/bfs_pane.h"
 
 BfsPane::BfsPane(BasePane* parent) : BasePane(parent)
 {

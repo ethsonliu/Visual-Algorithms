@@ -1,10 +1,11 @@
-﻿#ifndef MAIN_WINDOW_H
-#define MAIN_WINDOW_H
+﻿#ifndef VA_MAIN_WINDOW_H
+#define VA_MAIN_WINDOW_H
 
-#include "config.h"
-#include "widgets/tree_widget.h"
-#include "widgets/tool_button.h"
-#include "panes/base_pane.h"
+#include "src/config.h"
+#include "src/widget/tree_widget.h"
+#include "src/widget/tool_button.h"
+#include "src/pane/base_pane.h"
+
 #include <QMainWindow>
 #include <QTreeWidget>
 #include <QLineEdit>
@@ -59,4 +60,4 @@ private slots:
 
 };
 
-#endif /* MAIN_WINDOW_H */
+#endif // VA_MAIN_WINDOW_H

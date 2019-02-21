@@ -1,7 +1,7 @@
-﻿#ifndef BFS_THREAD_H
-#define BFS_THREAD_H
+﻿#ifndef VA_OBJECT_BFS_THREAD_H
+#define VA_OBJECT_BFS_THREAD_H
 
-#include "searching_object.h"
+#include "src/object/searching_object.h"
 
 class BfsObject : public SearchingBaseObject
 {
@@ -20,4 +20,4 @@ public slots:
 
 };
 
-#endif /* BFS_THREAD_H */
+#endif // VA_OBJECT_BFS_THREAD_H

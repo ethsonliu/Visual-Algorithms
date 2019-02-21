@@ -1,7 +1,8 @@
-﻿#ifndef TOOL_BUTTON_H
-#define TOOL_BUTTON_H
+﻿#ifndef VA_WIDGET_TOOL_BUTTON_H
+#define VA_WIDGET_TOOL_BUTTON_H
 
-#include "../config.h"
+#include "src/config.h"
+
 #include <QToolButton>
 #include <QEvent>
 
@@ -16,4 +17,4 @@ public:
 
 };
 
-#endif /* TOOL_BUTTON_H */
+#endif // VA_WIDGET_TOOL_BUTTON_H

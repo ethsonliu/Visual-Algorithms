@@ -1,4 +1,4 @@
-﻿#include "searching_object.h"
+﻿#include "src/object/searching_object.h"
 
 SearchingBaseObject::SearchingBaseObject(BaseObject* parent) : BaseObject(parent)
 {

@@ -1,8 +1,9 @@
-﻿#ifndef BASE_WIDGET_H
-#define BASE_WIDGET_H
+﻿#ifndef VA_PANE_BASE_WIDGET_H
+#define VA_PANE_BASE_WIDGET_H
 
-#include "../config.h"
-#include "../scenes/base_scene.h"
+#include "src/config.h"
+#include "src/scene/base_scene.h"
+
 #include <QGraphicsView>
 #include <QHBoxLayout>
 #include <QLabel>
@@ -37,4 +38,4 @@ protected:
 
 };
 
-#endif /* BASE_WIDGET_H */
+#endif // VA_PANE_BASE_WIDGET_H

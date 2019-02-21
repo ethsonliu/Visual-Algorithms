@@ -1,4 +1,4 @@
-﻿#include "bfs_object.h"
+﻿#include "src/object/bfs_object.h"
 
 BfsObject::BfsObject(SearchingBaseObject* parent) : SearchingBaseObject(parent)
 {

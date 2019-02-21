@@ -1,4 +1,5 @@
-﻿#include "searching_scene.h"
+﻿#include "src/scene/searching_scene.h"
+
 #include <QGraphicsSceneMouseEvent>
 
 const QColor SearchingBaseScene::color_start    = QColor(  0, 221,   0);

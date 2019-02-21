@@ -1,8 +1,8 @@
-﻿#ifndef OPTION_DIALOG_H
-#define OPTION_DIALOG_H
+﻿#ifndef VA_WIDGET_OPTION_DIALOG_H
+#define VA_WIDGET_OPTION_DIALOG_H
 
 #include <QDialog>
 
 
 
-#endif /* OPTION_DIALOG_H */
+#endif // VA_WIDGET_OPTION_DIALOG_H

@@ -1,10 +1,11 @@
-﻿#include "base_pane.h"
+﻿#include "src/pane/base_pane.h"
+
 #include <QVBoxLayout>
 #include <QSizePolicy>
 
 BasePane::BasePane(QWidget* parent) : QWidget(parent)
 {
-    QPixmap pixmap(":/images/pane_icon.svg");
+    QPixmap pixmap(":/pane_icon.svg");
     pixmap = pixmap.scaled(28, 28);
     QLabel* iconLabel = new QLabel;
     iconLabel->setPixmap(pixmap);
@@ -37,8 +38,8 @@ BasePane::BasePane(QWidget* parent) : QWidget(parent)
 
 QHBoxLayout* BasePane::createMainPane()
 {
-    QHBoxLayout* settingTitleLayout     = createTitle(tr("Settings"), ":/images/setting.svg");
-    QHBoxLayout* descriptionTitleLayout = createTitle(tr("Description"), ":/images/description.svg");
+    QHBoxLayout* settingTitleLayout     = createTitle(tr("Settings"), ":/setting.svg");
+    QHBoxLayout* descriptionTitleLayout = createTitle(tr("Description"), ":/description.svg");
 
     QSizePolicy sizePolicy;
     sizePolicy.setVerticalPolicy(QSizePolicy::Expanding);

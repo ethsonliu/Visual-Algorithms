@@ -1,4 +1,4 @@
-﻿#include "base_scene.h"
+﻿#include "src/scene/base_scene.h"
 
 BaseScene::BaseScene(QGraphicsScene* parent) : QGraphicsScene(parent)
 {

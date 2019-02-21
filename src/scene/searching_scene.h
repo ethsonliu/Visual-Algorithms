@@ -1,8 +1,9 @@
-﻿#ifndef SEARCHING_BASE_SCENE_H
-#define SEARCHING_BASE_SCENE_H
+﻿#ifndef VA_SCENE_SEARCHING_BASE_SCENE_H
+#define VA_SCENE_SEARCHING_BASE_SCENE_H
 
-#include "items/rect_item.h"
-#include "base_scene.h"
+#include "src/item/rect_item.h"
+#include "src/scene/base_scene.h"
+
 #include <QVector>
 #include <QGraphicsScene>
 #include <atomic>
@@ -56,4 +57,4 @@ private:
 
 };
 
-#endif /* SEARCHING_BASE_SCENE_H */
+#endif // VA_SCENE_SEARCHING_BASE_SCENE_H

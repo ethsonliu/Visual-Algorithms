@@ -1,7 +1,7 @@
-﻿#ifndef SEARCHING_BASE_THREAD_H
-#define SEARCHING_BASE_THREAD_H
+﻿#ifndef VA_OBJECT_SEARCHING_BASE_THREAD_H
+#define VA_OBJECT_SEARCHING_BASE_THREAD_H
 
-#include "base_object.h"
+#include "src/object/base_object.h"
 
 enum SearchingFlag { start, end, blank, obstacle, pass };
 
@@ -32,4 +32,4 @@ protected:
 
 };
 
-#endif // SEARCHING_BASE_THREAD_H
+#endif // VA_OBJECT_SEARCHING_BASE_THREAD_H

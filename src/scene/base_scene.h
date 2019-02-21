@@ -1,8 +1,9 @@
-﻿#ifndef BASE_SCENE_H
-#define BASE_SCENE_H
+﻿#ifndef VA_SCENE_BASE_SCENE_H
+#define VA_SCENE_BASE_SCENE_H
 
-#include "../config.h"
-#include "../objects/base_object.h"
+#include "src/config.h"
+#include "src/object/base_object.h"
+
 #include <QGraphicsScene>
 #include <QThread>
 
@@ -39,4 +40,4 @@ protected:
 
 };
 
-#endif /* BASE_SCENE_H */
+#endif // VA_SCENE_BASE_SCENE_H

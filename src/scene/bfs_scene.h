@@ -1,8 +1,8 @@
-﻿#ifndef BFS_SCENE_H
-#define BFS_SCENE_H
+﻿#ifndef VA_SCENE_BFS_SCENE_H
+#define VA_SCENE_BFS_SCENE_H
 
-#include "searching_scene.h"
-#include "../objects/bfs_object.h"
+#include "src/scene/searching_scene.h"
+#include "src/object/bfs_object.h"
 
 class BfsScene : public SearchingBaseScene
 {
@@ -19,4 +19,4 @@ public:
 
 };
 
-#endif /* BFS_SCENE_H */
+#endif // VA_SCENE_BFS_SCENE_H

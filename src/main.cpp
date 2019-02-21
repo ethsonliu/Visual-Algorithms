@@ -1,5 +1,6 @@
-﻿#include "config.h"
-#include "main_window.h"
+﻿#include "src/config.h"
+#include "src/main_window.h"
+
 #include <QApplication>
 #include <QScreen>
 #include <QFile>

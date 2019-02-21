@@ -1,8 +1,8 @@
-﻿#ifndef BFS_WIDGET_H
-#define BFS_WIDGET_H
+﻿#ifndef VA_PANE_BFS_WIDGET_H
+#define VA_PANE_BFS_WIDGET_H
 
-#include "base_pane.h"
-#include "../scenes/bfs_scene.h"
+#include "src/pane/base_pane.h"
+#include "src/scene/bfs_scene.h"
 
 class BfsPane : public BasePane
 {
@@ -19,4 +19,4 @@ public:
 
 };
 
-#endif /* BFS_WIDGET_H */
+#endif // VA_PANE_BFS_WIDGET_H

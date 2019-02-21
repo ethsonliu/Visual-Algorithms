@@ -1,7 +1,8 @@
-#ifndef RECT_ITEM_H
-#define RECT_ITEM_H
+﻿#ifndef VA_ITEM_RECT_ITEM_H
+#define VA_ITEM_RECT_ITEM_H
 
-#include "config.h"
+#include "src/config.h"
+
 #include <QBrush>
 #include <QGraphicsRectItem>
 
@@ -17,4 +18,4 @@ public:
 
 };
 
-#endif /* RECT_ITEM_H */
+#endif // VA_ITEM_RECT_ITEM_H

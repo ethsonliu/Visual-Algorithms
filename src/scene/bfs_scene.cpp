@@ -1,4 +1,4 @@
-﻿#include "bfs_scene.h"
+﻿#include "src/scene/bfs_scene.h"
 
 BfsScene::BfsScene(SearchingBaseScene* parent) : SearchingBaseScene(parent)
 {

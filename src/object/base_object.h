@@ -1,7 +1,8 @@
-﻿#ifndef BASE_THREAD_H
-#define BASE_THREAD_H
+﻿#ifndef VA_OBJECT_BASE_THREAD_H
+#define VA_OBJECT_BASE_THREAD_H
 
-#include "../config.h"
+#include "src/config.h"
+
 #include <QObject>
 #include <atomic>
 
@@ -32,4 +33,4 @@ protected:
 
 };
 
-#endif /* BASE_THREAD_H */
+#endif // VA_OBJECT_BASE_THREAD_H
