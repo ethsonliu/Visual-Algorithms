@@ -1,29 +1,29 @@
-﻿QWidget
+﻿/* QWidget
 {
     font-family: 'Microsoft YaHei UI';
-}
+} */
 
-QMainWindow
+/* QMainWindow
 {
     background-color: rgb(228, 229, 231);
-}
+} */
 
-QLineEdit
+/* QLineEdit
 {
     font-size: 13px;
-}
+} */
 
-QMenuBar
+/* QMenuBar
 {
     font-size: 13px;
-}
+} */
 
-QMenu
+/* QMenu
 {
     font-size: 12px;
-}
+} */
 
-QToolBar
+/* QToolBar
 {
     background-color: white;
     border: none;
@@ -47,9 +47,9 @@ QToolBar QToolButton::pressed
     background-color: rgb(235, 236, 237);
     border-radius: 6px;
     border: 1px solid rgb(219, 220, 220);
-}
+} */
 
-QSlider
+/* QSlider
 {
     margin: 0px 4px;
 }
@@ -74,13 +74,13 @@ QSlider::handle:horizontal
 {
     border-image: url(:/images/slider_handle.png);
     margin: 0px -5px;
-}
+} */
 
-QTreeWidget
+/* QTreeWidget
 {
     font-size: 13px;
     show-decoration-selected: 1;
-}
+} */
 
 QTabBar
 {

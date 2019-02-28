@@ -37,6 +37,7 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
     m_centralWidget->setLayout(hLayout);
 
     setCentralWidget(m_centralWidget);
+    setStyleSheet("QMainWindow{background-color: rgb(228, 229, 231);}");
 }
 
 void MainWindow::createToolBar()
@@ -47,17 +48,18 @@ void MainWindow::createToolBar()
     fileMenu->addAction(QIcon(":/open.svg"), tr("Open Source Code Directory..."), this, &MainWindow::openSlot);
     fileMenu->addSeparator();
     fileMenu->addAction(tr("Exit"));
+    fileMenu->setStyleSheet("QMenu{font-size: 12px;}");
     QMenu* languagesMenu = menuBar->addMenu(tr("Languages"));
     connect(languagesMenu, &QMenu::triggered, this, &MainWindow::changeLanguageSlot);
-    QAction* action = languagesMenu->addAction(QIcon(":/dot.svg"), tr("(System Language)"));
+    QAction* action = languagesMenu->addAction(tr("(System Language)"));
     action->setCheckable(true);
     action->setChecked(true);
     m_lastLanguageAction = action;
     languagesMenu->addSeparator();
-    action = languagesMenu->addAction(QIcon(":/dot.svg"), tr("English"));
+    action = languagesMenu->addAction(tr("English"));
     action->setCheckable(true);
     action->setIconVisibleInMenu(false);
-    action = languagesMenu->addAction(QIcon(":/dot.svg"), tr("Simplified Chinese"));
+    action = languagesMenu->addAction(tr("Simplified Chinese"));
     action->setCheckable(true);
     action->setIconVisibleInMenu(false);
     QMenu* tabsMenu = menuBar->addMenu(tr("Tabs"));
@@ -73,11 +75,17 @@ void MainWindow::createToolBar()
     helpMenu->addSeparator();
     helpMenu->addAction(QIcon(":/app.ico"), tr("About Visual Algorithms"), this, &MainWindow::aboutSlot);
     menuBar->setFixedHeight(menuBar->minimumSizeHint().height());
+    menuBar->setStyleSheet("font-size: 13px;");
 
     /* add the menubar to the toolbar */
     QToolBar* menuToolBar = addToolBar(tr("Menu"));
     menuToolBar->addWidget(menuBar);
     menuToolBar->setMovable(false);
+    menuToolBar->setStyleSheet("QToolBar"
+    "{"
+        "background-color: white;"
+        "border: none;"
+    "}");
 
     /* add toolbuttons to the toolbar */
     QToolBar* toolBar = addToolBar(tr("Tool"));
@@ -90,6 +98,23 @@ void MainWindow::createToolBar()
     ToolButton* replayToolButton = new ToolButton;
     replayToolButton->setIcon(QIcon(":/replay.svg"));
     replayToolButton->setToolTip(tr("Replay the animation"));
+    replayToolButton->setStyleSheet("QToolBar QToolButton"
+                                    "{"
+                                        "margin: 2px;"
+                                        "padding: 0px 3px;"
+                                    "}"
+                                    "QToolBar QToolButton::hover"
+                                    "{"
+                                        "background-color: rgb(239, 245, 253);"
+                                        "border-radius: 6px;"
+                                        "border: 1px solid rgb(219, 220, 220);"
+                                    "}"
+                                    "QToolBar QToolButton::pressed"
+                                    "{"
+                                       "background-color: rgb(235, 236, 237);"
+                                        "border-radius: 6px;"
+                                        "border: 1px solid rgb(219, 220, 220);"
+                                    "}");
     toolBar->addWidget(replayToolButton);
     ToolButton* restoreToolButton = new ToolButton;
     restoreToolButton->setIcon(QIcon(":/restore.svg"));
@@ -112,6 +137,28 @@ void MainWindow::createToolBar()
     m_speedSlider = new QSlider(Qt::Horizontal);
     m_speedSlider->setRange(0, 100);
     m_speedSlider->setValue(m_speedSlider->maximum() >> 1);
+    m_speedSlider->setStyleSheet("QSlider"
+    "{"
+        "margin: 0px 4px;"
+    "}"
+    "QSlider::sub-page:horizontal"
+    "{"
+        "background-color: rgb(37, 168, 198);"
+    "}"
+    "QSlider::add-page:horizontal"
+    "{"
+        "background-color: rgb(78, 78, 78);"
+    "}"
+    "QSlider::groove:horizontal"
+    "{"
+        "background: transparent;"
+        "height: 10px;"
+    "}"
+    "QSlider::handle:horizontal"
+    "{"
+        "border-image: url(:/slider_handle.png);"
+        "margin: 0px -5px;"
+    "}");
     connect(m_speedSlider, &QSlider::valueChanged, this, &MainWindow::speedChangedSlot);
     sliderToolBar->setFixedWidth(240);
     sliderToolBar->addWidget(m_speedSlider);
@@ -126,8 +173,14 @@ void MainWindow::createNavWidget()
     m_searchLineEdit->setFixedHeight(26);
     m_searchLineEdit->setPlaceholderText(tr("Type here to search"));
     m_searchLineEdit->addAction(QIcon(":/search.svg"), QLineEdit::LeadingPosition);
+    m_searchLineEdit->setStyleSheet("font-size: 13px;");
 
     m_treeWidget = new TreeWidget;
+    m_treeWidget->setStyleSheet("QTreeWidget"
+    "{"
+        "font-size: 13px;"
+        "show-decoration-selected: 1;"
+    "}");
     connect(m_treeWidget, &TreeWidget::itemDoubleClicked, this, &MainWindow::setCurrentPane);
 
     m_paneVec.reserve(m_treeWidget->itemCount());
@@ -147,6 +200,83 @@ void MainWindow::createNavWidget()
 void MainWindow::createTabWidget()
 {
     m_tabWidget = new QTabWidget;
+    m_tabWidget->setStyleSheet("QTabBar"
+    "{"
+        "border-bottom: none;"
+        "font-size: 12px;"
+        "font-weight: bold;"
+    "}"
+
+    "QTabBar::tab"
+    "{"
+        "font-weight: normal;"
+       " background-color: rgb(235, 236, 237);"
+       " border: 1px solid rgb(179, 179, 179);"
+       " border-bottom: none;"
+      "  border-top-left-radius: 4px;"
+       " border-top-right-radius: 4px;"
+       " padding: 6px;"
+       " margin-left: 3px;"
+    "}"
+
+   " QTabBar::tab:first"
+   " {"
+       " margin-left: 5px;"
+   " }"
+
+    "QTabBar::tab:selected"
+   " {"
+        "font-weight: bold;"
+        "background-color: white;"
+    "}"
+
+    "QTabBar::close-button"
+   " {"
+        "image: url(:/tab_close_normal.svg);"
+    "}"
+
+    "QTabBar::close-button:hover"
+    "{"
+        "image: url(:/tab_close_hover.svg);"
+    "}"
+
+    "QTabBar::scroller"
+    "{"
+        "border-left: 1px solid rgb(179, 179, 179);"
+   " }"
+
+    "QTabBar QToolButton"
+    "{"
+        "border: none;"
+        "background-color: rgb(228, 229, 231);"
+    "}"
+
+   " QTabBar QToolButton::left-arrow"
+  " {"
+       " image: url(:/left_arrow_normal.svg);"
+       " border-left: 1px solid rgb(179, 179, 179);"
+    "}"
+
+    "QTabBar QToolButton::left-arrow:disabled"
+    "{"
+       " image: url(:/left_arrow_disabled.svg);"
+   " }"
+
+    "QTabBar QToolButton::right-arrow"
+    "{"
+       " image: url(:/right_arrow_normal.svg);"
+    "}"
+
+    "QTabBar QToolButton::right-arrow:disabled"
+    "{"
+        "image: url(:/right_arrow_disabled.svg);"
+   " }"
+
+    "QTabWidget::pane"
+   " {"
+        "background-color: white;"
+        "border-top: none;"
+    "}");
     m_tabWidget->setTabsClosable(true);
     m_tabWidget->addTab(new BfsPane, QIcon(":/tab.svg"), "Ubuntu 02.00 x64 Dev");
 

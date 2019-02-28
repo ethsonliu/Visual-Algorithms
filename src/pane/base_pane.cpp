@@ -38,8 +38,8 @@ BasePane::BasePane(QWidget* parent) : QWidget(parent)
 
 QHBoxLayout* BasePane::createMainPane()
 {
-    QHBoxLayout* settingTitleLayout     = createTitle(tr("Settings"), ":/setting.svg");
-    QHBoxLayout* descriptionTitleLayout = createTitle(tr("Description"), ":/description.svg");
+    QHBoxLayout* settingTitleLayout     = createTitle(":/setting.svg", tr("Settings"));
+    QHBoxLayout* descriptionTitleLayout = createTitle(":/description.svg", tr("Description"));
 
     QSizePolicy sizePolicy;
     sizePolicy.setVerticalPolicy(QSizePolicy::Expanding);
@@ -66,6 +66,7 @@ QHBoxLayout* BasePane::createMainPane()
     vLineWidget->setStyleSheet("QWidget{border: 1px solid rgb(226, 226, 226);}");
 
     m_view = new QGraphicsView;
+    m_view->setStyleSheet("border: none;");
 
     QHBoxLayout* hLayout = new QHBoxLayout;
     hLayout->addWidget(m_view);
