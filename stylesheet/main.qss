@@ -3,10 +3,10 @@
     font-family: 'Microsoft YaHei UI';
 } */
 
-/* QMainWindow
+QMainWindow
 {
     background-color: rgb(228, 229, 231);
-} */
+}
 
 /* QLineEdit
 {
