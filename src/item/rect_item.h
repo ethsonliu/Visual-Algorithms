@@ -1,5 +1,5 @@
-﻿#ifndef VA_ITEM_RECT_ITEM_H
-#define VA_ITEM_RECT_ITEM_H
+﻿#ifndef VISUAL_ALGORITHMS_ITEM_RECT_ITEM_H
+#define VISUAL_ALGORITHMS_ITEM_RECT_ITEM_H
 
 #include "src/config.h"
 
@@ -18,4 +18,4 @@ public:
 
 };
 
-#endif // VA_ITEM_RECT_ITEM_H
+#endif // VISUAL_ALGORITHMS_ITEM_RECT_ITEM_H

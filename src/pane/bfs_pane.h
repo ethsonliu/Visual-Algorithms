@@ -1,5 +1,5 @@
-﻿#ifndef VA_PANE_BFS_WIDGET_H
-#define VA_PANE_BFS_WIDGET_H
+﻿#ifndef VISUAL_ALGORITHMS_PANE_BFS_WIDGET_H
+#define VISUAL_ALGORITHMS_PANE_BFS_WIDGET_H
 
 #include "src/pane/base_pane.h"
 #include "src/scene/bfs_scene.h"
@@ -19,4 +19,4 @@ public:
 
 };
 
-#endif // VA_PANE_BFS_WIDGET_H
+#endif // VISUAL_ALGORITHMS_PANE_BFS_WIDGET_H

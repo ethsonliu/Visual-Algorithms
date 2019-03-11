@@ -1,5 +1,5 @@
-﻿#ifndef VA_MAIN_WINDOW_H
-#define VA_MAIN_WINDOW_H
+﻿#ifndef VISUAL_ALGORITHMS_MAIN_WINDOW_H
+#define VISUAL_ALGORITHMS_MAIN_WINDOW_H
 
 #include "src/config.h"
 #include "src/widget/tree_widget.h"
@@ -60,4 +60,4 @@ private slots:
 
 };
 
-#endif // VA_MAIN_WINDOW_H
+#endif // VISUAL_ALGORITHMS_MAIN_WINDOW_H

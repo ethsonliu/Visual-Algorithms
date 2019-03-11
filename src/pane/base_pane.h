@@ -1,5 +1,5 @@
-﻿#ifndef VA_PANE_BASE_WIDGET_H
-#define VA_PANE_BASE_WIDGET_H
+﻿#ifndef VISUAL_ALGORITHMS_PANE_BASE_WIDGET_H
+#define VISUAL_ALGORITHMS_PANE_BASE_WIDGET_H
 
 #include "src/config.h"
 #include "src/scene/base_scene.h"
@@ -38,4 +38,4 @@ protected:
 
 };
 
-#endif // VA_PANE_BASE_WIDGET_H
+#endif // VISUAL_ALGORITHMS_PANE_BASE_WIDGET_H

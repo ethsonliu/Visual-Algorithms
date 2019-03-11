@@ -1,5 +1,5 @@
-﻿#ifndef VA_SCENE_SEARCHING_BASE_SCENE_H
-#define VA_SCENE_SEARCHING_BASE_SCENE_H
+﻿#ifndef VISUAL_ALGORITHMS_SCENE_SEARCHING_BASE_SCENE_H
+#define VISUAL_ALGORITHMS_SCENE_SEARCHING_BASE_SCENE_H
 
 #include "src/item/rect_item.h"
 #include "src/scene/base_scene.h"
@@ -57,4 +57,4 @@ private:
 
 };
 
-#endif // VA_SCENE_SEARCHING_BASE_SCENE_H
+#endif // VISUAL_ALGORITHMS_SCENE_SEARCHING_BASE_SCENE_H

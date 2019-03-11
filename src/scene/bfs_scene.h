@@ -1,5 +1,5 @@
-﻿#ifndef VA_SCENE_BFS_SCENE_H
-#define VA_SCENE_BFS_SCENE_H
+﻿#ifndef VISUAL_ALGORITHMS_SCENE_BFS_SCENE_H
+#define VISUAL_ALGORITHMS_SCENE_BFS_SCENE_H
 
 #include "src/scene/searching_scene.h"
 #include "src/object/bfs_object.h"
@@ -19,4 +19,4 @@ public:
 
 };
 
-#endif // VA_SCENE_BFS_SCENE_H
+#endif // VISUAL_ALGORITHMS_SCENE_BFS_SCENE_H

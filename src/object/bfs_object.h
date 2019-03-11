@@ -1,5 +1,5 @@
-﻿#ifndef VA_OBJECT_BFS_THREAD_H
-#define VA_OBJECT_BFS_THREAD_H
+﻿#ifndef VISUAL_ALGORITHMS_OBJECT_BFS_THREAD_H
+#define VISUAL_ALGORITHMS_OBJECT_BFS_THREAD_H
 
 #include "src/object/searching_object.h"
 
@@ -20,4 +20,4 @@ public slots:
 
 };
 
-#endif // VA_OBJECT_BFS_THREAD_H
+#endif // VISUAL_ALGORITHMS_OBJECT_BFS_THREAD_H

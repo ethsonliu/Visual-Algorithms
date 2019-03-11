@@ -1,5 +1,5 @@
-﻿#ifndef VA_SCENE_BASE_SCENE_H
-#define VA_SCENE_BASE_SCENE_H
+﻿#ifndef VISUAL_ALGORITHMS_SCENE_BASE_SCENE_H
+#define VISUAL_ALGORITHMS_SCENE_BASE_SCENE_H
 
 #include "src/config.h"
 #include "src/object/base_object.h"
@@ -40,4 +40,4 @@ protected:
 
 };
 
-#endif // VA_SCENE_BASE_SCENE_H
+#endif // VISUAL_ALGORITHMS_SCENE_BASE_SCENE_H
