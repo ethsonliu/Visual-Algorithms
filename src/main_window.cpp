@@ -10,7 +10,6 @@
 
 MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
 {
-    /* icons download by https://www.iconfinder.com */
     setWindowTitle(tr("Visual Algorithms"));
     setWindowState(Qt::WindowMaximized);
 
