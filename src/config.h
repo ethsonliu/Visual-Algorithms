@@ -3,7 +3,10 @@
 
 #include <QDebug>
 
-#define VA_DEBUG_P qDebug()
-#define VA_DEBUG(e) VA_DEBUG_P << #e << "=" << e
+extern float gScaleSize;
+
+#define DEBUG_QT_PLAIN qDebug()
+
+#define DEBUG_QT_VARIABLE(e) DEBUG_QT_PLAIN << #e << "=" << (e)
 
 #endif // VA_CONFIG_H
