@@ -1,4 +1,5 @@
 ﻿#include "src/widget/tool_button.h"
+
 #include <QHelpEvent>
 #include <QToolTip>
 

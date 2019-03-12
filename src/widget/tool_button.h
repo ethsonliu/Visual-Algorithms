@@ -4,7 +4,8 @@
 #include "src/config.h"
 
 #include <QToolButton>
-#include <QEvent>
+
+class QEvent;
 
 class ToolButton : public QToolButton
 {

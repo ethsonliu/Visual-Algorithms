@@ -4,10 +4,16 @@
 #include "src/config.h"
 
 #include <QTreeWidget>
+
 #include <QMouseEvent>
 #include <QMap>
 
-enum AlgoFlag { aStar, breadthFirstSearch, depthFirstSearch };
+enum AlgoFlag
+{
+    aStar,
+    breadthFirstSearch,
+    depthFirstSearch
+};
 
 class TreeWidget : public QTreeWidget
 {
