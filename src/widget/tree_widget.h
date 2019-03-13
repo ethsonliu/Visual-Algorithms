@@ -4,8 +4,6 @@
 #include "src/config.h"
 
 #include <QTreeWidget>
-
-#include <QMouseEvent>
 #include <QMap>
 
 enum AlgoFlag
@@ -22,9 +20,8 @@ public:
 
     TreeWidget(QTreeWidget* parent = nullptr);
 
-    inline int itemCount() const { return m_itemCount; }
+    inline int itemCount()  const { return m_itemCount; }
     inline AlgoFlag indexByItem(QTreeWidgetItem* item) const { return m_map[item]; }
-
 
 private:
 

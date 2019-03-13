@@ -2,6 +2,7 @@
 
 #include <QVBoxLayout>
 #include <QSizePolicy>
+#include <QGraphicsView>
 
 BasePane::BasePane(QWidget* parent) : QWidget(parent)
 {

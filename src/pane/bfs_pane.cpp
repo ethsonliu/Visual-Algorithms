@@ -1,5 +1,7 @@
 ﻿#include "src/pane/bfs_pane.h"
 
+#include <QGraphicsView>
+
 BfsPane::BfsPane(BasePane* parent) : BasePane(parent)
 {
     m_paneNameLabel->setText(tr("Breadth First Search"));

@@ -4,9 +4,10 @@
 #include "src/config.h"
 #include "src/scene/base_scene.h"
 
-#include <QGraphicsView>
-#include <QHBoxLayout>
 #include <QLabel>
+
+class QGraphicsView;
+class QHBoxLayout;
 
 class BasePane : public QWidget
 {

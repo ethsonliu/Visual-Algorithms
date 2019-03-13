@@ -7,6 +7,8 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QMouseEvent>
+#include <QLineEdit>
+#include <QSlider>
 
 MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
 {

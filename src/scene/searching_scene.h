@@ -5,7 +5,6 @@
 #include "src/scene/base_scene.h"
 
 #include <QVector>
-#include <QGraphicsScene>
 #include <atomic>
 
 class SearchingBaseScene : public BaseScene

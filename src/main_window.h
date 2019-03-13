@@ -7,10 +7,10 @@
 #include "src/pane/base_pane.h"
 
 #include <QMainWindow>
-#include <QTreeWidget>
-#include <QLineEdit>
-#include <QSlider>
-#include <QEvent>
+
+
+class QLineEdit;
+class QSlider;
 
 class MainWindow : public QMainWindow
 {
