@@ -8,7 +8,6 @@
 
 #include <QMainWindow>
 
-
 class QLineEdit;
 class QSlider;
 
