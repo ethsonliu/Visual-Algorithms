@@ -12,8 +12,6 @@ RC_ICONS = image/app.ico
 SOURCES += \
     src/main.cpp \
     src/main_window.cpp \
-    src/widget/option_dialog.cpp \
-    src/widget/message_dialog.cpp \
     src/widget/tool_button.cpp \
     src/widget/tree_widget.cpp \
     src/item/rect_item.cpp \
@@ -29,8 +27,6 @@ SOURCES += \
 HEADERS += \
     src/config.h \
     src/main_window.h \
-    src/widget/option_dialog.h \
-    src/widget/message_dialog.h \
     src/widget/tool_button.h \
     src/widget/tree_widget.h \
     src/item/rect_item.h \
